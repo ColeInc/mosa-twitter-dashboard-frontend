@@ -1,0 +1,11 @@
+@import "../constants/colors.css";
+
+.curved-container {
+    padding: 1rem;
+    margin: 0.8vw 0.8vw 0 0;
+    border-radius: 10px;
+    background-color: var(--color2);
+    color: #fff;
+    /* display: flex;
+    flex: 1; */
+}
