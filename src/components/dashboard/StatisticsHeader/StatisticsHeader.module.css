@@ -1,0 +1,11 @@
+.statistics-header__curved-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1rem 0 0 1rem;
+}
+
+.statistics-header__items-container {
+    display: flex;
+    flex: 9;
+}

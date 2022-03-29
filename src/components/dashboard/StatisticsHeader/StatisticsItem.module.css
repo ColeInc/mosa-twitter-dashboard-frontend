@@ -1,0 +1,47 @@
+@import "../../constants/colors.css";
+
+.item__container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.item__container h1 {
+    font-weight: 400;
+    color: #9f9696;
+    font-size: 1.5rem;
+}
+
+.item__container h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    color: #fff;
+    margin-top: auto;
+}
+
+.item__container h3 {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #9f9696;
+    margin: 0;
+}
+
+.item__upper-items {
+    display: flex;
+    flex-direction: row;
+    height: "100%";
+    flex: 1;
+}
+
+.item__bottom-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.item__graph-container {
+    flex: 1;
+    background-color: var(--color1);
+}

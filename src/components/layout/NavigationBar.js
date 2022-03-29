@@ -52,7 +52,7 @@ const NavigationBar = () => {
                 <p>
                     Designed by Cole McConnell.
                     <br />
-                    All Rights Reserved. Copyright 2022
+                    All Rights Reserved. Copyright 2022 &copy;
                 </p>
                 <h3>Cole’s Twitter Dashboard</h3>
             </div>

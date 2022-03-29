@@ -7,12 +7,10 @@
     margin-top: 0.8vw;
     display: flex;
     align-items: center;
-    background-color: var(--color4);
 }
 
 .nav-font {
     color: #d1c8c8;
-    /* font-size: 1.6667rem; */
     font-size: 1.4rem;
     text-decoration: none;
 }
@@ -47,4 +45,21 @@
 
 .nav-button:hover .icon {
     fill: #0a0c0a;
+}
+
+.nav-button:hover .chevron {
+    fill: #0a0c0a;
+    display: block;
+}
+
+.active {
+    background-color: red;
+}
+
+.chevron {
+    width: 1.2vw;
+    height: auto;
+    fill: #d1c8c8;
+    margin-left: auto;
+    display: none;
 }

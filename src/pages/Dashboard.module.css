@@ -1,12 +1,12 @@
 @import "../components/constants/colors.css";
 
-.dashboard-container {
+.dashboard__container {
     background-color: var(--color1);
     display: flex;
     height: 100vh;
 }
 
-.components-container {
+.dashboard__components-container {
     flex: 5;
     flex-grow: 5;
     display: flex;
@@ -15,14 +15,26 @@
     margin: 0.8vw 0.8vw 1.8vw 0;
 }
 
-.container-left-column {
+.dashboard__container-center-column {
     flex: 2.3;
     display: flex;
     flex-direction: column;
 }
 
-.container-right-column {
+.dashboard__container-right-column {
     flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+.dashboard__container-notifications {
+    flex: 1.2;
+}
+
+.dashboard__container-pie-charts {
+    flex: 0.5;
+}
+
+.dashboard__container-bar-graphs {
+    flex: 0.95;
 }
