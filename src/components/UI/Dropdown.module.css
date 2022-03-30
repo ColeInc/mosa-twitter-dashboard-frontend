@@ -1,0 +1,16 @@
+.dropdown__container {
+    width: 8vw;
+    margin-left: 7px;
+}
+
+.dropdown__items-drawer {
+    display: none;
+}
+
+.dropdown__items-drawer li {
+    list-style-type: none;
+}
+
+.active {
+    display: block;
+}

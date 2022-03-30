@@ -1,0 +1,125 @@
+@import "../../constants/colors.css";
+
+.create-tweet__container {
+    flex: 1;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.create-tweet__container h1 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.create-tweet__form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* justify-content: space-between; */
+    /* background-color: var(--color1); */
+}
+
+.create-tweet__text-input-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    background-color: var(--color1);
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.create-tweet__input {
+    flex: 1;
+    border: none;
+    background-color: inherit;
+    border-radius: inherit;
+    font-size: 1.7rem;
+    font-family: inherit;
+    padding: 1rem;
+    resize: none;
+    color: #d1c8c8;
+}
+
+.create-tweet__input:focus {
+    outline: none;
+    background-color: inherit;
+    color: #d1c8c8;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #3a3a3a;
+}
+
+textarea:-moz-placeholder {
+    /* Firefox 18- */
+    color: #3a3a3a;
+}
+
+textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #3a3a3a;
+}
+
+textarea:-ms-input-placeholder {
+    color: #3a3a3a;
+}
+
+textarea::placeholder {
+    color: #3a3a3a;
+}
+
+.create-tweet__input-bottom-container {
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.create-tweet__remaining-chars {
+    margin: auto 0 1rem 1rem;
+    color: #3a3a3a;
+}
+
+.create-tweet__buttons-container {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-tweet__buttons-container button {
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: blue;
+    /* background-color: var(--color4); */
+}
+
+.create-tweet__button-settings {
+    width: 2vw;
+    padding: 0 0.2rem 0 0.2rem;
+}
+
+.create-tweet__button-dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1rem; */
+    flex: 1;
+    /* margin: 0; */
+}
+
+.create-tweet__button-dropdown svg {
+    width: 1.5vw;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

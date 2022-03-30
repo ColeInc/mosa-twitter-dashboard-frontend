@@ -6,7 +6,7 @@ import { ReactComponent as AutomationIcon } from "../../assets/icons/noun-proces
 import { ReactComponent as SavedTweetsIcon } from "../../assets/icons/noun-save-1054863.svg";
 import { ReactComponent as SettingsIcon } from "../../assets/icons/noun-settings-2650508.svg";
 
-import NavButton from "../UI/NavButton";
+import NavButton from "./NavButton";
 
 const USER_DATA = {
     name: "Billy Jimbson",
@@ -17,15 +17,15 @@ const USER_DATA = {
 
 const NavigationBar = () => {
     return (
-        <div className={classes["nav-container"]}>
+        <div className={classes["nav-bar__main-container"]}>
             <div className={classes["upper-container"]}>
-                <div className={classes["user-container"]}>
+                <div className={classes["nav-bar__user-data-container"]}>
                     <img
                         src={USER_DATA.imageUrl}
-                        className={classes["profile-img"]}
+                        className={classes["nav-bar__profile-img"]}
                         alt="profile pic"
                     />
-                    <div className={classes["user-text"]}>
+                    <div className={classes["nav-bar__user-text"]}>
                         <h1>{USER_DATA.name}</h1>
                         <h2>@{USER_DATA.twitterHandle}</h2>
                     </div>
@@ -48,7 +48,7 @@ const NavigationBar = () => {
                 </NavButton>
             </div>
 
-            <div className={classes.footer}>
+            <div className={classes["nav-bar__footer"]}>
                 <p>
                     Designed by Cole McConnell.
                     <br />

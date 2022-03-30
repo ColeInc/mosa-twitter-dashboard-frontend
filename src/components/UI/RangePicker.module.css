@@ -20,6 +20,7 @@
     font-size: 0.6rem;
     font-weight: 600;
     flex: 1;
+    /* padding: 0.2rem 2rem 0.2rem 2rem; */
 }
 
 .active {

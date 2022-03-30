@@ -5,18 +5,23 @@ import { ReactComponent as RightChevron } from "../../assets/icons/noun-right-ch
 
 const NavButton = (props) => {
     const style = props.style ? props.style : {};
-    const icon = <div className={classes.icon}>{props.icon}</div>;
+    const icon = (
+        <div className={classes["nav-button__icon"]}>{props.icon}</div>
+    );
 
     return (
         <NavLink
             {...props}
-            className={classes["nav-font"]}
-            activeClassName={classes.active}
+            className={(navItem) => {
+                return navItem.isActive
+                    ? `${classes.active} ${classes["nav-button__font"]}`
+                    : classes["nav-button__font"];
+            }}
         >
-            <div className={classes["nav-button"]} style={style}>
+            <div className={classes["nav-button__button"]} style={style}>
                 {icon}
                 <p>{props.children}</p>
-                <RightChevron className={classes.chevron} />
+                <RightChevron className={classes["nav-button__chevron"]} />
             </div>
         </NavLink>
     );

@@ -1,0 +1,72 @@
+@import "../constants/colors.css";
+
+.nav-button__button {
+    padding: 1rem;
+    height: 1.8vw;
+    border-radius: 23px;
+    margin-top: 0.5vw;
+    display: flex;
+    align-items: center;
+}
+
+.nav-button__font {
+    color: #d1c8c8;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.nav-button__font p {
+    padding-bottom: 1px;
+}
+
+.nav-button__font:hover {
+    color: #0a0c0a;
+}
+
+.nav-button__button:hover {
+    background-color: var(--color4);
+}
+
+.nav-button__icon {
+    width: 1.2vw;
+    display: flex;
+    margin: 0 12px 0 5px;
+    fill: #d1c8c8;
+}
+
+.nav-button__button:hover .nav-button__icon {
+    fill: #0a0c0a;
+}
+
+.nav-button__button:hover .nav-button__chevron {
+    fill: #0a0c0a;
+    display: block;
+}
+
+.active,
+.active div,
+.active .nav-button__chevron {
+    background-color: var(--color4);
+    color: #0a0c0a;
+    fill: #0a0c0a;
+}
+
+.active .nav-button__chevron {
+    display: block;
+}
+
+.nav-button__chevron {
+    width: 1.2vw;
+    height: auto;
+    /* fill: #d1c8c8; */
+    fill: inherit;
+    margin-left: auto;
+    display: none;
+}
+
+/* On hover if active: */
+.active:hover div,
+.active:hover .nav-button__chevron {
+    color: #121412;
+    fill: #121412 !important;
+}

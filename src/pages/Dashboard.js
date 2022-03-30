@@ -1,6 +1,6 @@
 import React from "react";
-import CreateTweetContainer from "../components/dashboard/CreateTweetContainer/CreateTweetContainer";
 import StatisticsHeader from "../components/dashboard/StatisticsHeader/StatisticsHeader";
+import ThreeComponentsContainer from "../components/dashboard/ThreeComponentsContainer/ThreeComponentsContainer";
 
 import NavigationBar from "../components/layout/NavigationBar";
 import CurvedContainer from "../components/UI/CurvedContainer";
@@ -15,7 +15,7 @@ const Dashboard = () => {
                     className={classes["dashboard__container-center-column"]}
                 >
                     <StatisticsHeader />
-                    <CreateTweetContainer />
+                    <ThreeComponentsContainer />
                 </section>
                 <section
                     className={classes["dashboard__container-right-column"]}

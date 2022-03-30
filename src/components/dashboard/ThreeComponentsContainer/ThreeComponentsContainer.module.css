@@ -1,0 +1,12 @@
+.three-components-container__container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+}
+
+.three-components-container__create-upcoming-container {
+    flex: 4;
+    display: flex;
+    flex-direction: row;
+}

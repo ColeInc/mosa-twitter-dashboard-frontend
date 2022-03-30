@@ -1,6 +1,6 @@
 @import "../constants/colors.css";
 
-.nav-container {
+.nav-bar__main-container {
     background-color: var(--color1);
     color: #fff;
     width: 15vw;
@@ -11,18 +11,18 @@
     justify-content: space-between;
 }
 
-.user-container {
+.nav-bar__user-data-container {
     display: flex;
     flex-direction: row;
     margin: 0 0 2vw 0;
 }
 
-.profile-img {
+.nav-bar__profile-img {
     width: 28%;
     border-radius: 9999px;
 }
 
-.user-text {
+.nav-bar__user-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -42,14 +42,14 @@ h2 {
     color: #7e7e7e;
 }
 
-.footer h3 {
+.nav-bar__footer h3 {
     color: #5a5a5a;
     font-size: 1.2rem;
     font-weight: 500;
     margin: 0 0 0 0;
 }
 
-.footer p {
+.nav-bar__footer p {
     color: #3a3a3a;
     font-size: 0.7rem;
     margin: 0;
