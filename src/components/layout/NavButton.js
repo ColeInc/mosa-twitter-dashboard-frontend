@@ -20,8 +20,10 @@ const NavButton = (props) => {
         >
             <div className={classes["nav-button__button"]} style={style}>
                 {icon}
-                <p>{props.children}</p>
-                <RightChevron className={classes["nav-button__chevron"]} />
+                <p className={classes.tablet}>{props.children}</p>
+                <RightChevron
+                    className={`${classes["nav-button__chevron"]} ${classes.tablet}`}
+                />
             </div>
         </NavLink>
     );

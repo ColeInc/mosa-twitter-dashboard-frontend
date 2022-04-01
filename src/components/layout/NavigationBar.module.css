@@ -1,20 +1,20 @@
 @import "../constants/colors.css";
 
 .nav-bar__main-container {
-    background-color: var(--color1);
-    color: #fff;
     width: 15vw;
-    min-width: 300px;
-    padding: 1.5vw 1.7vw 1.5vw 1.7vw;
+    /* width: 25em; */
+    min-width: 17em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 1.6rem 2.2rem 1.6rem 2.2rem;
+    color: #fff;
 }
 
-.nav-bar__user-data-container {
+.nav-bar__user-data-box {
     display: flex;
     flex-direction: row;
-    margin: 0 0 2vw 0;
+    margin: 0 0 3.5rem 0;
 }
 
 .nav-bar__profile-img {
@@ -22,21 +22,23 @@
     border-radius: 9999px;
 }
 
-.nav-bar__user-text {
+.nav-bar__username {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding-left: 15px;
 }
 
-h1 {
-    font-weight: 600;
+.nav-bar__main-container h1 {
     font-size: 1.6667rem;
+    /* font-size: 1vw; */
+    font-weight: 600;
     margin: 0;
 }
 
-h2 {
+.nav-bar__main-container h2 {
     font-size: 1.1rem;
+    /* font-size: 0.7vw; */
     font-weight: 100;
     margin: 0;
     color: #7e7e7e;
@@ -53,4 +55,48 @@ h2 {
     color: #3a3a3a;
     font-size: 0.7rem;
     margin: 0;
+}
+
+@media (max-width: 95em) {
+    .nav-bar__main-container {
+        width: 17vw;
+        min-width: 10em;
+        padding: 1.6rem 1.5vw 1.6rem 1.5vw;
+    }
+
+    .nav-bar__main-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-bar__main-container h2 {
+        font-size: 1rem;
+    }
+}
+
+/* ======= Collapse Navigation Bar into tablet view  ======= */
+@media (max-width: 82em) {
+    .tablet {
+        display: none;
+    }
+
+    .nav-bar__main-container {
+        width: 80px;
+        min-width: 80px;
+        padding: 0;
+    }
+
+    .nav-bar__profile-img {
+        flex: 1;
+        margin-top: 1rem;
+        padding: 0.7em;
+        /* padding: 0 0.5em 0.5em 0.5em; */
+    }
+
+    .nav-bar__nav-container {
+        padding: 0.7em;
+    }
+
+    .nav-bar__user-data-box {
+        margin-bottom: 0;
+    }
 }

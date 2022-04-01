@@ -1,26 +1,36 @@
 @import "../components/constants/colors.css";
 
-.dashboard__container {
+body {
     background-color: var(--color1);
+}
+.dashboard__container {
     display: flex;
     height: 100vh;
 }
 
 .dashboard__components-container {
-    flex: 5;
-    flex-grow: 5;
+    flex: 1;
     display: flex;
-    justify-content: flex-start;
-    margin: 0.8vw 0.8vw 1.8vw 0;
+    justify-content: center;
+    overflow: scroll;
 }
 
-.dashboard__container-center-column {
+.dashboard__components-bundle {
+    max-width: 150em;
+    display: flex;
+    flex: 1;
+    margin: 0.8rem 0.8rem 1.6rem 0;
+}
+
+.dashboard__container-left-column {
     flex: 2.3;
     display: flex;
     flex-direction: column;
 }
 
-.dashboard__container-right-column {
+.dashboard__container-right-column,
+.dashboard__container-right-col-1,
+.dashboard__container-right-col-2 {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -36,4 +46,60 @@
 
 .dashboard__container-bar-graphs {
     flex: 0.95;
+}
+
+/* ======= Tablet View  ======= */
+@media (max-width: 95em) {
+    .dashboard__container {
+        height: 100vh;
+    }
+
+    .dashboard__components-bundle {
+        flex-direction: column;
+        overflow: scroll;
+        /* === main components bundle height: === */
+        min-height: 100em;
+    }
+
+    .dashboard__container-left-column {
+        flex: 5;
+    }
+
+    .dashboard__container-right-column {
+        flex: 3;
+        flex-direction: row;
+    }
+
+    .dashboard__container-right-col-1 {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    .dashboard__container-right-col-2 {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+}
+
+@media (max-width: 62.5em) {
+    .dashboard__components-bundle {
+        /* === main components bundle height: === */
+        min-height: 150em;
+    }
+
+    .dashboard__container-left-column {
+        flex: 3;
+    }
+
+    .dashboard__container-right-column {
+        flex-direction: column;
+        flex: 2;
+    }
+}
+
+@media (max-width: 30em) {
+    body {
+        background-color: lightpink;
+    }
 }

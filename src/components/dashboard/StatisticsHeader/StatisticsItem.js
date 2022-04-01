@@ -51,4 +51,4 @@ const StatisticsItem = (props) => {
     );
 };
 
-export default StatisticsItem;
+export default React.memo(StatisticsItem);
