@@ -3,10 +3,15 @@ import classes from "./Dropdown.module.css";
 
 import { ReactComponent as RightChevron } from "../../assets/icons/noun-right-chevron-4695692.svg";
 
-const Dropdown = (props) => {
+const Dropdown = (props: {
+    items: string[];
+    currentItem: string;
+    onDropdownClick: (item: string) => void;
+    className: string;
+}) => {
     const [dropdown, setDropdown] = useState(false);
 
-    const onDropdownClick = (userChoice) => {
+    const onDropdownClick = (userChoice: string) => {
         // pass the user's choice back up to CreateTweet parent:
         props.onDropdownClick(userChoice);
         // close dropdown now that user's clicked something:

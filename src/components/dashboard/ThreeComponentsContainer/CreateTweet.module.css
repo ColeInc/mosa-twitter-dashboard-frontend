@@ -18,8 +18,6 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    /* justify-content: space-between; */
-    /* background-color: var(--color1); */
 }
 
 .create-tweet__text-input-box {
@@ -96,54 +94,23 @@ textarea::placeholder {
     border: none;
     cursor: pointer;
     border-radius: 0.7rem;
-    /* background-color: blue; */
     background-color: var(--color4);
-    /* display: flex; */
-    /* height: 100%; */
 }
 
 .create-tweet__button-settings {
-    /* width: 2vw; */
-    /* width: 3em; */
     padding: 0.4rem 0.45rem 0.4rem 0.5rem;
-    /* padding: 0 0.5vw 0 0.5vw; */
-    /* padding: 0.3rem !important; */
     margin-right: 0.4rem;
-    /* marig: 0 !important; */
-    /* justify-content: center; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* height: 100%; */
-    /* flex: 1 0 auto; */
-    /* height: auto; */
 }
 
-/* .create-tweet__button-settings:before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-} */
-
-.create-tweet__button-settings svg {
-    /* width: 1.2vw; */
-    /* height: 1.2vw; */
-}
-
-/* is this even used? */
-/* is this even used? */
-/* is this even used? */
-/* is this even used? */
-/* is this even used? */
 .create-tweet__button-dropdown {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* padding: 1rem; */
-    /* flex: 1; */
-    /* margin: 0; */
 }
 
 .create-tweet__button-dropdown svg {

@@ -11,7 +11,7 @@ const dropdownItems = ["QUEUE", "DRAFT", "TWEET"];
 const CreateTweet = () => {
     const [currentDropdown, setCurrentDropdown] = useState("queue");
 
-    const onFormSubmit = (event) => {
+    const onFormSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
         // do something with the inputted tweet

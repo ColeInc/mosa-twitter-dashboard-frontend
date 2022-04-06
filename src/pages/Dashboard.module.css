@@ -65,7 +65,6 @@ body {
 
     .dashboard__components-bundle {
         flex-direction: column;
-        /* overflow: scroll; */
         /* === main components bundle height: === */
         min-height: 100em;
     }

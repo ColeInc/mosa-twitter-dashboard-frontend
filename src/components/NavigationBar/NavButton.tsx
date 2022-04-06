@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./NavButton.module.css";
 import { ReactComponent as RightChevron } from "../../assets/icons/noun-right-chevron-4695692.svg";
 
-const NavButton = (props) => {
-    const style = props.style ? props.style : {};
+const NavButton: React.FC<{ to: string; icon: React.ReactNode }> = (props) => {
     const icon = (
         <div className={classes["nav-button__icon"]}>{props.icon}</div>
     );
@@ -18,7 +17,7 @@ const NavButton = (props) => {
                     : classes["nav-button__font"];
             }}
         >
-            <div className={classes["nav-button__button"]} style={style}>
+            <div className={classes["nav-button__button"]}>
                 {icon}
                 <p className={classes.tablet}>{props.children}</p>
                 <RightChevron

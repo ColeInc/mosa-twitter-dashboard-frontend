@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./CurvedContainer.module.css";
-const CurvedContainer = (props) => {
+
+const CurvedContainer: React.FC<{ className: string }> = (props) => {
     return (
         <div
             className={`${classes["curved-container"]} ${

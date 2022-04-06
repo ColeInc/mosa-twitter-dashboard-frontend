@@ -8,7 +8,7 @@ import RangePicker from "../../UI/RangePicker";
 const StatisticsHeader = () => {
     const [timeRange, setTimeRange] = useState("daily");
 
-    const onClickHandler = (range) => {
+    const onClickHandler = (range: string) => {
         setTimeRange(range);
     };
 

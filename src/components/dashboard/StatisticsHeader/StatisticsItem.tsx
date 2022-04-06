@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./StatisticsItem.module.css";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 
-const StatisticsItem = (props) => {
+const StatisticsItem = (props: { metric: string; timeRange: string }) => {
     const [itemStatistics, setItemStatistics] = useState("");
 
     const { metric } = props;

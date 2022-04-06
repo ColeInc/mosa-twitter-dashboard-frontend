@@ -1,7 +1,10 @@
 import React from "react";
 import classes from "./RangePicker.module.css";
 
-const RangePicker = (props) => {
+const RangePicker = (props: {
+    onClickHandler: (range: string) => void;
+    active: string;
+}) => {
     const buttonList = ["daily", "weekly", "monthly"];
 
     return (

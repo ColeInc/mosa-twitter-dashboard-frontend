@@ -1,12 +1,12 @@
 import React from "react";
 import classes from "./NavigationBar.module.css";
+
+import NavButton from "./NavButton";
 import { ReactComponent as DashboardIcon } from "../../assets/icons/noun-home-4688386.svg";
 import { ReactComponent as QueueIcon } from "../../assets/icons/noun-queue-4342391.svg";
 import { ReactComponent as AutomationIcon } from "../../assets/icons/noun-process-2473979.svg";
 import { ReactComponent as SavedTweetsIcon } from "../../assets/icons/noun-save-1054863.svg";
 import { ReactComponent as SettingsIcon } from "../../assets/icons/noun-settings-2650508.svg";
-
-import NavButton from "./NavButton";
 
 const USER_DATA = {
     name: "Billy Jimbson",
