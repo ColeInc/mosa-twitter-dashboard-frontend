@@ -6,16 +6,15 @@ import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import UploadImage from "../../UI/UploadImage";
 import Dropdown from "../../UI/Dropdown";
 
-const CreateTweet = () => {
-    const [dropdown, setDropdown] = useState(false);
-    const [currentDropdown, setCurrentDropdown] = useState("queue");
+const dropdownItems = ["QUEUE", "DRAFT", "TWEET"];
 
-    const dropdownItems = ["Queue", "Draft", "Tweet"];
+const CreateTweet = () => {
+    const [currentDropdown, setCurrentDropdown] = useState("queue");
 
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        // do something with the inputted value
+        // do something with the inputted tweet
     };
 
     return (
@@ -50,8 +49,6 @@ const CreateTweet = () => {
 
                     <Dropdown
                         items={dropdownItems}
-                        dropdownState={dropdown}
-                        toggleDropdown={setDropdown}
                         currentItem={currentDropdown}
                         onDropdownClick={setCurrentDropdown}
                         className={classes["create-tweet__button-dropdown"]}

@@ -1,29 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Dropdown.module.css";
 
 import { ReactComponent as RightChevron } from "../../assets/icons/noun-right-chevron-4695692.svg";
 
 const Dropdown = (props) => {
+    const [dropdown, setDropdown] = useState(false);
+
+    const onDropdownClick = (userChoice) => {
+        // pass the user's choice back up to CreateTweet parent:
+        props.onDropdownClick(userChoice);
+        // close dropdown now that user's clicked something:
+        setDropdown((prev) => !prev);
+    };
+
     return (
-        <div>
+        <div className={classes["dropdown__container"]}>
             <button
-                className={`${classes["dropdown__container"]} ${
+                className={`${classes["dropdown__button"]} ${
                     props.className && props.className
-                }`}
-                onClick={() => props.toggleDropdown((prev) => !prev)}
+                } ${dropdown && classes["dropdown__button--active"]}`}
+                onClick={() => setDropdown((prev) => !prev)}
             >
-                {props.currentItem}
+                {props.currentItem.toUpperCase()}
 
                 <RightChevron />
             </button>
             <ul
                 className={`${classes["dropdown__items-drawer"]} ${
-                    props.dropdownState && classes.active
+                    dropdown && classes.active
                 }`}
             >
                 {props.items.map((item) => {
                     return (
-                        <li onClick={props.onDropdownClick(item)}>{item}</li>
+                        <React.Fragment key={item}>
+                            <li onClick={onDropdownClick.bind(this, item)}>
+                                {item.toUpperCase()}
+                            </li>
+                            {/* <hr /> */}
+                        </React.Fragment>
                     );
                 })}
             </ul>

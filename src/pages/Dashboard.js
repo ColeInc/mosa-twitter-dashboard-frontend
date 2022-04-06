@@ -2,7 +2,7 @@ import React from "react";
 import StatisticsHeader from "../components/dashboard/StatisticsHeader/StatisticsHeader";
 import ThreeComponentsContainer from "../components/dashboard/ThreeComponentsContainer/ThreeComponentsContainer";
 
-import NavigationBar from "../components/layout/NavigationBar";
+import NavigationBar from "../components/NavigationBar/NavigationBar";
 import CurvedContainer from "../components/UI/CurvedContainer";
 import classes from "./Dashboard.module.css";
 

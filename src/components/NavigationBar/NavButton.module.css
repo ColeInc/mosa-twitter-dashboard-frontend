@@ -3,7 +3,7 @@
 .nav-button__button {
     padding: 1rem;
     height: 1.8vw;
-    border-radius: 23px;
+    border-radius: 15px;
     margin-top: 0.4rem;
     display: flex;
     align-items: center;
@@ -28,7 +28,6 @@
 }
 
 .nav-button__icon {
-    /* width: 1.2vw; */
     width: 1.5rem;
     display: flex;
     margin: 0 12px 0 5px;
@@ -67,9 +66,11 @@
 
 /* On hover if active: */
 .active:hover div,
-.active:hover .nav-button__chevron {
+.active:hover .nav-button__chevron,
+.active:hover .nav-button__button {
     color: #121412;
     fill: #121412 !important;
+    background-color: #2e2b28;
 }
 
 @media (max-width: 95em) {
@@ -89,11 +90,6 @@
     }
 
     .nav-button__button {
-        /* display: block; */
-        /* padding: 0; */
-        /* margin: 0; */
-        /* margin: auto; */
-        /* padding: auto; */
         flex-direction: column;
         height: 3vh;
         padding-left: 0 !important;
@@ -101,11 +97,6 @@
     }
 
     .nav-button__icon {
-        /* width: 1.2vw; */
         margin: 0;
     }
-
-    /* .nav-button__font p {
-        position: absolute;
-    } */
 }

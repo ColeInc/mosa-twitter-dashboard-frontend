@@ -3,6 +3,7 @@
 body {
     background-color: var(--color1);
 }
+
 .dashboard__container {
     display: flex;
     height: 100vh;
@@ -13,6 +14,14 @@ body {
     display: flex;
     justify-content: center;
     overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color1); /* Optional: show position indicator */
 }
 
 .dashboard__components-bundle {
@@ -56,7 +65,7 @@ body {
 
     .dashboard__components-bundle {
         flex-direction: column;
-        overflow: scroll;
+        /* overflow: scroll; */
         /* === main components bundle height: === */
         min-height: 100em;
     }
