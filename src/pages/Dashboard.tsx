@@ -1,6 +1,6 @@
 import React from "react";
-import StatisticsHeader from "../components/dashboard/StatisticsHeader/StatisticsHeader";
-import ThreeComponentsContainer from "../components/dashboard/ThreeComponentsContainer/ThreeComponentsContainer";
+import StatisticsHeader from "../components/Dashboard/StatisticsHeader/StatisticsHeader";
+import MainContainer from "../components/Dashboard/MainContainer/MainContainer";
 
 import NavigationBar from "../components/NavigationBar/NavigationBar";
 import CurvedContainer from "../components/UI/CurvedContainer";
@@ -16,7 +16,7 @@ const Dashboard = () => {
                         className={classes["dashboard__container-left-column"]}
                     >
                         <StatisticsHeader />
-                        <ThreeComponentsContainer />
+                        <MainContainer />
                     </div>
                     <div
                         className={classes["dashboard__container-right-column"]}

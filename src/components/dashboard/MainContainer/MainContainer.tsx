@@ -1,12 +1,12 @@
 import React from "react";
-import classes from "./ThreeComponentsContainer.module.css";
+import classes from "./MainContainer.module.css";
 
 import CreateTweet from "./CreateTweet";
 import CurvedContainer from "../../UI/CurvedContainer";
 import UpcomingTweets from "./UpcomingTweets";
 import HorizontalGraph from "./HorizontalGraph";
 
-const ThreeComponentsContainer = () => {
+const MainContainer = () => {
     return (
         <CurvedContainer
             className={classes["three-components-container__container"]}
@@ -26,4 +26,4 @@ const ThreeComponentsContainer = () => {
     );
 };
 
-export default ThreeComponentsContainer;
+export default MainContainer;
