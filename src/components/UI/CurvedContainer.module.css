@@ -1,4 +1,4 @@
-@import "../constants/colors.css";
+@import "../../constants/colors.css";
 
 .curved-container {
     background-color: var(--color2);

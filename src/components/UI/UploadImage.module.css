@@ -1,4 +1,4 @@
-@import "../constants/colors.css";
+@import "../../constants/colors.css";
 
 .upload-image__container {
     justify-self: flex-end;

@@ -1,4 +1,4 @@
-@import "../constants/colors.css";
+@import "../../constants/colors.css";
 
 .range-picker__container {
     background-color: var(--color1);

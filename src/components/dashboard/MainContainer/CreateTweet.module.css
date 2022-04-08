@@ -1,4 +1,4 @@
-@import "../../constants/colors.css";
+@import "../../../constants/colors.css";
 
 .create-tweet__container {
     flex: 1;

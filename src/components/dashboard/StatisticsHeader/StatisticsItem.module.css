@@ -1,4 +1,4 @@
-@import "../../constants/colors.css";
+@import "../../../constants/colors.css";
 
 .item__container {
     display: flex;
@@ -10,16 +10,19 @@
 .item__container h1 {
     font-weight: 400;
     color: #9f9696;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 0;
+    line-height: 1.1;
 }
 
 .item__container h2 {
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #fff;
     margin-top: auto;
     margin-bottom: 0;
+    line-height: 1.1;
+    margin: 0 1rem 0 0;
 }
 
 .item__container h3 {
@@ -32,6 +35,7 @@
 .item__upper-items {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
     height: "100%";
     flex: 1;
 }
@@ -45,5 +49,7 @@
 
 .item__graph-container {
     flex: 1;
-    background-color: var(--color1);
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 0.4em;
 }
