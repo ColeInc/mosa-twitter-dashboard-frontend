@@ -2,14 +2,15 @@
 
 .create-tweet__container {
     flex: 1;
-    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .create-tweet__container h1 {
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 0;
     font-size: 1.25rem;
     font-weight: 400;
 }
@@ -120,4 +121,10 @@ textarea::placeholder {
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+@media (max-width: 62.5em) {
+    .create-tweet__container {
+        margin-right: 1rem;
+    }
 }

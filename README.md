@@ -8,6 +8,6 @@ This repository contains the frontend for a Twitter Dashboard Platform. Written 
 
 ## Dependencies:
 
--   npm install react-router-dom@latest
--   npm install victory
+-   react-router-dom@latest
+-   victory
 -

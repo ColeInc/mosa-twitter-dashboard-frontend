@@ -58,7 +58,6 @@
 .nav-button__chevron {
     width: 1.2vw;
     height: auto;
-    /* fill: #d1c8c8; */
     fill: inherit;
     margin-left: auto;
     display: none;
@@ -91,7 +90,7 @@
 
     .nav-button__button {
         flex-direction: column;
-        height: 3vh;
+        height: 1.8rem;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }

@@ -11,51 +11,35 @@ const Dashboard = () => {
         <div className={classes["dashboard__container"]}>
             <NavigationBar />
             <div className={classes["dashboard__components-container"]}>
-                <div className={classes["dashboard__components-bundle"]}>
-                    <div
-                        className={classes["dashboard__container-left-column"]}
-                    >
-                        <StatisticsHeader />
-                        <MainContainer />
+                <div
+                    className={classes["dashboard__components-grid-container"]}
+                >
+                    <StatisticsHeader
+                        className={classes["dashboard__statistics-header"]}
+                    />
+                    <MainContainer
+                        className={classes["dashboard__main-container"]}
+                    />
+                    <div className={classes["dashboard__notifications"]}>
+                        <CurvedContainer
+                            className={classes["dashboard__right-column-item"]}
+                        >
+                            this is the right column 1
+                        </CurvedContainer>
+                    </div>{" "}
+                    <div className={classes["dashboard__pie-charts"]}>
+                        <CurvedContainer
+                            className={classes["dashboard__right-column-item"]}
+                        >
+                            this is the right column 2
+                        </CurvedContainer>
                     </div>
-                    <div
-                        className={classes["dashboard__container-right-column"]}
-                    >
-                        <div
-                            className={
-                                classes["dashboard__container-right-col-1"]
-                            }
+                    <div className={classes["dashboard__bar-graphs"]}>
+                        <CurvedContainer
+                            className={classes["dashboard__right-column-item"]}
                         >
-                            <CurvedContainer
-                                className={
-                                    classes[
-                                        "dashboard__container-notifications"
-                                    ]
-                                }
-                            >
-                                this is the right column 1
-                            </CurvedContainer>
-                        </div>
-                        <div
-                            className={
-                                classes["dashboard__container-right-col-2"]
-                            }
-                        >
-                            <CurvedContainer
-                                className={
-                                    classes["dashboard__container-pie-charts"]
-                                }
-                            >
-                                this is the right column 2
-                            </CurvedContainer>
-                            <CurvedContainer
-                                className={
-                                    classes["dashboard__container-bar-graphs"]
-                                }
-                            >
-                                this is the right column 3
-                            </CurvedContainer>
-                        </div>
+                            this is the right column 3
+                        </CurvedContainer>
                     </div>
                 </div>
             </div>

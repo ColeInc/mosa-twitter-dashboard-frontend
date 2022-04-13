@@ -6,10 +6,12 @@ import CurvedContainer from "../../UI/CurvedContainer";
 import UpcomingTweets from "./UpcomingTweets";
 import HorizontalGraph from "./HorizontalGraph";
 
-const MainContainer = () => {
+const MainContainer: React.FC<{ className?: string }> = (props) => {
     return (
         <CurvedContainer
-            className={classes["three-components-container__container"]}
+            className={`${classes["three-components-container__container"]} ${
+                props.className && props.className
+            }`}
         >
             <div
                 className={

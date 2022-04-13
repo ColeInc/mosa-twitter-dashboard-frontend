@@ -3,15 +3,6 @@ import classes from "./StatisticsItem.module.css";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import LineGraph from "../../Graphs/LineGraph";
 
-const data = [
-    { x: 0, y: 0 },
-    { x: 1, y: 2 },
-    { x: 2, y: 1 },
-    { x: 3, y: 4 },
-    { x: 4, y: 3 },
-    { x: 5, y: 5 },
-];
-
 type GraphData = {
     x: number;
     y: number;

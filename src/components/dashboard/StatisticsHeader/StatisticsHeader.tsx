@@ -5,7 +5,7 @@ import StatisticsItem from "./StatisticsItem";
 import CurvedContainer from "../../UI/CurvedContainer";
 import RangePicker from "../../UI/RangePicker";
 
-const StatisticsHeader = () => {
+const StatisticsHeader: React.FC<{ className?: string }> = (props) => {
     const [timeRange, setTimeRange] = useState("daily");
 
     const onClickHandler = (range: string) => {
@@ -14,7 +14,9 @@ const StatisticsHeader = () => {
 
     return (
         <CurvedContainer
-            className={classes["statistics-header__curved-container"]}
+            className={`${classes["statistics-header__curved-container"]} ${
+                props.className && props.className
+            }`}
         >
             <div className={classes["statistics-header__items-container"]}>
                 <StatisticsItem metric="impressions" timeRange={timeRange} />

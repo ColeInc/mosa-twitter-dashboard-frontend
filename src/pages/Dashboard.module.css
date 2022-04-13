@@ -10,99 +10,121 @@ body {
 }
 
 .dashboard__components-container {
-    flex: 1;
     display: flex;
     justify-content: center;
-    overflow: scroll;
-    overflow-x: hidden;
+    flex: 1;
 }
+
+.dashboard__components-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 100%;
+    max-width: 150em;
+    grid-gap: 0.8rem;
+    padding: 1.6rem 1.6rem 1.6rem 0;
+}
+
+.dashboard__statistics-header {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+.dashboard__main-container {
+    grid-column: 1 / 3;
+    grid-row: 2 / -1;
+}
+.dashboard__notifications {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+.dashboard__pie-charts {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+.dashboard__bar-graphs {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
 ::-webkit-scrollbar {
     width: 0; /* Remove scrollbar space */
     background: transparent; /* Optional: just make scrollbar invisible */
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--color1); /* Optional: show position indicator */
 }
 
-.dashboard__components-bundle {
-    max-width: 150em;
-    display: flex;
+.dashboard__right-column-item {
     flex: 1;
-    margin: 0.8rem 0.8rem 1.6rem 0;
-}
-
-.dashboard__container-left-column {
-    flex: 2.3;
-    display: flex;
-    flex-direction: column;
-}
-
-.dashboard__container-right-column,
-.dashboard__container-right-col-1,
-.dashboard__container-right-col-2 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.dashboard__container-notifications {
-    flex: 1.2;
-}
-
-.dashboard__container-pie-charts {
-    flex: 0.5;
-}
-
-.dashboard__container-bar-graphs {
-    flex: 0.95;
+    padding: 1rem;
 }
 
 /* ======= Tablet View  ======= */
 @media (max-width: 95em) {
     .dashboard__container {
-        height: 100vh;
+        height: 160vh;
     }
 
-    .dashboard__components-bundle {
-        flex-direction: column;
-        /* === main components bundle height: === */
-        min-height: 100em;
+    .dashboard__components-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1.5fr repeat(6, 1fr);
     }
 
-    .dashboard__container-left-column {
-        flex: 5;
+    .dashboard__statistics-header {
+        grid-column: 1 / 3;
+        grid-row: 1;
     }
-
-    .dashboard__container-right-column {
-        flex: 3;
-        flex-direction: row;
+    .dashboard__main-container {
+        grid-column: 1 / 3;
+        grid-row: 2 / 5;
     }
-
-    .dashboard__container-right-col-1 {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+    .dashboard__notifications {
+        grid-column: 1 / 2;
+        grid-row: 5 / 8;
     }
-    .dashboard__container-right-col-2 {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+    .dashboard__pie-charts {
+        grid-column: 2 / 3;
+        grid-row: 5 / 6;
+    }
+    .dashboard__bar-graphs {
+        grid-column: 2 / 3;
+        grid-row: 6 / 8;
     }
 }
 
 @media (max-width: 62.5em) {
-    .dashboard__components-bundle {
-        /* === main components bundle height: === */
-        min-height: 150em;
+    .dashboard__container {
+        height: 300vh;
     }
 
-    .dashboard__container-left-column {
-        flex: 3;
+    .dashboard__components-grid-container {
+        grid-template-rows: 2fr 10fr 4fr 2fr 4fr;
     }
 
-    .dashboard__container-right-column {
-        flex-direction: column;
-        flex: 2;
+    .dashboard__main-container {
+        grid-row: 2 / 3;
+    }
+    .dashboard__notifications {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+    }
+    .dashboard__pie-charts {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+    }
+    .dashboard__bar-graphs {
+        grid-column: 1 / 3;
+        grid-row: 5 / 6;
     }
 }
 

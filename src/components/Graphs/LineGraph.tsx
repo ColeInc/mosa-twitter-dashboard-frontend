@@ -1,49 +1,83 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import classes from "./LineGraph.module.css";
 import {
     VictoryChart,
     VictoryLine,
     VictoryScatter,
     VictoryAxis,
+    VictoryContainer,
 } from "victory";
 
-// const data = [
-//     { x: 0, y: 0 },
-//     { x: 1, y: 2 },
-//     { x: 2, y: 1 },
-//     { x: 3, y: 4 },
-//     { x: 4, y: 3 },
-//     { x: 5, y: 5 },
-// ];
+export interface GraphProps {
+    data: any;
+    limits: any;
+}
 
-// const cartesianInterpolations = [
-//     "basis",
-//     "bundle",
-//     "cardinal",
-//     "catmullRom",
-//     "linear",
-//     "monotoneX",
-//     "monotoneY",
-//     "natural",
-//     "step",
-//     "stepAfter",
-//     "stepBefore",
-// ];
+export const LineGraph: React.FC<{
+    graphData: { x: number; y: number }[];
+    color: string;
+}> = (props) => {
+    const [boundingRect, setBoundingRect] = useState({ width: 0, height: 0 });
+    const graphRef = useCallback((node) => {
+        if (node !== null) {
+            setBoundingRect(node.getBoundingClientRect());
+        }
+    }, []);
 
-const LineGraph: React.FC<{
+    return (
+        <div style={{ width: "100%", height: "100%" }} ref={graphRef}>
+            <VictoryChart
+                height={boundingRect.height}
+                width={boundingRect.width}
+                padding={{ top: 0, right: 10, bottom: 0, left: 10 }}
+            >
+                <VictoryLine
+                    interpolation="monotoneX"
+                    data={props.graphData}
+                    style={{
+                        ...lineStyle,
+                        data: {
+                            stroke: props.color,
+                            fillOpacity: 0.6,
+                            strokeWidth: 4,
+                        },
+                    }}
+                />
+
+                <VictoryScatter
+                    data={props.graphData}
+                    size={6}
+                    style={{ ...scatterStyle, data: { fill: props.color } }}
+                />
+
+                {/* to remove x and y axis: */}
+                <VictoryAxis
+                    style={{
+                        axis: { stroke: "transparent" },
+                        ticks: { stroke: "transparent" },
+                        tickLabels: { fill: "transparent" },
+                    }}
+                />
+            </VictoryChart>
+        </div>
+    );
+};
+
+const LineGraph2: React.FC<{
     graphData: { x: number; y: number }[];
     color: string;
 }> = (props) => {
     return (
         <div className={classes["line-graph__container"]}>
             <VictoryChart
-                //height={"100%"}
+                // height={100}
+                // style={{ parent: { height: "50%" } }}
                 padding={{ top: 7, right: 10, bottom: 7, left: 10 }}
+                // containerComponent={<VictoryContainer responsive={false} />}
             >
                 <VictoryLine
                     interpolation="monotoneX"
                     data={props.graphData}
-                    // style={lineStyle}
                     style={{
                         ...lineStyle,
                         data: {
@@ -58,10 +92,6 @@ const LineGraph: React.FC<{
                     data={props.graphData}
                     size={7}
                     style={{ ...scatterStyle, data: { fill: props.color } }}
-                    // style={{
-                    //     ...scatterStyle,
-                    //     ...props.color,
-                    // }}
                 />
 
                 {/* to remove x and y axis: */}
