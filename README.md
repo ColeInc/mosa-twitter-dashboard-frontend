@@ -8,6 +8,9 @@ This repository contains the frontend for a Twitter Dashboard Platform. Written 
 
 ## Dependencies:
 
--   react-router-dom@latest
+-   react-router-dom
+-   react-redux
+-   @reduxjs/toolkit
 -   victory
+-   uuid
 -

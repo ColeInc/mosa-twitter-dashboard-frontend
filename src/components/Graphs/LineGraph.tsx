@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from "react";
-import classes from "./LineGraph.module.css";
+// import classes from "./LineGraph.module.css";
 import {
     VictoryChart,
     VictoryLine,
     VictoryScatter,
     VictoryAxis,
-    VictoryContainer,
 } from "victory";
 
 export interface GraphProps {
@@ -47,50 +46,6 @@ export const LineGraph: React.FC<{
                 <VictoryScatter
                     data={props.graphData}
                     size={6}
-                    style={{ ...scatterStyle, data: { fill: props.color } }}
-                />
-
-                {/* to remove x and y axis: */}
-                <VictoryAxis
-                    style={{
-                        axis: { stroke: "transparent" },
-                        ticks: { stroke: "transparent" },
-                        tickLabels: { fill: "transparent" },
-                    }}
-                />
-            </VictoryChart>
-        </div>
-    );
-};
-
-const LineGraph2: React.FC<{
-    graphData: { x: number; y: number }[];
-    color: string;
-}> = (props) => {
-    return (
-        <div className={classes["line-graph__container"]}>
-            <VictoryChart
-                // height={100}
-                // style={{ parent: { height: "50%" } }}
-                padding={{ top: 7, right: 10, bottom: 7, left: 10 }}
-                // containerComponent={<VictoryContainer responsive={false} />}
-            >
-                <VictoryLine
-                    interpolation="monotoneX"
-                    data={props.graphData}
-                    style={{
-                        ...lineStyle,
-                        data: {
-                            stroke: props.color,
-                            fillOpacity: 0.6,
-                            strokeWidth: 5,
-                        },
-                    }}
-                />
-
-                <VictoryScatter
-                    data={props.graphData}
-                    size={7}
                     style={{ ...scatterStyle, data: { fill: props.color } }}
                 />
 

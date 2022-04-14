@@ -1,4 +1,17 @@
 .upcoming-tweets__container {
     flex: 1;
     margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.upcoming-tweets__container h1 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.upcoming-tweets__posts-container {
+    flex: 1;
 }
