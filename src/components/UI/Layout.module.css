@@ -1,0 +1,16 @@
+.dashboard__container {
+    display: flex;
+    height: 100vh;
+}
+
+@media (max-width: 95em) {
+    .dashboard__container {
+        height: 160vh;
+    }
+}
+
+@media (max-width: 62.5em) {
+    .dashboard__container {
+        height: 300vh;
+    }
+}

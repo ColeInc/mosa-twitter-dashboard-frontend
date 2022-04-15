@@ -17,6 +17,7 @@ const UpcomingTweets = () => {
     const postsList = useSelector((state: RootState) => state.posts);
 
     useEffect(() => {
+        // TODO:
         // call redux reducer function to fetch all posts scheduled within next 24 hours/7 days, etc. here
         //
         // we need a slice which stores an array of Post[]s

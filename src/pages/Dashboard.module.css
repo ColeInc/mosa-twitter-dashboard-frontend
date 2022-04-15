@@ -4,11 +4,6 @@ body {
     background-color: var(--color1);
 }
 
-.dashboard__container {
-    display: flex;
-    height: 100vh;
-}
-
 .dashboard__components-container {
     display: flex;
     justify-content: center;
@@ -71,10 +66,6 @@ body {
 
 /* ======= Tablet View  ======= */
 @media (max-width: 95em) {
-    .dashboard__container {
-        height: 160vh;
-    }
-
     .dashboard__components-grid-container {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1.5fr repeat(6, 1fr);
@@ -103,10 +94,6 @@ body {
 }
 
 @media (max-width: 62.5em) {
-    .dashboard__container {
-        height: 300vh;
-    }
-
     .dashboard__components-grid-container {
         grid-template-rows: 2fr 10fr 4fr 2fr 4fr;
     }
