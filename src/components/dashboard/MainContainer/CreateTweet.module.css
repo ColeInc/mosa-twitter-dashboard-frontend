@@ -83,6 +83,11 @@ textarea::placeholder {
     color: #3a3a3a;
 }
 
+.error-text {
+    color: #c24343;
+    font-weight: bold;
+}
+
 .create-tweet__buttons-container {
     display: flex;
     flex-direction: row;

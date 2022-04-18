@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 import Post from "../models/Post";
 
-const initialPostsState: { posts: Post[] } = {
+const initialPostsState: { posts: Post[]; drafts: Post[] } = {
     posts: [
         {
             id: "1",
@@ -31,6 +31,29 @@ const initialPostsState: { posts: Post[] } = {
             threadId: null,
         },
     ],
+    drafts: [
+        {
+            id: "1",
+            body: `draft 1`,
+            media: null,
+            scheduledTime: new Date("April 14, 2022 10:30:00"),
+            threadId: null,
+        },
+        {
+            id: "2",
+            body: `draft 2`,
+            media: null,
+            scheduledTime: new Date("April 14, 2022 16:02:00"),
+            threadId: null,
+        },
+        {
+            id: "3",
+            body: `draft 3`,
+            media: null,
+            scheduledTime: new Date("April 17, 2022 16:02:00"),
+            threadId: null,
+        },
+    ],
 };
 
 const postsSlice = createSlice({
@@ -39,12 +62,33 @@ const postsSlice = createSlice({
     reducers: {
         addPost(state, action) {
             const uuid = uuidv4();
+            const media = 1 === 1 ? null : null; // TODO: will implement condition here when upload media feature implemented
+            const scheduledTime =
+                action.payload.scheduledTime.length > 0
+                    ? action.payload.scheduledTime.toLocaleString()
+                    : new Date().toLocaleString();
 
             state.posts.push({
                 id: uuid,
                 body: action.payload.body,
-                media: action.payload.media,
-                scheduledTime: action.payload.scheduledTime,
+                media: media,
+                scheduledTime: scheduledTime,
+                threadId: null,
+            });
+        },
+        addDraft(state, action) {
+            const uuid = uuidv4();
+            const media = 1 === 1 ? null : null; // TODO: will implement condition here when upload media feature implemented
+            const scheduledTime =
+                action.payload.scheduledTime.length > 0
+                    ? action.payload.scheduledTime.toLocaleString()
+                    : new Date().toLocaleString();
+
+            state.drafts.push({
+                id: uuid,
+                body: action.payload.body,
+                media: media,
+                scheduledTime: scheduledTime,
                 threadId: null,
             });
         },
@@ -52,6 +96,13 @@ const postsSlice = createSlice({
             const postToDelete = action.payload;
 
             state.posts.filter((post) => {
+                return post.id !== postToDelete;
+            });
+        },
+        removeDraft(state, action) {
+            const postToDelete = action.payload;
+
+            state.drafts.filter((post) => {
                 return post.id !== postToDelete;
             });
         },

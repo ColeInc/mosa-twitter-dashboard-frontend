@@ -1,20 +1,53 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import classes from "./CreateTweet.module.css";
 
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import UploadImage from "../../UI/UploadImage";
 import Dropdown from "../../UI/Dropdown";
+import { postsActions } from "../../../store/posts";
 
 const dropdownItems = ["QUEUE", "DRAFT", "TWEET"];
 
 const CreateTweet = () => {
-    const [currentDropdown, setCurrentDropdown] = useState("queue");
+    const [dropdownItem, setDropdownItem] = useState("queue");
+    const [tweetInput, setTweetInput] = useState<string>();
+    const dispatch = useDispatch();
+
+    const charCount = tweetInput?.length || 0;
+    const tooLong = charCount > 280 ? true : false;
 
     const onFormSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
-        // do something with the inputted tweet
+        // if user selects QUEUE and tweet is less than 280 chars, add tweet to "posts" redux slice:
+        if (!tooLong && dropdownItem === "QUEUE") {
+            dispatch(
+                postsActions.addPost({
+                    body: tweetInput,
+                    scheduledTime: new Date(),
+                })
+            );
+            // clear current tweet in input box:
+            setTweetInput("");
+        }
+        // if user selects DRAFT (and character length does not matter), add tweet to "drafts" list in redux slice:
+        else if (dropdownItem === "DRAFT") {
+            dispatch(
+                postsActions.addDraft({
+                    body: tweetInput,
+                    scheduledTime: new Date(),
+                })
+            );
+            // clear current tweet in input box:
+            // setTweetInput("");
+        }
+        // if user input is valid, tweet instantly:
+        else if (!tooLong && dropdownItem === "TWEET") {
+            // clear current tweet in input box:
+            setTweetInput("");
+        }
     };
 
     return (
@@ -28,14 +61,20 @@ const CreateTweet = () => {
                     <textarea
                         className={classes["create-tweet__input"]}
                         placeholder="Type a tweet..."
+                        onChange={(event) => setTweetInput(event.target.value)}
+                        value={tweetInput || ""}
                     />
                     <div
                         className={
                             classes["create-tweet__input-bottom-container"]
                         }
                     >
-                        <p className={classes["create-tweet__remaining-chars"]}>
-                            0 / 4000
+                        <p
+                            className={`${
+                                classes["create-tweet__remaining-chars"]
+                            } ${tooLong && classes["error-text"]}`}
+                        >
+                            {charCount} / 280
                         </p>
                         <UploadImage />
                     </div>
@@ -49,8 +88,8 @@ const CreateTweet = () => {
 
                     <Dropdown
                         items={dropdownItems}
-                        currentItem={currentDropdown}
-                        onDropdownClick={setCurrentDropdown}
+                        currentItem={dropdownItem}
+                        onDropdownClick={setDropdownItem}
                         className={classes["create-tweet__button-dropdown"]}
                     />
                 </div>

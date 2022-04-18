@@ -14,4 +14,7 @@
 
 .upcoming-tweets__posts-container {
     flex: 1;
+    /* ################### MUST REMOVE THIS FIXED HEIGHT: ###################  */
+    max-height: 35rem;
+    overflow: scroll;
 }

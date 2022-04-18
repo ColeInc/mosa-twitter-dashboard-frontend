@@ -7,6 +7,7 @@
     margin-top: 0.4rem;
     display: flex;
     align-items: center;
+    transition: 0.3s;
 }
 
 .nav-button__font {
@@ -31,6 +32,7 @@
     width: 1.5rem;
     display: flex;
     margin: 0 12px 0 5px;
+    transition: 0.3s;
     fill: #d1c8c8;
 }
 
@@ -60,6 +62,7 @@
     height: auto;
     fill: inherit;
     margin-left: auto;
+    transition: 0.3s;
     display: none;
 }
 
