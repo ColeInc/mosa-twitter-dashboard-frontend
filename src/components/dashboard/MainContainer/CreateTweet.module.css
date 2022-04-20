@@ -2,8 +2,8 @@
 
 .create-tweet__container {
     flex: 1;
-    margin-left: 1rem;
-    margin-right: 0;
+    margin-left: 1rem !important;
+    margin-right: 0 !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

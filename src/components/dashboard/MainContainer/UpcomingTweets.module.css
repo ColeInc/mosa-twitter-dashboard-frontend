@@ -17,4 +17,7 @@
     /* ################### MUST REMOVE THIS FIXED HEIGHT: ###################  */
     max-height: 35rem;
     overflow: scroll;
+    /* flex-direction: column; */
+    /* background-color: red; */
+    flex-basis: 20px !important;
 }

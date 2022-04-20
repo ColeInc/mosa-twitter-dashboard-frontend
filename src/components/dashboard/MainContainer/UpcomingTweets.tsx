@@ -9,7 +9,7 @@ import Post from "./Post";
 
 interface RootState {
     posts: {
-        posts: PostType[];
+        queue: PostType[];
     };
 }
 
@@ -32,8 +32,8 @@ const UpcomingTweets = () => {
             <h1>UPCOMING TWEETS</h1>
 
             <div className={classes["upcoming-tweets__posts-container"]}>
-                {postsList.posts.map((post) => {
-                    return <Post postData={post} key={post.id} />;
+                {postsList.queue.map(post => {
+                    return <Post post={post} key={post.id} />;
                 })}
             </div>
 

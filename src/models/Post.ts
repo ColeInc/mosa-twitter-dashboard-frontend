@@ -1,9 +1,10 @@
 interface Post {
     id: string;
     threadId: string | null;
+    type: "queue" | "draft" | "tweet";
     body: string;
     media: string | null;
-    scheduledTime: Date;
+    scheduledTime: string;
 }
 
 export default Post;
