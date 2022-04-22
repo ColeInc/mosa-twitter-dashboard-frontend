@@ -2,11 +2,11 @@
 
 .nav-bar__main-container {
     width: 15vw;
-    /* width: 25em; */
-    min-width: 17em;
+    min-width: 19rem;
+    max-width: 25rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 1.6rem 2.2rem 1.6rem 2.2rem;
     color: #fff;
 }
@@ -18,8 +18,9 @@
 }
 
 .nav-bar__profile-img {
-    width: 28%;
-    border-radius: 9999px;
+    /* width: 28%; */
+    width: 7rem;
+    border-radius: 999px;
 }
 
 .nav-bar__username {
@@ -42,6 +43,13 @@
     font-weight: 100;
     margin: 0;
     color: #7e7e7e;
+}
+
+/* .nav-bar__nav-container { */
+/* } */
+
+.nav-bar__footer {
+    margin-top: auto;
 }
 
 .nav-bar__footer h3 {

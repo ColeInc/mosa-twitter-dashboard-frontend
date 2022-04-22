@@ -11,11 +11,11 @@ const MainContainer: React.FC<{ className?: string }> = props => {
         <CurvedContainer
             className={`${classes["three-components-container__container"]} ${props.className && props.className}`}
         >
-            <div className={classes["three-components-container__create-upcoming-container"]}>
+            <div className={classes["three-components-container__css-grid"]}>
                 <CreateTweet />
                 <UpcomingTweets />
+                <HorizontalGraph />
             </div>
-            <HorizontalGraph />
         </CurvedContainer>
     );
 };

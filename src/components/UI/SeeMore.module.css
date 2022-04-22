@@ -1,0 +1,31 @@
+.see-more__button {
+    text-decoration: none !important;
+    background-color: var(--color4);
+    color: var(--color2);
+    border-radius: 999px;
+    border: none;
+    outline: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.see-more__button:after {
+    content: "\2022 \2022 \2022";
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 1px;
+}
+
+.see-more__button:hover {
+    background-color: #272422;
+    color: #000;
+    transition: 0.2s;
+}

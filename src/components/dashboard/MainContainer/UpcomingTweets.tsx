@@ -6,6 +6,7 @@ import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import classes from "./UpcomingTweets.module.css";
 import PostType from "../../../models/Post";
 import Post from "./Post";
+import SeeMore from "../../UI/SeeMore";
 
 interface RootState {
     posts: {
@@ -35,11 +36,13 @@ const UpcomingTweets = () => {
                 {postsList.queue.map(post => {
                     return <Post post={post} key={post.id} />;
                 })}
-            </div>
 
-            <Link to="/queue">
-                <button>SEE ALL</button>
-            </Link>
+                <div className={classes["upcoming-tweets__bottom-bar"]}>
+                    <Link to="/queue" style={{ textDecoration: "none" }}>
+                        <SeeMore />
+                    </Link>
+                </div>
+            </div>
         </CurvedSubContainer>
     );
 };

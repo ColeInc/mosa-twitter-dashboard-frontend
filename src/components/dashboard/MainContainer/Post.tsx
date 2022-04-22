@@ -18,14 +18,6 @@ const formatAMPM = (date: Date) => {
     return strTime;
 };
 
-function nl2br(str: any, is_xhtml: any) {
-    if (typeof str === "undefined" || str === null) {
-        return "";
-    }
-    var breakTag = is_xhtml || typeof is_xhtml === "undefined" ? "<br />" : "<br />";
-    return (str + "").replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1" + breakTag + "$2");
-}
-
 const Post: React.FC<{ post: PostType }> = props => {
     const dispatch = useDispatch();
     const { scheduledTime } = props.post;
@@ -55,7 +47,6 @@ const Post: React.FC<{ post: PostType }> = props => {
                 </div>
                 <div className={classes["post__divider"]} />
                 <p>{props.post.body}</p>
-                {/* <p>`{nl2br(props.post.body, false)}`</p> */}
             </div>
         </CurvedContainer>
     );

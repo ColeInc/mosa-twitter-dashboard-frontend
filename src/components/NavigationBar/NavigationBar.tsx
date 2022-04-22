@@ -20,35 +20,29 @@ const NavigationBar = () => {
         <div className={classes["nav-bar__main-container"]}>
             <div className={classes["nav-bar__upper-container"]}>
                 <div className={classes["nav-bar__user-data-box"]}>
-                    <img
-                        src={USER_DATA.imageUrl}
-                        className={classes["nav-bar__profile-img"]}
-                        alt="profile pic"
-                    />
-                    <div
-                        className={`${classes["nav-bar__username"]} ${classes.tablet}`}
-                    >
+                    <img src={USER_DATA.imageUrl} className={classes["nav-bar__profile-img"]} alt="profile pic" />
+                    <div className={`${classes["nav-bar__username"]} ${classes.tablet}`}>
                         <h1>{USER_DATA.name}</h1>
                         <h2>@{USER_DATA.twitterHandle}</h2>
                     </div>
                 </div>
-                <div className={classes["nav-bar__nav-container"]}>
-                    <NavButton to="/" icon={<DashboardIcon />}>
-                        Dashboard
-                    </NavButton>
-                    <NavButton to="/queue" icon={<QueueIcon />}>
-                        Queue
-                    </NavButton>
-                    <NavButton to="/automation" icon={<AutomationIcon />}>
-                        Automation
-                    </NavButton>
-                    <NavButton to="/savedtweets" icon={<SavedTweetsIcon />}>
-                        Saved Tweets
-                    </NavButton>
-                    <NavButton to="/settings" icon={<SettingsIcon />}>
-                        Settings
-                    </NavButton>
-                </div>
+            </div>
+            <div className={classes["nav-bar__nav-container"]}>
+                <NavButton to="/" icon={<DashboardIcon />}>
+                    Dashboard
+                </NavButton>
+                <NavButton to="/queue" icon={<QueueIcon />}>
+                    Queue
+                </NavButton>
+                <NavButton to="/automation" icon={<AutomationIcon />}>
+                    Automation
+                </NavButton>
+                <NavButton to="/savedtweets" icon={<SavedTweetsIcon />}>
+                    Saved Tweets
+                </NavButton>
+                <NavButton to="/settings" icon={<SettingsIcon />}>
+                    Settings
+                </NavButton>
             </div>
 
             <div className={`${classes["nav-bar__footer"]} ${classes.tablet}`}>

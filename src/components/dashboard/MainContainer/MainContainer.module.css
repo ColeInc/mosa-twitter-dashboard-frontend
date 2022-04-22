@@ -3,13 +3,13 @@
     display: flex;
     flex-direction: column;
     padding-right: 0;
-    /* padding-left: 1rem; */
 }
 
-.three-components-container__create-upcoming-container {
-    flex: 3.5;
-    display: flex;
-    flex-direction: row;
+.three-components-container__css-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 7fr 3fr;
+    height: 100%;
 }
 
 @media (max-width: 95em) {
@@ -21,9 +21,10 @@
 @media (max-width: 62.5em) {
     .three-components-container__container {
         flex: 4;
+        background-color: red !important;
     }
 
-    .three-components-container__create-upcoming-container {
+    .three-components-container__css-grid {
         flex-direction: column;
         flex: 6;
     }

@@ -2,12 +2,11 @@
 
 .nav-button__button {
     padding: 1rem;
-    height: 1.8vw;
+    height: 2rem;
     border-radius: 15px;
-    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
     display: flex;
     align-items: center;
-    transition: 0.3s;
 }
 
 .nav-button__font {
@@ -26,6 +25,7 @@
 
 .nav-button__button:hover {
     background-color: var(--color4);
+    transition: 0.3s;
 }
 
 .nav-button__icon {

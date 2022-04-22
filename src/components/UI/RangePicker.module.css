@@ -3,9 +3,10 @@
 .range-picker__container {
     background-color: var(--color1);
     color: #fff;
-    padding: 0.1rem;
+    padding: 0.15rem;
     margin: 0.4rem auto 0.4rem auto;
-    border-radius: 0.45vw;
+    /* border-radius: 0.45vw; */
+    border-radius: 0.4rem;
     display: flex;
     flex: 1;
     width: 20vw;
@@ -14,7 +15,8 @@
 .range-picker__container button {
     border: none;
     cursor: pointer;
-    border-radius: 0.45vw;
+    /* border-radius: 0.45vw; */
+    border-radius: 0.4rem;
     background-color: inherit;
     color: #636363;
     font-size: 0.7em;
