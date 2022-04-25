@@ -2,12 +2,10 @@
 
 .upcoming-tweets__container {
     margin-left: 1rem;
+    padding-bottom: 0;
     grid-column: 2 / 3;
-    /* grid-row: 1 / 2;
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; */
 }
 
 .upcoming-tweets__container h1 {
@@ -17,12 +15,9 @@
 }
 
 .upcoming-tweets__posts-container {
-    /* flex: 1; */
-    /* ################### MUST REMOVE THIS FIXED HEIGHT: ###################  */
-    /* max-height: 35rem; */
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .upcoming-tweets__bottom-bar {

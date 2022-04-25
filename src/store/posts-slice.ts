@@ -2,7 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 import Post from "../models/Post";
 
-const initialPostsState: { queue: Post[]; drafts: Post[] } = {
+interface InitialPosts {
+    queue: Post[];
+    drafts: Post[];
+}
+
+const initialPostsState: InitialPosts = {
     queue: [
         {
             id: "1",
@@ -84,10 +89,48 @@ const postsSlice = createSlice({
             };
             console.log(postMetadata);
 
+            state[action.payload.type as keyof InitialPosts].push(postMetadata);
+
+            // if (action.payload.type === "queue") {
+            //     state.queue.push(postMetadata);
+            // } else if (action.payload.type === "draft") {
+            //     state.drafts.push(postMetadata);
+            // }
+        },
+        updatePost(state, action) {
+            const tweetId = action.payload.id;
+            const media = action.payload.media;
+            const scheduledTime =
+                action.payload.scheduledTime.length > 0
+                    ? action.payload.scheduledTime.toLocaleString()
+                    : new Date().toLocaleString();
+
+            const postMetadata = {
+                id: tweetId,
+                body: action.payload.body,
+                media: media,
+                scheduledTime: scheduledTime,
+                threadId: null,
+                type: action.payload.type,
+            };
+
+            const foundIndex = state[action.payload.type as keyof InitialPosts].findIndex(
+                (item: Post) => item.id == tweetId
+            );
+            state[action.payload.type as keyof InitialPosts][foundIndex] = postMetadata;
+
             if (action.payload.type === "queue") {
-                state.queue.push(postMetadata);
+                console.log("bing");
+                const foundIndex = state[action.payload.type as keyof InitialPosts].findIndex(
+                    item => item.id == tweetId
+                );
+                state[action.payload.type as keyof InitialPosts][foundIndex] = postMetadata;
+                // const foundIndex = state.queue.findIndex(item => item.id == tweetId);
+                // state.queue[foundIndex] = postMetadata;
             } else if (action.payload.type === "draft") {
-                state.drafts.push(postMetadata);
+                console.log("boom");
+                const foundIndex = state.drafts.findIndex(item => item.id == tweetId);
+                state.drafts[foundIndex] = postMetadata;
             }
         },
         removePost(state, action) {

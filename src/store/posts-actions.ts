@@ -2,10 +2,11 @@ import { postsActions } from "./posts-slice";
 
 // not re-using main "posts" interface because of mandatory "id" field:
 interface PostMetadata {
+    id?: string;
     type: "queue" | "draft" | "tweet";
-    threadId?: string | null;
+    threadId?: string;
     body: string;
-    media?: string | null;
+    media?: string;
     scheduledTime: string;
 }
 
@@ -22,6 +23,14 @@ export const sendPostData = (tweetData: PostMetadata) => {
             // store tweet in redux slice:
             dispatch(postsActions.addPost(tweetData));
         }
+    };
+};
+
+export const updatePostData = (tweetData: PostMetadata) => {
+    return async (dispatch: any) => {
+        // TODO: send PATCH request to backend to store tweet persistently:
+
+        dispatch(postsActions.updatePost(tweetData));
     };
 };
 
