@@ -5,17 +5,17 @@
     color: #fff;
     padding: 0.15rem;
     margin: 0.4rem auto 0.4rem auto;
-    /* border-radius: 0.45vw; */
     border-radius: 0.4rem;
     display: flex;
-    flex: 1;
     width: 20vw;
+    min-width: 25rem;
+    flex-basis: 1.2rem;
+    flex-shrink: 0;
 }
 
 .range-picker__container button {
     border: none;
     cursor: pointer;
-    /* border-radius: 0.45vw; */
     border-radius: 0.4rem;
     background-color: inherit;
     color: #636363;

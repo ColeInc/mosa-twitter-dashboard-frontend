@@ -14,7 +14,8 @@
 
 @media (max-width: 95em) {
     .dashboard__container {
-        height: 160vh;
+        /* height: 160vh; */
+        height: 250vh;
     }
 }
 

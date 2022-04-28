@@ -41,7 +41,7 @@ const CreateTweet = () => {
         else if (dropdownItem === "DRAFT") {
             dispatch(
                 sendPostData({
-                    type: "draft",
+                    type: "drafts",
                     body: tweetInput,
                     scheduledTime: new Date().toLocaleString(),
                 })

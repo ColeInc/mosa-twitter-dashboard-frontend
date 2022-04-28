@@ -8,5 +8,6 @@
 
 .statistics-header__items-container {
     display: flex;
-    flex: 9;
+    /* flex: 9; */
+    flex: 1;
 }

@@ -1,23 +1,16 @@
 import React, { useCallback, useState } from "react";
+import { VictoryChart, VictoryLine, VictoryScatter, VictoryAxis } from "victory";
 // import classes from "./LineGraph.module.css";
-import {
-    VictoryChart,
-    VictoryLine,
-    VictoryScatter,
-    VictoryAxis,
-} from "victory";
-
-export interface GraphProps {
-    data: any;
-    limits: any;
-}
 
 export const LineGraph: React.FC<{
     graphData: { x: number; y: number }[];
-    color: string;
-}> = (props) => {
+    color?: string;
+    lineWidth?: number;
+    dotSize?: number;
+}> = props => {
     const [boundingRect, setBoundingRect] = useState({ width: 0, height: 0 });
-    const graphRef = useCallback((node) => {
+
+    const graphRef = useCallback(node => {
         if (node !== null) {
             setBoundingRect(node.getBoundingClientRect());
         }
@@ -28,7 +21,7 @@ export const LineGraph: React.FC<{
             <VictoryChart
                 height={boundingRect.height}
                 width={boundingRect.width}
-                padding={{ top: 0, right: 10, bottom: 0, left: 10 }}
+                padding={{ top: 5, right: 10, bottom: 5, left: 10 }}
             >
                 <VictoryLine
                     interpolation="monotoneX"
@@ -36,17 +29,17 @@ export const LineGraph: React.FC<{
                     style={{
                         ...lineStyle,
                         data: {
-                            stroke: props.color,
+                            stroke: props.color || "#2BEAB8",
                             fillOpacity: 0.6,
-                            strokeWidth: 4,
+                            strokeWidth: props.lineWidth || 4,
                         },
                     }}
                 />
 
                 <VictoryScatter
                     data={props.graphData}
-                    size={6}
-                    style={{ ...scatterStyle, data: { fill: props.color } }}
+                    size={props.dotSize || 6}
+                    style={{ ...scatterStyle, data: { fill: props.color || "#2BEAB8" } }}
                 />
 
                 {/* to remove x and y axis: */}
@@ -62,7 +55,7 @@ export const LineGraph: React.FC<{
     );
 };
 
-export default LineGraph;
+export default React.memo(LineGraph);
 
 const lineStyle = {
     parent: {

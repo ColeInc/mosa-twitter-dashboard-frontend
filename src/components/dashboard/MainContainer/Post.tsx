@@ -1,11 +1,12 @@
 import React, { useMemo } from "react";
-import classes from "./Post.module.css";
-import PostType from "../../../models/Post";
-import CurvedContainer from "../../UI/CurvedContainer";
 import { useDispatch } from "react-redux";
-import { updatePostData, deleteTweet } from "../../../store/posts-actions";
+import { deleteTweet, toggleDraft } from "../../../store/posts-actions";
 import { ReactComponent as QueueIcon } from "../../../assets/icons/noun-time-4691990.svg";
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
+import CurvedContainer from "../../UI/CurvedContainer";
+import PostType from "../../../models/Post";
+import classes from "./Post.module.css";
+// import EditPostModal from "../../UI/EditPostModal";
 
 const formatAMPM = (date: Date) => {
     let hours = date.getHours();
@@ -27,18 +28,11 @@ const Post: React.FC<{ post: PostType }> = props => {
     }, [scheduledTime]);
 
     const moveToDraftsHandler = () => {
-        // dispatch(deleteTweet({ id: props.post.id, type: props.post.type }));
         dispatch(
-            updatePostData({
+            toggleDraft({
                 ...props.post,
-                type: "draft",
                 threadId: undefined,
                 media: undefined,
-
-                // id: props.post.id,
-                // type: "draft",
-                // body: props.post.body,
-                // scheduledTime: new Date().toLocaleString(),
             })
         );
     };
@@ -71,6 +65,7 @@ const Post: React.FC<{ post: PostType }> = props => {
                 </div>
                 <div className={classes["post__divider"]} />
                 <p>{props.post.body}</p>
+                {/* <EditPostModal /> */}
             </div>
         </CurvedContainer>
     );

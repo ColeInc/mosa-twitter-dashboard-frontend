@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./StatisticsItem.module.css";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import LineGraph from "../../Graphs/LineGraph";
-
-type GraphData = {
-    x: number;
-    y: number;
-};
+import GraphData from "../../../models/GraphData";
 
 const metricColors: any = {
     impressions: "#1FC1FB",
@@ -14,13 +10,9 @@ const metricColors: any = {
     follows: "#EE31E0",
 };
 
-const StatisticsItem: React.FC<{ metric: string; timeRange: string }> = (
-    props
-) => {
+const StatisticsItem: React.FC<{ metric: string; timeRange: string }> = props => {
     const [statisticValue, setStatisticValue] = useState("");
-    const [statisticData, setStatisticData] = useState<GraphData[]>([
-        { x: 0, y: 0 },
-    ]);
+    const [statisticData, setStatisticData] = useState<GraphData[]>([{ x: 0, y: 0 }]);
 
     const { metric } = props;
 
@@ -81,10 +73,7 @@ const StatisticsItem: React.FC<{ metric: string; timeRange: string }> = (
             <div className={classes["item__upper-items"]}>
                 <h2>{statisticValue}</h2>
                 <div className={classes["item__graph-container"]}>
-                    <LineGraph
-                        graphData={statisticData}
-                        color={metricColors[metric]}
-                    />
+                    <LineGraph graphData={statisticData} color={metricColors[metric]} />
                 </div>
             </div>
             <div className={classes["item__bottom-text"]}>

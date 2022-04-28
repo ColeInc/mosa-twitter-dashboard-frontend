@@ -46,7 +46,7 @@ const initialPostsState: InitialPosts = {
             media: null,
             scheduledTime: "April 14, 2022 10:30:00",
             threadId: null,
-            type: "draft",
+            type: "drafts",
         },
         {
             id: "2",
@@ -54,7 +54,7 @@ const initialPostsState: InitialPosts = {
             media: null,
             scheduledTime: "April 14, 2022 16:02:00",
             threadId: null,
-            type: "draft",
+            type: "drafts",
         },
         {
             id: "3",
@@ -62,7 +62,7 @@ const initialPostsState: InitialPosts = {
             media: null,
             scheduledTime: "April 17, 2022 16:02:00",
             threadId: null,
-            type: "draft",
+            type: "drafts",
         },
     ],
 };
@@ -87,15 +87,8 @@ const postsSlice = createSlice({
                 threadId: null,
                 type: action.payload.type,
             };
-            console.log(postMetadata);
 
             state[action.payload.type as keyof InitialPosts].push(postMetadata);
-
-            // if (action.payload.type === "queue") {
-            //     state.queue.push(postMetadata);
-            // } else if (action.payload.type === "draft") {
-            //     state.drafts.push(postMetadata);
-            // }
         },
         updatePost(state, action) {
             const tweetId = action.payload.id;
@@ -114,41 +107,29 @@ const postsSlice = createSlice({
                 type: action.payload.type,
             };
 
-            const foundIndex = state[action.payload.type as keyof InitialPosts].findIndex(
-                (item: Post) => item.id == tweetId
-            );
-            state[action.payload.type as keyof InitialPosts][foundIndex] = postMetadata;
+            // if its queue, delete it from queue and add to drafts
+            // if its drafts, delete it from drafts and add to queue
+            // but to find if its queue or drafts need to iterate both?
+            // no. we could just remove it via remotePost then add via addPost.. at thunk lvl would just need to fetch all post data first
+            // nahhh we need to split the moveToDrafts functionality out. have this as generic updatePost for pure updates, and offload the array switchhing to more infficient palce elsewhere
 
-            if (action.payload.type === "queue") {
-                console.log("bing");
-                const foundIndex = state[action.payload.type as keyof InitialPosts].findIndex(
-                    item => item.id == tweetId
-                );
-                state[action.payload.type as keyof InitialPosts][foundIndex] = postMetadata;
-                // const foundIndex = state.queue.findIndex(item => item.id == tweetId);
-                // state.queue[foundIndex] = postMetadata;
-            } else if (action.payload.type === "draft") {
-                console.log("boom");
-                const foundIndex = state.drafts.findIndex(item => item.id == tweetId);
-                state.drafts[foundIndex] = postMetadata;
-            }
+            const index = action.payload.type as keyof InitialPosts;
+            const foundIndex = state[index].findIndex((item: Post) => item.id === tweetId);
+            state[index][foundIndex] = postMetadata;
+            // TODO: need to make some kind of safety check to make sure we aren't setting type queue to draft but still storing it in queue array ya know (and vice versa )
         },
         removePost(state, action) {
             const tweetToDelete = action.payload.id;
 
-            if (action.payload.type === "queue") {
-                state.queue = state.queue.filter(post => {
-                    return post.id !== tweetToDelete;
-                });
-            } else if (action.payload.type === "draft") {
-                state.drafts = state.drafts.filter(post => {
-                    return post.id !== tweetToDelete;
-                });
-            }
+            const index = action.payload.type as keyof InitialPosts;
+
+            state[index] = state[index].filter(post => {
+                return post.id !== tweetToDelete;
+            });
         },
-        updateScheduledTime(state, action) {
-            const postToUpdate = action.payload.id;
-        },
+        // updateScheduledTime(state, action) {
+        //     const postToUpdate = action.payload.id;
+        // },
     },
 });
 
