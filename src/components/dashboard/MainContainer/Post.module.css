@@ -2,9 +2,8 @@
 
 .post__container {
     display: flex;
-    padding: 0.8rem;
-    margin-bottom: 0.8rem;
     padding: 0 0 1.2rem 0;
+    margin-bottom: 0.8rem;
     flex-basis: 6rem;
     flex-shrink: 0;
     /* background-color: var(--color2); */
@@ -95,16 +94,25 @@
 .dropdown-parent:hover {
     border-radius: 0.5rem 0.5rem 0px 0px !important;
     background-color: var(--color4);
+    transition: 0.2s;
+    transition-timing-function: ease-in;
+}
+
+.dropdown-parent:hover svg {
+    fill: #0a0c0a;
+    transition: 0.1s !important;
 }
 
 .dropdown-parent:hover > .dropdown-content,
 .dropdown-content:hover {
-    display: block;
-    transition: 0.2s;
+    visibility: visible !important;
+    opacity: 1;
 }
 
 .dropdown-content {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
     position: absolute;
     right: 0;
     margin: 0;

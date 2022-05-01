@@ -1,0 +1,70 @@
+.notification-item__container {
+    display: flex;
+    padding: 0.4rem 0.5rem 0.4rem 0.2rem;
+    margin-bottom: 0.8rem;
+    flex-basis: 3rem;
+    flex-shrink: 0;
+    background-color: var(--color2);
+    color: #7e7e7e;
+    border-radius: 0.5rem;
+}
+
+.notification-item__tweet-link {
+    text-decoration: none !important;
+}
+
+.notification-item__container:hover {
+    background-color: var(--color3);
+    cursor: pointer;
+    transition: 0.2s;
+    transition-timing-function: ease-in;
+    color: #929191;
+}
+
+.notification-item__blue-dot {
+    height: 4px;
+    width: 4px;
+    background-color: #09a6ff;
+    border-radius: 100px;
+    align-self: center;
+}
+
+.notification-item__profile-img {
+    width: 2.5rem;
+    border-radius: 999px;
+    align-self: center;
+    margin: 0 0.8rem 0 0.8rem;
+}
+
+.notification-item__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-item__container h1 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.notification-item__container h1 b {
+    color: #fff;
+}
+
+.notification-item__container h2 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.notification-item__container p {
+    font-size: 0.8rem;
+    margin: 0;
+    margin-left: auto;
+    color: #5e5d5d;
+}

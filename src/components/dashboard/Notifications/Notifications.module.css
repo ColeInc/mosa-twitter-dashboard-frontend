@@ -1,0 +1,33 @@
+@import "../../../constants/colors.css";
+
+.notifications__container {
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+}
+
+.notifications__container h1 {
+    margin: 1rem 0 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.notifications__list-container {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.notifications__bottom-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-end;
+}
+
+.notifications__container a {
+    text-decoration: none !important;
+}

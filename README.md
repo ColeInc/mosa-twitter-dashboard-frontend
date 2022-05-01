@@ -13,4 +13,5 @@ This repository contains the frontend for a Twitter Dashboard Platform. Written 
 -   @reduxjs/toolkit
 -   victory
 -   uuid
+-   moment
 -

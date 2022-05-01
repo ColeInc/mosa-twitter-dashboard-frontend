@@ -15,10 +15,8 @@
 
 .see-more__button:after {
     content: "\2022 \2022 \2022";
-    /* position: absolute; */
     top: 50%;
     left: 50%;
-    /* transform: translate(-50%, -50%); */
     font-size: 15px;
     letter-spacing: 1px;
     margin-top: 1px;
