@@ -65,7 +65,9 @@ const Notifications = () => {
 
             <div className={classes["notifications__list-container"]}>
                 {notificationList?.map(notification => {
-                    return <NotificationItem data={notification} />;
+                    return (
+                        <NotificationItem data={notification} key={notification.username.concat(notification.time)} />
+                    );
                 })}
                 <div className={classes["notifications__bottom-bar"]}>
                     <a href={"https://twitter.com/notifications"}>

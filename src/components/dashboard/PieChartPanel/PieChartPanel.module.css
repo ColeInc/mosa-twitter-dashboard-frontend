@@ -1,0 +1,5 @@
+.pie-chart-panel__container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
