@@ -7,6 +7,8 @@
     background-color: var(--color2);
     color: #7e7e7e;
     border-radius: 0.5rem;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
 }
 
 .notification-item__tweet-link {
@@ -16,8 +18,6 @@
 .notification-item__container:hover {
     background-color: var(--color3);
     cursor: pointer;
-    transition: 0.2s;
-    transition-timing-function: ease-in;
     color: #929191;
 }
 

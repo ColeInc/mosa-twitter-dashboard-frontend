@@ -77,7 +77,10 @@ const PieGraph: React.FC<{
                                 y={200}
                                 text={`${Math.round((Number(newProps.y) / graphPercent[0].y) * props.graphData.total)}`}
                                 style={{
+                                    fill: "#fff",
                                     fontSize: 45,
+                                    fontFamily:
+                                        "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
                                 }}
                             />
                         );

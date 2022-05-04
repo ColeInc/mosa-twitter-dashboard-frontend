@@ -59,11 +59,11 @@
     fill: #989898;
     border-radius: 0.5rem;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .post__container button:hover {
     fill: #0a0c0a;
-    transition: 0.2s;
     border-radius: 0.5rem 0.5rem 0px 0px !important;
 }
 
@@ -89,13 +89,13 @@
 
 .dropdown-parent {
     position: relative;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
 }
 
 .dropdown-parent:hover {
     border-radius: 0.5rem 0.5rem 0px 0px !important;
     background-color: var(--color4);
-    transition: 0.2s;
-    transition-timing-function: ease-in;
 }
 
 .dropdown-parent:hover svg {
@@ -129,11 +129,11 @@
     color: #d1c8c8;
     font-size: 1rem;
     font-weight: 400;
+    transition: 0.2s;
 }
 
 .dropdown-content li:hover {
     cursor: pointer;
-    transition: 0.2s;
     color: #141212;
     background-color: #2e2b28;
 }

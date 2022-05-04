@@ -1,0 +1,43 @@
+@import "../../../constants/colors.css";
+
+.pie-chart-item__container {
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.pie-chart-item__container:hover {
+    background-color: var(--color3);
+}
+
+.pie-chart-item__container h1 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #9f9696;
+    margin: 0;
+}
+
+.pie-chart-item__container p {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.pie-chart-item__change24-container {
+    border-radius: 0.5rem;
+    padding: 0.1rem 1rem 0.1rem 1rem;
+    margin-top: 0.4rem;
+}
+
+.positive {
+    background-color: #37f081;
+    color: #317130;
+}
+
+.negative {
+    background-color: #f2483e;
+    color: #962424;
+}

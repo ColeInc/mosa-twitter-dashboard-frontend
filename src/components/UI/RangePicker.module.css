@@ -22,13 +22,13 @@
     font-size: 0.7em;
     font-weight: 400;
     flex: 1;
+    transition: 0.17s;
+    transition-timing-function: ease-in-out;
     /* padding: 0.2rem 2rem 0.2rem 2rem; */
 }
 
 .range-picker__container button:hover {
     background-color: var(--color2);
-    transition: 0.17s;
-    transition-timing-function: ease-in;
     color: rgb(207, 205, 205);
 }
 

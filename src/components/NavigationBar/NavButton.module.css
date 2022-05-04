@@ -7,6 +7,7 @@
     margin-bottom: 0.4rem;
     display: flex;
     align-items: center;
+    transition: 0.3s;
 }
 
 .nav-button__font {
@@ -25,7 +26,6 @@
 
 .nav-button__button:hover {
     background-color: var(--color4);
-    transition: 0.3s;
 }
 
 .nav-button__icon {
