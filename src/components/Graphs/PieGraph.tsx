@@ -37,8 +37,9 @@ const PieGraph: React.FC<{
                     standalone={false}
                     width={400}
                     height={400}
+                    padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
                     data={[{ x: 2, y: 100 }]}
-                    innerRadius={110}
+                    innerRadius={140}
                     labels={() => null}
                     style={{
                         data: {
@@ -54,8 +55,9 @@ const PieGraph: React.FC<{
                     }}
                     width={400}
                     height={400}
+                    padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
                     data={graphPercent}
-                    innerRadius={110}
+                    innerRadius={140}
                     cornerRadius={25}
                     labels={() => null}
                     style={{
@@ -75,7 +77,9 @@ const PieGraph: React.FC<{
                                 verticalAnchor="middle"
                                 x={200}
                                 y={200}
-                                text={`${Math.round((Number(newProps.y) / graphPercent[0].y) * props.graphData.total)}`}
+                                text={`${Math.round(
+                                    (Number(newProps.y) / graphPercent[0].y) * props.graphData.total
+                                ).toLocaleString()}`}
                                 style={{
                                     fill: "#fff",
                                     fontSize: 45,

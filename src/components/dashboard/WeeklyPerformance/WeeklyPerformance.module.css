@@ -1,0 +1,23 @@
+.weekly-notifications__container {
+    height: 100%;
+    /* flex: 1; */
+    padding: 0 1rem 1rem 1rem;
+    /* overflow: auto; */
+    display: flex;
+    flex-direction: column;
+}
+
+.weekly-notifications__container h1 {
+    margin: 1rem 0 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.weekly-notifications__bar-graph-container {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* background-color: green !important; */
+    overflow: auto;
+}

@@ -3,7 +3,6 @@
 .upload-image__container {
     justify-self: flex-end;
     height: 4vh;
-    background-color: var(--color3);
     border-radius: 12px;
     margin: 0 1rem 1rem 0;
     display: flex;
@@ -12,6 +11,16 @@
     align-items: center;
     height: 5.5vh;
     cursor: pointer;
+    transition: 0.1s ease-in-out;
+    background-color: var(--color3);
+    color: #3a3a3a;
+    fill: #3a3a3a;
+}
+
+.upload-image__container:hover {
+    background-color: #000000;
+    color: #4e4848;
+    fill: #4e4848;
 }
 
 .upload-image__container h1 {
@@ -19,12 +28,10 @@
     padding: 0 10px 5px 10px;
     font-weight: 400;
     font-size: 0.8rem;
-    color: #3a3a3a;
 }
 
 .upload-image__container svg {
     width: 1.7vw;
     height: 1.7vw;
-    fill: #3a3a3a;
     margin-bottom: 3px;
 }

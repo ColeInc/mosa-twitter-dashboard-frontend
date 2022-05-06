@@ -1,10 +1,10 @@
 import React from "react";
 import classes from "./Dashboard.module.css";
 import MainContainer from "../components/Dashboard/MainContainer/MainContainer";
-import CurvedContainer from "../components/UI/CurvedContainer";
 import StatisticsHeader from "../components/Dashboard/StatisticsHeader/StatisticsHeader";
 import Notifications from "../components/Dashboard/Notifications/Notifications";
 import PieChartPanel from "../components/Dashboard/PieChartPanel/PieChartPanel";
+import WeeklyPerformance from "../components/Dashboard/WeeklyPerformance/WeeklyPerformance";
 
 const Dashboard = () => {
     return (
@@ -17,14 +17,9 @@ const Dashboard = () => {
                 </div>
                 <div className={classes["dashboard__pie-charts"]}>
                     <PieChartPanel />
-                    {/* <CurvedContainer className={classes["dashboard__right-column-item"]}>
-                        this is the right column 2
-                    </CurvedContainer> */}
                 </div>
                 <div className={classes["dashboard__bar-graphs"]}>
-                    <CurvedContainer className={classes["dashboard__right-column-item"]}>
-                        this is the right column 3
-                    </CurvedContainer>
+                    <WeeklyPerformance />
                 </div>
             </div>
         </div>
