@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { VictoryChart, VictoryLine, VictoryScatter, VictoryAxis } from "victory";
-// import classes from "./LineGraph.module.css";
 
 export const LineGraph: React.FC<{
     graphData: { x: number; y: number }[];
@@ -49,6 +48,24 @@ export const LineGraph: React.FC<{
                             duration: 0,
                         },
                     }}
+                    // animate={{
+                    //     duration: 1800,
+                    //     onLoad: { duration: 2000 },
+                    //     onEnter: { duration: 2000 },
+                    // }}
+                    // animate={{ onLoad: { duration: 200 } }}
+                    // animate={{
+                    //     animationWhitelist: ["style", "data", "size"], // Try removing "size"
+                    //     onExit: {
+                    //         duration: 500,
+                    //         before: () => ({ opacity: 0.3, _y: 0 }),
+                    //     },
+                    //     onEnter: {
+                    //         duration: 500,
+                    //         before: () => ({ opacity: 0.3, _y: 0 }),
+                    //         after: datum => ({ opacity: 1, _y: datum._y }),
+                    //     },
+                    // }}
                 />
 
                 {/* to remove x and y axis: */}

@@ -73,7 +73,7 @@ const StatisticsItem: React.FC<{ metric: string; timeRange: string }> = props =>
             <div className={classes["item__upper-items"]}>
                 <h2>{statisticValue}</h2>
                 <div className={classes["item__graph-container"]}>
-                    <LineGraph graphData={statisticData} color={metricColors[metric]} />
+                    <LineGraph graphData={statisticData} color={metricColors[metric]} lineWidth={3} dotSize={5} />
                 </div>
             </div>
             <div className={classes["item__bottom-text"]}>

@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from "react";
 import { VictoryAxis, VictoryBar, VictoryChart } from "victory";
+import BarGraphData from "../../models/BarGraphData";
 import classes from "./BarGraph.module.css";
 
-const defaultGraphData = [
+const templateGraphData: BarGraphData[] = [
     { x: "Monday", y: 10 },
     { x: "Tuesday", y: 10 },
     { x: "Wednesday", y: 10 },
@@ -12,17 +13,7 @@ const defaultGraphData = [
     { x: "Sunday", y: 10 },
 ];
 
-const barGraphData = [
-    { x: "Monday", y: 2 },
-    { x: "Tuesday", y: 3 },
-    { x: "Wednesday", y: 5 },
-    { x: "Thursday", y: 4 },
-    { x: "Friday", y: 1 },
-    { x: "Saturday", y: 6 },
-    { x: "Sunday", y: 10 },
-];
-
-const BarGraph = () => {
+const BarGraph: React.FC<{ barGraphData: BarGraphData[] }> = props => {
     const [boundingRect, setBoundingRect] = useState({ width: 0, height: 0 });
 
     const graphRef = useCallback(node => {
@@ -33,38 +24,36 @@ const BarGraph = () => {
 
     return (
         <div className={classes["bar-graph__container"]} ref={graphRef}>
-            <svg
-                viewBox="0 0 400 400"
-                height={boundingRect.height}
-                width={boundingRect.width}
-                className={classes["bar-graph__svg-container"]}
-            >
+            <svg viewBox="0 0 100% 100%" width="100%" height="100%">
                 <VictoryChart
-                    height={400}
-                    width={400}
                     standalone={false}
-                    animate={{
-                        duration: 800,
-                        onLoad: { duration: 200 },
-                    }}
-                    padding={{ top: 0, right: 0, bottom: 25, left: 0 }}
+                    height={boundingRect.height}
+                    width={boundingRect.width}
+                    // padding={{ top: 0, right: 20, bottom: 25, left: 20 }}
+                    padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
                 >
                     <VictoryBar
                         standalone={false}
-                        data={defaultGraphData}
-                        cornerRadius={{ top: 8, bottom: 8 }}
+                        data={templateGraphData}
+                        cornerRadius={{ top: 6, bottom: 6 }}
                         style={{
-                            data: { fill: "#1E1E1E", width: 15 },
+                            data: { fill: "#1E1E1E", width: 12 },
                             parent: { height: "100%" },
+                        }}
+                        animate={{
+                            onLoad: { duration: 1200 },
                         }}
                     />
                     <VictoryBar
-                        data={barGraphData}
-                        cornerRadius={{ top: 8, bottom: 8 }}
+                        data={props.barGraphData}
+                        cornerRadius={{ top: 6, bottom: 6 }}
                         standalone={false}
                         style={{
-                            data: { fill: "#2BEAB8", width: 15 },
+                            data: { fill: "#2BEAB8", width: 12 },
                             parent: { height: "100%" },
+                        }}
+                        animate={{
+                            onLoad: { duration: 1200 },
                         }}
                     />
                     <VictoryAxis
@@ -80,12 +69,17 @@ const BarGraph = () => {
                         style={{
                             axis: { stroke: "transparent" },
                             ticks: { stroke: "transparent" },
-                            tickLabels: { fill: "#fff" },
+                            tickLabels: {
+                                fill: "#9F9696",
+                                fontSize: 11,
+                                fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                                sans-serif`,
+                            },
                         }}
                         tickValues={["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}
-                        tickFormat={sentiment => {
-                            console.log(sentiment.toString());
-                            return `${sentiment.toString().substring(0, 1)}`;
+                        tickFormat={currentTick => {
+                            return `${currentTick.toString().substring(0, 1)}`;
                         }}
                     />
                 </VictoryChart>

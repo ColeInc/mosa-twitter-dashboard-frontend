@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { VictoryAnimation, VictoryPie, VictoryLabel } from "victory";
 import PieChartData from "../../models/PieChartData";
+import classes from "./PieGraph.module.css";
 
 // an algorithm to calculate an arbitrary milestone relatively close in proximity to their current metric value, to represent "100%" of the pie graph.
 const nextMilestone = (num: number) => {
@@ -31,13 +32,14 @@ const PieGraph: React.FC<{
     };
 
     return (
-        <div>
+        <div className={classes["pie-graph__container"]}>
             <svg viewBox="0 0 400 400" width="100%" height="100%">
                 <VictoryPie
                     standalone={false}
                     width={400}
                     height={400}
-                    padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
+                    // padding={{ top: 0, right: 50, bottom: 0, left: 50 }}
+                    padding={{ top: 0, right: 0, bottom: 0, left: 0 }}
                     data={[{ x: 2, y: 100 }]}
                     innerRadius={140}
                     labels={() => null}
@@ -55,10 +57,11 @@ const PieGraph: React.FC<{
                     }}
                     width={400}
                     height={400}
-                    padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
+                    // padding={{ top: 0, right: 50, bottom: 0, left: 50 }}
+                    padding={{ top: 0, right: 0, bottom: 0, left: 0 }}
                     data={graphPercent}
                     innerRadius={140}
-                    cornerRadius={25}
+                    cornerRadius={999}
                     labels={() => null}
                     style={{
                         data: {
@@ -82,7 +85,7 @@ const PieGraph: React.FC<{
                                 ).toLocaleString()}`}
                                 style={{
                                     fill: "#fff",
-                                    fontSize: 45,
+                                    fontSize: 60,
                                     fontFamily:
                                         "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
                                 }}
