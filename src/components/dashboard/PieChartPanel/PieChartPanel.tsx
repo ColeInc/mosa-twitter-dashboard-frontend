@@ -20,7 +20,7 @@ const PieChartPanel = () => {
         setPieData([
             {
                 title: "engagement",
-                total: 9284272,
+                total: 128427,
                 change24h: 14.7,
                 color: "#1FC1FB",
             },

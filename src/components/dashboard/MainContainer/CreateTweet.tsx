@@ -26,7 +26,7 @@ const CreateTweet = () => {
         }
 
         // if user selects QUEUE and tweet is less than 280 chars, add tweet to "posts" redux slice:
-        if (!tooLong && dropdownItem === "QUEUE") {
+        if (!tooLong && dropdownItem.toLowerCase() === "queue") {
             dispatch(
                 sendPostData({
                     type: "queue",
@@ -38,7 +38,7 @@ const CreateTweet = () => {
             setTweetInput("");
         }
         // if user selects DRAFT (and character length does not matter), add tweet to "drafts" list in redux slice:
-        else if (dropdownItem === "DRAFT") {
+        else if (dropdownItem.toLowerCase() === "DRAFT") {
             dispatch(
                 sendPostData({
                     type: "drafts",
@@ -47,10 +47,10 @@ const CreateTweet = () => {
                 })
             );
             // clear current tweet in input box:
-            // setTweetInput("");
+            setTweetInput("");
         }
         // if user input is valid, tweet instantly:
-        else if (!tooLong && dropdownItem === "TWEET") {
+        else if (!tooLong && dropdownItem.toLowerCase() === "tweet") {
             // clear current tweet in input box:
             setTweetInput("");
         }

@@ -38,7 +38,6 @@ const NotificationItem: React.FC<{ data: Notification }> = props => {
                     <h1>
                         <b>{props.data.username}</b> {props.data.action}
                     </h1>
-                    {/* <h2>{props.data.description.substring(0, 20)}...</h2> */}
                     <h2>{props.data.description}</h2>
                 </div>
                 <p>{moment(props.data.time).fromNow(true)}</p>

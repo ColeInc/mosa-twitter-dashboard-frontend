@@ -6,17 +6,18 @@ import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-setti
 import CurvedContainer from "../../UI/CurvedContainer";
 import PostType from "../../../models/Post";
 import classes from "./Post.module.css";
+import moment from "moment";
 // import EditPostModal from "../../UI/EditPostModal";
 
-const formatAMPM = (date: Date) => {
-    let hours = date.getHours();
-    let minutes: string | number = date.getMinutes();
-    const ampm = hours >= 12 ? "pm" : "am";
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    const strTime = hours + ":" + minutes + ampm;
-    return strTime;
+const formatDateTime = (dateToFormat: string) => {
+    const momentDateToFormat = moment(dateToFormat);
+    const diff = momentDateToFormat.diff(moment(), "days");
+    const timeStr = "h:mma";
+    const dateStr = diff >= 7 ? "dddd, Do MMM" : "dddd";
+
+    const formattedTime = momentDateToFormat.format(timeStr);
+    const formattedDate = momentDateToFormat.format(dateStr);
+    return [formattedTime, formattedDate];
 };
 
 const Post: React.FC<{ post: PostType }> = props => {
@@ -24,7 +25,7 @@ const Post: React.FC<{ post: PostType }> = props => {
     const { scheduledTime } = props.post;
 
     const formattedTime = useMemo(() => {
-        return formatAMPM(new Date(scheduledTime));
+        return formatDateTime(scheduledTime);
     }, [scheduledTime]);
 
     const moveToDraftsHandler = () => {
@@ -49,7 +50,7 @@ const Post: React.FC<{ post: PostType }> = props => {
             <div className={classes["post__right-column"]}>
                 <div className={classes["post__right-column-heading"]}>
                     <h1>
-                        <b>{formattedTime}</b> - {props.post.scheduledTime.toString()}
+                        <b>{formattedTime[0]}</b> - {formattedTime[1]}
                     </h1>
 
                     <div className={classes["dropdown-parent"]}>

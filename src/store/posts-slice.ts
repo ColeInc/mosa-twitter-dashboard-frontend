@@ -15,7 +15,7 @@ const initialPostsState: InitialPosts = {
 
         t enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi est consequat.`,
             media: null,
-            scheduledTime: "April 14, 2022 10:30:00",
+            scheduledTime: "May 14, 2022 10:30:00",
             threadId: null,
             type: "queue",
         },
@@ -25,7 +25,7 @@ const initialPostsState: InitialPosts = {
 
         Asking for a friend...`,
             media: null,
-            scheduledTime: "April 14, 2022 16:02:00",
+            scheduledTime: "May 10, 2022 02:30:00",
             threadId: null,
             type: "queue",
         },
@@ -34,7 +34,7 @@ const initialPostsState: InitialPosts = {
             body: `Does a cat count as a tax write off?
         Please help. My accountant won’t answer my calls.`,
             media: null,
-            scheduledTime: "April 17, 2022 16:02:00",
+            scheduledTime: "July 12, 2022 16:30:00",
             threadId: null,
             type: "queue",
         },
