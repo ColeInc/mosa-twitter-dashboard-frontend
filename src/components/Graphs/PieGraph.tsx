@@ -41,7 +41,7 @@ const PieGraph: React.FC<{
                     // padding={{ top: 0, right: 50, bottom: 0, left: 50 }}
                     padding={{ top: 0, right: 0, bottom: 0, left: 0 }}
                     data={[{ x: 2, y: 100 }]}
-                    innerRadius={140}
+                    innerRadius={150}
                     labels={() => null}
                     style={{
                         data: {
@@ -60,7 +60,7 @@ const PieGraph: React.FC<{
                     // padding={{ top: 0, right: 50, bottom: 0, left: 50 }}
                     padding={{ top: 0, right: 0, bottom: 0, left: 0 }}
                     data={graphPercent}
-                    innerRadius={140}
+                    innerRadius={150}
                     cornerRadius={999}
                     labels={() => null}
                     style={{

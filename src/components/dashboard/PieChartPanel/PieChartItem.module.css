@@ -20,7 +20,7 @@
 }
 
 .pie-chart-item__container h1 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: #9f9696;
     margin: 0;
@@ -34,7 +34,7 @@
 
 .pie-chart-item__change24-container {
     border-radius: 0.5rem;
-    padding: 0.1rem 1rem 0.1rem 1rem;
+    padding: 0.2rem 1rem 0.2rem 1rem;
     margin-top: 0.4rem;
     margin-bottom: 0.8rem;
 }

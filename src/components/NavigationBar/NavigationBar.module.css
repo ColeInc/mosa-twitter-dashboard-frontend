@@ -79,6 +79,14 @@
     .nav-bar__main-container h2 {
         font-size: 1rem;
     }
+
+    .nav-bar__profile-img {
+        width: 4rem;
+    }
+
+    .nav-bar__user-data-box {
+        margin-bottom: 1.5rem;
+    }
 }
 
 /* ======= Collapse Navigation Bar into tablet view  ======= */
@@ -98,6 +106,7 @@
         margin-top: 1rem;
         padding: 0.7em;
         /* padding: 0 0.5em 0.5em 0.5em; */
+        width: 3rem;
     }
 
     .nav-bar__nav-container {

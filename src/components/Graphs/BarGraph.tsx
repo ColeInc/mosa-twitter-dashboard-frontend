@@ -29,8 +29,8 @@ const BarGraph: React.FC<{ barGraphData: BarGraphData[] }> = props => {
                     standalone={false}
                     height={boundingRect.height}
                     width={boundingRect.width}
-                    // padding={{ top: 0, right: 20, bottom: 25, left: 20 }}
-                    padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
+                    padding={{ top: 0, right: 10, bottom: 25, left: 10 }}
+                    // padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
                 >
                     <VictoryBar
                         standalone={false}
