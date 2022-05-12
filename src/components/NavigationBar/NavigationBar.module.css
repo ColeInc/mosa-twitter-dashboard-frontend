@@ -89,7 +89,7 @@
     }
 }
 
-/* ======= Collapse Navigation Bar into tablet view  ======= */
+/* ======= Collapse Navigation Bar into Tablet View  ======= */
 @media (max-width: 82em) {
     .tablet {
         display: none;
@@ -105,7 +105,6 @@
         flex: 1;
         margin-top: 1rem;
         padding: 0.7em;
-        /* padding: 0 0.5em 0.5em 0.5em; */
         width: 3rem;
     }
 
@@ -115,5 +114,40 @@
 
     .nav-bar__user-data-box {
         margin-bottom: 0;
+    }
+}
+
+/* ======= Navigation Bar into Mobile View  ======= */
+@media (max-width: 30em) {
+    .nav-bar__main-container {
+        width: 100%;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        margin-right: auto;
+        z-index: 10;
+    }
+
+    .nav-bar__nav-container {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+        margin: 0 0.4rem 0.4rem 0.4rem;
+        border-radius: 1.3rem;
+        background-color: #252424dc;
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+    }
+
+    .nav-bar__upper-container {
+        display: none;
     }
 }

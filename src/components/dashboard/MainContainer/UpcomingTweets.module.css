@@ -26,3 +26,10 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 62.5em) {
+    .upcoming-tweets__container {
+        grid-column: 1;
+        grid-row: 2 / 3;
+    }
+}

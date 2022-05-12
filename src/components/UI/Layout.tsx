@@ -11,8 +11,8 @@ import NotFound from "../../pages/NotFound";
 
 const Layout = () => {
     return (
-        <main className={classes["dashboard__container"]}>
-            <div className={classes["dashboard__horizontal-container"]}>
+        <main className={classes["layout__container"]}>
+            <div className={classes["layout__horizontal-container"]}>
                 <NavigationBar />
 
                 <Routes>

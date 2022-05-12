@@ -9,3 +9,15 @@
     display: flex;
     flex: 1;
 }
+
+@media (max-width: 62.5em) {
+    .statistics-header__items-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    ::-webkit-scrollbar {
+        display: none; /* hide scrollbar on chrome */
+    }
+}

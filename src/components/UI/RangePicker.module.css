@@ -41,3 +41,14 @@
     background-color: #2e2b28 !important;
     transition: 0.1s !important;
 }
+
+@media (max-width: 62.5em) {
+    .range-picker__container {
+        width: 50vw;
+        min-width: 0px;
+    }
+
+    .range-picker__container button {
+        font-size: 0.5rem;
+    }
+}

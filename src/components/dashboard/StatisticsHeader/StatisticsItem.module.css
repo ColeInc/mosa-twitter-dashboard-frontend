@@ -61,3 +61,9 @@
     color: #9f9696;
     margin: 0;
 }
+
+@media (max-width: 62.5em) {
+    .item__container {
+        flex: 0 0 20rem;
+    }
+}

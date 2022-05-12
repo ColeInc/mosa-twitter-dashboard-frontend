@@ -8,7 +8,6 @@
 .three-components-container__css-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* grid-template-rows: 7fr 3fr; */
     grid-template-rows: minmax(0, 7fr) minmax(0, 3fr);
     height: 100%;
 }
@@ -20,13 +19,9 @@
 }
 
 @media (max-width: 62.5em) {
-    .three-components-container__container {
-        flex: 4;
-        background-color: red !important;
-    }
-
     .three-components-container__css-grid {
         flex-direction: column;
-        flex: 6;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 2fr) minmax(0, 2fr) 1fr;
     }
 }
