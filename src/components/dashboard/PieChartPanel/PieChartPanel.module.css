@@ -5,3 +5,15 @@
     column-gap: 0.6rem;
     padding: 0.6rem;
 }
+
+@media (max-width: 43em) {
+    .pie-chart-panel__container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    ::-webkit-scrollbar {
+        display: none; /* hide scrollbar on chrome */
+    }
+}

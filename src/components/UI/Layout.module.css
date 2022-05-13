@@ -28,6 +28,7 @@ body {
     }
 }
 
+/* ======= Tablet View ======= */
 @media (max-width: 82em) {
     .layout__container {
         height: 250vh;
@@ -52,6 +53,7 @@ body {
     }
 }
 
+/* ======= Mobile View ======= */
 @media (max-width: 30em) {
     .layout__container {
         margin-bottom: 4.3rem;

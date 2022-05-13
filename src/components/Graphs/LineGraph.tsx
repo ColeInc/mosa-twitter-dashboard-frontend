@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { VictoryChart, VictoryLine, VictoryScatter, VictoryAxis } from "victory";
+import { VictoryChart, VictoryLine, VictoryScatter, VictoryAxis, VictoryContainer } from "victory";
+// import classes from "./LineGraph.module.css";
 
 export const LineGraph: React.FC<{
     graphData: { x: number; y: number }[];
@@ -25,6 +26,15 @@ export const LineGraph: React.FC<{
                     duration: 1200,
                     onLoad: { duration: 200 },
                 }}
+                containerComponent={
+                    <VictoryContainer
+                        style={{
+                            pointerEvents: "auto",
+                            userSelect: "auto",
+                            touchAction: "auto",
+                        }}
+                    />
+                }
             >
                 <VictoryLine
                     interpolation="monotoneX"

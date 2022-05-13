@@ -48,3 +48,10 @@
     background-color: #f2483e;
     color: #962424;
 }
+
+@media (max-width: 43em) {
+    .pie-chart-item__container {
+        flex: 0 0 12rem;
+        background-color: var(--color3);
+    }
+}

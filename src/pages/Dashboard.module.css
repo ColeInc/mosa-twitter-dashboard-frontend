@@ -92,6 +92,13 @@
     }
 }
 
+/* ======= Collapse Navigation Bar into Tablet View  ======= */
+@media (max-width: 82em) {
+    .dashboard__components-container {
+        margin-left: 80px;
+    }
+}
+
 @media (max-width: 62.5em) {
     .dashboard__components-container {
         max-height: 180em;
@@ -127,5 +134,9 @@
     .dashboard__components-grid-container {
         grid-template-rows: 0.3fr minmax(0, 1.5fr) 0.5fr 0.5fr 0.5fr;
         padding: 0.6rem;
+    }
+
+    .dashboard__components-container {
+        margin-left: 0px;
     }
 }
