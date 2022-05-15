@@ -10,7 +10,7 @@ const metricColors: any = {
     follows: "#EE31E0",
 };
 
-const StatisticsItem: React.FC<{ metric: string; timeRange: string }> = props => {
+const StatisticsItem: React.FC<{ metric: string; timeRange: string; children?: React.ReactNode }> = props => {
     const [statisticValue, setStatisticValue] = useState("");
     const [statisticData, setStatisticData] = useState<GraphData[]>([{ x: 0, y: 0 }]);
 

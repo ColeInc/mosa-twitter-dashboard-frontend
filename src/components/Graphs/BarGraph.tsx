@@ -16,7 +16,7 @@ const templateGraphData: BarGraphData[] = [
 const BarGraph: React.FC<{ barGraphData: BarGraphData[] }> = props => {
     const [boundingRect, setBoundingRect] = useState({ width: 0, height: 0 });
 
-    const graphRef = useCallback(node => {
+    const graphRef = useCallback((node: any) => {
         if (node !== null) {
             setBoundingRect(node.getBoundingClientRect());
         }
@@ -58,13 +58,6 @@ const BarGraph: React.FC<{ barGraphData: BarGraphData[] }> = props => {
                     />
                     <VictoryAxis
                         crossAxis
-                        axisComponent={
-                            <p>
-                                {(value: any) => {
-                                    <p>{value} </p>;
-                                }}
-                            </p>
-                        }
                         standalone={false}
                         style={{
                             axis: { stroke: "transparent" },

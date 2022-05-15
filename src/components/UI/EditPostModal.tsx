@@ -1,40 +1,33 @@
 import React from "react";
-// import ReactDOM from "react-dom/client";
+import * as ReactDOM from "react-dom";
 import classes from "./EditPostModal.module.css";
+import PostType from "../../models/Post";
 
 const Backdrop: React.FC<{ onConfirm: () => void }> = props => {
-    // const Backdrop = props => {
     return <div className={classes.backdrop} onClick={props.onConfirm} />;
 };
 
-const ModalOverlay: React.FC<{ title: string; message: string; onConfirm: () => void }> = props => {
-    // const ModalOverlay = props => {
+const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props => {
     return (
-        <div className={classes.modal}>
-            <header className={classes.header}>
-                <h2>{props.title}</h2>
-            </header>
-            <div className={classes.content}>
-                <p>{props.message}</p>
+        <div className={classes["modal__container"]} onClick={props.onConfirm}>
+            <div className={classes["modal__box"]}>
+                <h2>{props.post.body}</h2>
+                <button onClick={props.onConfirm}>Save</button>
             </div>
-            <footer className={classes.actions}>
-                <button onClick={props.onConfirm}>Okay</button>
-            </footer>
         </div>
     );
 };
 
-const ErrorModal: React.FC<{ title: string; message: string; onConfirm: () => void }> = props => {
-    // const ErrorModal = props => {
-    // const backdropRoot = document.getElementById("backdrop") as HTMLElement;
-    // const overlayRoot = document.getElementById("overlay") as HTMLElement;
+const ErrorModal: React.FC<{ post: PostType; onConfirm: () => void }> = props => {
+    const backdropRoot = document.getElementById("backdrop") as HTMLElement;
+    const overlayRoot = document.getElementById("overlay") as HTMLElement;
+    // Need to make this check in React 18 for typescript for some reason.
+    if (!backdropRoot || !overlayRoot) throw new Error("Failed to find the root element");
+
     return (
         <React.Fragment>
-            {/* {ReactDOM.createPortal(<Backdrop onConfirm={props.onConfirm} />, document.getElementById("backdrop"))}
-            {ReactDOM.createPortal(
-                <ModalOverlay title={props.title} message={props.message} onConfirm={props.onConfirm} />,
-                document.getElementById("overlay")
-            )} */}
+            {ReactDOM.createPortal(<Backdrop onConfirm={props.onConfirm} />, backdropRoot)}
+            {ReactDOM.createPortal(<ModalOverlay post={props.post} onConfirm={props.onConfirm} />, overlayRoot)}
         </React.Fragment>
     );
 };

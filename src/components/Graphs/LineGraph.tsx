@@ -7,10 +7,11 @@ export const LineGraph: React.FC<{
     color?: string;
     lineWidth?: number;
     dotSize?: number;
+    children?: React.ReactNode;
 }> = props => {
     const [boundingRect, setBoundingRect] = useState({ width: 0, height: 0 });
 
-    const graphRef = useCallback(node => {
+    const graphRef = useCallback((node: any) => {
         if (node !== null) {
             setBoundingRect(node.getBoundingClientRect());
         }

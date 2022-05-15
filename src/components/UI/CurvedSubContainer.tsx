@@ -1,13 +1,9 @@
 import React from "react";
 import classes from "./CurvedSubContainer.module.css";
 
-const CurvedSubContainer: React.FC<{ className: string }> = (props: any) => {
+const CurvedSubContainer: React.FC<{ className: string; children?: React.ReactNode }> = (props: any) => {
     return (
-        <div
-            className={`${classes["curved-sub-container"]} ${
-                props.className && props.className
-            }`}
-        >
+        <div className={`${classes["curved-sub-container"]} ${props.className && props.className}`}>
             {props.children}
         </div>
     );
