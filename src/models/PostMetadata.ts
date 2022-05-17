@@ -1,7 +1,7 @@
 interface PostMetadata {
     id?: string;
-    type: "queue" | "drafts" | "tweet";
     threadId?: string;
+    type: "queue" | "drafts" | "tweet";
     body: string;
     media?: string;
     scheduledTime: string;

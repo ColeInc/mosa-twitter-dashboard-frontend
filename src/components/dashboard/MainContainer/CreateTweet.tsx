@@ -1,58 +1,47 @@
 import React, { useState } from "react";
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
-import { useDispatch } from "react-redux";
-import { sendPostData } from "../../../store/posts-actions";
-
-import classes from "./CreateTweet.module.css";
+import usePostsThunk from "../../../hooks/use-posts-thunk";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
-import UploadImage from "../../UI/UploadImage";
+import TweetForm from "../../UI/TweetForm";
 import Dropdown from "../../UI/Dropdown";
+import classes from "./CreateTweet.module.css";
+import PostMetadata from "../../../models/PostMetadata";
 
 const dropdownItems = ["QUEUE", "DRAFT", "TWEET"];
+const defaultPost: PostMetadata = {
+    type: "queue",
+    body: "",
+    scheduledTime: "",
+};
 
 const CreateTweet = () => {
     const [dropdownItem, setDropdownItem] = useState("queue");
-    const [tweetInput, setTweetInput] = useState<string>("");
-    const dispatch = useDispatch();
+    const [tweetInput, setTweetInput] = useState<PostMetadata>(defaultPost);
+    const dispatchPost = usePostsThunk();
 
-    const charCount = tweetInput?.length || 0;
-    const tooLong = charCount > 280 ? true : false;
+    const charCount = tweetInput?.body?.length || 0;
+
+    const onFormChangeHandler = (tweet: string) => {
+        setTweetInput(prevState => {
+            return { ...prevState, body: tweet };
+        });
+    };
 
     const onFormSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
         if (charCount < 1) {
-            return;
+            return null;
         }
 
-        // if user selects QUEUE and tweet is less than 280 chars, add tweet to "posts" redux slice:
-        if (!tooLong && dropdownItem.toLowerCase() === "queue") {
-            dispatch(
-                sendPostData({
-                    type: "queue",
-                    body: tweetInput,
-                    scheduledTime: new Date().toLocaleString(),
-                })
-            );
-            // clear current tweet in input box:
-            setTweetInput("");
-        }
-        // if user selects DRAFT (and character length does not matter), add tweet to "drafts" list in redux slice:
-        else if (dropdownItem.toLowerCase() === "DRAFT") {
-            dispatch(
-                sendPostData({
-                    type: "drafts",
-                    body: tweetInput,
-                    scheduledTime: new Date().toLocaleString(),
-                })
-            );
-            // clear current tweet in input box:
-            setTweetInput("");
-        }
-        // if user input is valid, tweet instantly:
-        else if (!tooLong && dropdownItem.toLowerCase() === "tweet") {
-            // clear current tweet in input box:
-            setTweetInput("");
+        const response = dispatchPost(tweetInput, dropdownItem, "add");
+        if (response.isValid) {
+            // if tweet was successfully saved, clear the input of current tweet text input box:
+            setTweetInput(prevState => {
+                return { ...prevState, body: "" };
+            });
+        } else {
+            // TODO: display error msg back to user.
         }
     };
 
@@ -60,24 +49,7 @@ const CreateTweet = () => {
         <CurvedSubContainer className={classes["create-tweet__container"]}>
             <h1>CREATE TWEET</h1>
             <form className={classes["create-tweet__form"]} onSubmit={onFormSubmit}>
-                <div className={classes["create-tweet__text-input-box"]}>
-                    <textarea
-                        className={classes["create-tweet__input"]}
-                        placeholder="Type a tweet..."
-                        onChange={event => setTweetInput(event.target.value)}
-                        value={tweetInput || ""}
-                    />
-                    <div className={classes["create-tweet__input-bottom-container"]}>
-                        <p
-                            className={`${classes["create-tweet__remaining-chars"]} ${
-                                tooLong && classes["error-text"]
-                            }`}
-                        >
-                            {charCount} / 280
-                        </p>
-                        <UploadImage />
-                    </div>
-                </div>
+                <TweetForm onTextChange={onFormChangeHandler} tweetValue={tweetInput.body} />
                 <div className={classes["create-tweet__buttons-container"]}>
                     <button className={classes["create-tweet__button-settings"]}>
                         <SettingsIcon />

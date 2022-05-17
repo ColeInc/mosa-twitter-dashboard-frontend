@@ -1,11 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 import Post from "../models/Post";
+import PostMetadata from "../models/PostMetadata";
 
 interface InitialPosts {
     queue: Post[];
     drafts: Post[];
 }
+
+// const initialPostsState: InitialPosts = {
+//     queue: [],
+//     drafts: [],
+// };
 
 const initialPostsState: InitialPosts = {
     queue: [
@@ -71,7 +77,7 @@ const postsSlice = createSlice({
     name: "posts",
     initialState: initialPostsState,
     reducers: {
-        addPost(state, action) {
+        addPost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
             const uuid = uuidv4();
             const media = null; // TODO: will implement condition here when upload media feature implemented
             const scheduledTime =
@@ -90,7 +96,8 @@ const postsSlice = createSlice({
 
             state[action.payload.type as keyof InitialPosts].push(postMetadata);
         },
-        updatePost(state, action) {
+        updatePost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
+            console.log(action);
             const tweetId = action.payload.id;
             const media = action.payload.media;
             const scheduledTime =
@@ -98,7 +105,7 @@ const postsSlice = createSlice({
                     ? action.payload.scheduledTime.toLocaleString()
                     : new Date().toLocaleString();
 
-            const postMetadata = {
+            const forgedPost = {
                 id: tweetId,
                 body: action.payload.body,
                 media: media,
@@ -115,15 +122,15 @@ const postsSlice = createSlice({
 
             const index = action.payload.type as keyof InitialPosts;
             const foundIndex = state[index].findIndex((item: Post) => item.id === tweetId);
-            state[index][foundIndex] = postMetadata;
+            state[index][foundIndex] = forgedPost as Post;
             // TODO: need to make some kind of safety check to make sure we aren't setting type queue to draft but still storing it in queue array ya know (and vice versa )
         },
-        removePost(state, action) {
+        removePost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
             const tweetToDelete = action.payload.id;
 
             const index = action.payload.type as keyof InitialPosts;
 
-            state[index] = state[index].filter(post => {
+            state[index] = state[index].filter((post: Post) => {
                 return post.id !== tweetToDelete;
             });
         },

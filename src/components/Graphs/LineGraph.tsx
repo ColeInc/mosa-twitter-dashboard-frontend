@@ -23,10 +23,10 @@ export const LineGraph: React.FC<{
                 height={boundingRect.height}
                 width={boundingRect.width}
                 padding={{ top: 5, right: 10, bottom: 5, left: 10 }}
-                animate={{
-                    duration: 1200,
-                    onLoad: { duration: 200 },
-                }}
+                // animate={{
+                //     duration: 1200,
+                //     onLoad: { duration: 200 },
+                // }}
                 containerComponent={
                     <VictoryContainer
                         style={{
@@ -54,11 +54,11 @@ export const LineGraph: React.FC<{
                     data={props.graphData}
                     size={props.dotSize || 6}
                     style={{ ...scatterStyle, data: { fill: props.color || "#2BEAB8" } }}
-                    animate={{
-                        onEnter: {
-                            duration: 0,
-                        },
-                    }}
+                    // animate={{
+                    //     onEnter: {
+                    //         duration: 0,
+                    //     },
+                    // }}
                     // animate={{
                     //     duration: 1800,
                     //     onLoad: { duration: 2000 },

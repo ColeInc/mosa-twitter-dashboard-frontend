@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classes from "./Dropdown.module.css";
-
 import { ReactComponent as RightChevron } from "../../assets/icons/noun-right-chevron-4695692.svg";
 
 const Dropdown: React.FC<{

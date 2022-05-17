@@ -2,10 +2,11 @@ import { postsActions } from "./posts-slice";
 // not re-using main "posts" interface because of mandatory "id" field:
 import PostMetadata from "../models/PostMetadata";
 
-export const sendPostData = (tweetData: PostMetadata) => {
+export const addPostDataThunk = (tweetData: PostMetadata) => {
     return async (dispatch: any) => {
         // send post directly to API to tweet it:
         if (tweetData.type === "tweet") {
+            // TODO: send request to createTweet backend API
         }
         // else, send to backend + store in redux slice:
         else {
@@ -18,23 +19,23 @@ export const sendPostData = (tweetData: PostMetadata) => {
     };
 };
 
-export const updatePostData = (tweetData: PostMetadata) => {
+export const updatePostDataThunk = (tweetData: PostMetadata) => {
     return async (dispatch: any) => {
         // TODO: send PATCH request to backend to store tweet persistently:
 
-        dispatch(postsActions.removePost(tweetData.id));
+        dispatch(postsActions.removePost(tweetData));
         dispatch(postsActions.addPost(tweetData));
     };
 };
 
-export const deleteTweet = (tweet: { id: string; type: string }) => {
+export const deleteTweetThunk = (tweetData: PostMetadata) => {
     return async (dispatch: any) => {
-        dispatch(postsActions.removePost(tweet));
+        dispatch(postsActions.removePost(tweetData));
     };
 };
 
 // move a tweet from Drafts to Queue, or vice versa:
-export const toggleDraft = (tweet: PostMetadata) => {
+export const toggleDraftThunk = (tweet: PostMetadata) => {
     return async (dispatch: any) => {
         const newType = tweet.type === "queue" ? "drafts" : "queue";
         dispatch(postsActions.removePost(tweet));

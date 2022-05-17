@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteTweet, toggleDraft } from "../../../store/posts-actions";
+import { deleteTweetThunk, toggleDraftThunk } from "../../../store/posts-actions";
 import { ReactComponent as QueueIcon } from "../../../assets/icons/noun-time-4691990.svg";
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
 import CurvedContainer from "../../UI/CurvedContainer";
@@ -8,6 +8,7 @@ import PostType from "../../../models/Post";
 import classes from "./Post.module.css";
 import moment from "moment";
 import EditPostModal from "../../UI/EditPostModal";
+import PostMetadata from "../../../models/PostMetadata";
 
 const formatDateTime = (dateToFormat: string) => {
     const momentDateToFormat = moment(dateToFormat);
@@ -31,7 +32,7 @@ const Post: React.FC<{ post: PostType }> = props => {
 
     const moveToDraftsHandler = () => {
         dispatch(
-            toggleDraft({
+            toggleDraftThunk({
                 ...props.post,
                 threadId: undefined,
                 media: undefined,
@@ -39,8 +40,8 @@ const Post: React.FC<{ post: PostType }> = props => {
         );
     };
 
-    const deleteTweetHandler = () => {
-        dispatch(deleteTweet({ id: props.post.id, type: props.post.type }));
+    const deleteTweetThunkHandler = () => {
+        dispatch(deleteTweetThunk(props.post as PostMetadata));
     };
 
     const toggleModalHandler = () => {
@@ -67,7 +68,7 @@ const Post: React.FC<{ post: PostType }> = props => {
                         <ul className={classes["dropdown-content"]}>
                             <li onClick={toggleModalHandler}>Edit</li>
                             <li onClick={moveToDraftsHandler}>Move to Drafts</li>
-                            <li onClick={deleteTweetHandler}>Delete Tweet</li>
+                            <li onClick={deleteTweetThunkHandler}>Delete Tweet</li>
                         </ul>
                     </div>
                 </div>

@@ -1,0 +1,94 @@
+.tweet-form__text-input-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    /* background-color: var(--color1); */
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    /* background: linear-gradient(#e66465, #9198e5); */
+    background-image: linear-gradient(
+        120deg,
+        hsl(0deg 0% 16%) 0%,
+        hsl(60deg 0% 16%) 8%,
+        hsl(60deg 0% 15%) 15%,
+        hsl(60deg 0% 15%) 22%,
+        hsl(60deg 1% 14%) 29%,
+        hsl(60deg 1% 13%) 36%,
+        hsl(60deg 1% 13%) 43%,
+        hsl(60deg 1% 12%) 51%,
+        hsl(60deg 1% 12%) 59%,
+        hsl(60deg 1% 11%) 68%,
+        hsl(60deg 2% 11%) 79%,
+        hsl(60deg 2% 10%) 100%
+    );
+}
+
+.tweet-form__input {
+    flex: 1;
+    border: none;
+    background-color: inherit;
+    border-radius: inherit;
+    font-size: 1.7rem;
+    font-family: inherit;
+    padding: 1rem;
+    resize: none;
+    color: #d1c8c8;
+}
+
+.tweet-form__input:focus {
+    outline: none;
+    background-color: inherit;
+    color: #d1c8c8;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #3a3a3a;
+}
+
+textarea:-moz-placeholder {
+    /* Firefox 18- */
+    color: #3a3a3a;
+}
+
+textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #3a3a3a;
+}
+
+textarea:-ms-input-placeholder {
+    color: #3a3a3a;
+}
+
+textarea::placeholder {
+    color: #3a3a3a;
+    /* color: #141414; */
+    /* color: #e9e9e9; */
+}
+
+.tweet-form__input-bottom-container {
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tweet-form__remaining-chars {
+    margin: auto 0 1rem 1rem;
+    color: #3a3a3a;
+}
+
+.error-text {
+    color: #c24343;
+    font-weight: bold;
+}
+
+@media (max-width: 62.5em) {
+    .tweet-form__input {
+        font-size: 1rem;
+    }
+
+    .tweet-form__remaining-chars {
+        font-size: 0.7rem;
+    }
+}
