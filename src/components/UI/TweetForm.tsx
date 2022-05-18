@@ -8,7 +8,6 @@ const TweetForm: React.FC<{ onTextChange: (item: string) => void; tweetValue: st
     const tooLong = charCount > 280 ? true : false;
 
     return (
-        // <div style={{ backgroundColor: "red", height: "100%" }}></div>
         <div className={classes["tweet-form__text-input-box"]}>
             <textarea
                 className={classes["tweet-form__input"]}

@@ -78,7 +78,7 @@ const postsSlice = createSlice({
     initialState: initialPostsState,
     reducers: {
         addPost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
-            const uuid = uuidv4();
+            const uuid = action.payload.id ? action.payload.id : uuidv4();
             const media = null; // TODO: will implement condition here when upload media feature implemented
             const scheduledTime =
                 action.payload.scheduledTime.length > 0
@@ -94,10 +94,11 @@ const postsSlice = createSlice({
                 type: action.payload.type,
             };
 
+            console.log("final updated STATE");
+            console.log(postMetadata);
             state[action.payload.type as keyof InitialPosts].push(postMetadata);
         },
         updatePost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
-            console.log(action);
             const tweetId = action.payload.id;
             const media = action.payload.media;
             const scheduledTime =

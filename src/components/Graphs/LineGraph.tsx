@@ -30,7 +30,7 @@ export const LineGraph: React.FC<{
                 containerComponent={
                     <VictoryContainer
                         style={{
-                            pointerEvents: "auto",
+                            // pointerEvents: "auto",
                             userSelect: "auto",
                             touchAction: "auto",
                         }}

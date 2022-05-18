@@ -1,5 +1,5 @@
 import { postsActions } from "./posts-slice";
-// not re-using main "posts" interface because of mandatory "id" field:
+// not re-using main "posts" interface because it requires a mandatory "id" field:
 import PostMetadata from "../models/PostMetadata";
 
 export const addPostDataThunk = (tweetData: PostMetadata) => {
@@ -23,8 +23,9 @@ export const updatePostDataThunk = (tweetData: PostMetadata) => {
     return async (dispatch: any) => {
         // TODO: send PATCH request to backend to store tweet persistently:
 
-        dispatch(postsActions.removePost(tweetData));
-        dispatch(postsActions.addPost(tweetData));
+        // dispatch(postsActions.removePost(tweetData));
+        // dispatch(postsActions.addPost(tweetData));
+        dispatch(postsActions.updatePost(tweetData));
     };
 };
 

@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import * as ReactDOM from "react-dom";
-import classes from "./EditPostModal.module.css";
-import TweetForm from "./TweetForm";
-import Dropdown from "./Dropdown";
+import { ReactComponent as CrossIcon } from "../../assets/icons/noun-exit-cross-1208142.svg";
+import { useDispatch } from "react-redux";
+import { deleteTweetThunk } from "../../store/posts-actions";
 import usePostsThunk from "../../hooks/use-posts-thunk";
 import PostMetadata from "../../models/PostMetadata";
 import PostType from "../../models/Post";
+import classes from "./EditPostModal.module.css";
+import TweetForm from "./TweetForm";
+import Dropdown from "./Dropdown";
 
-// hardcoded values, therefore leaving as "any" type. no reason to define entire custom type.
+const USER_DATA = {
+    name: "Billy Jimbson",
+    twitterHandle: "banana_mafia123",
+    imageUrl:
+        "https://lh3.googleusercontent.com/dJR03rG6P8A_sjPIdIQ0PUK956iI0Ki2S2S47WiXvuP5OuCIMrJ9GYK-uxeH5gMe3J3m-D8ikwtGyOE4gMzp2EKNxC6wgOfjhkD7OQBI0RmJVe10zpeubOq_Q8MG6AZpNPz10pp-AgM",
+};
+
 const dropdownMappings: any = {
     SAVE: "queue",
-    "ADD TO DRAFTS": "draft",
-    "TWEET NOW": "tweet",
+    DRAFTS: "draft",
+    TWEET: "tweet",
 };
 
 const Backdrop: React.FC<{ onConfirm: () => void }> = props => {
@@ -22,6 +31,7 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
     const [dropdownItem, setDropdownItem] = useState("SAVE");
     const [tweetInput, setTweetInput] = useState<PostType>(props.post);
     const dispatchPost = usePostsThunk();
+    const dispatch = useDispatch();
 
     // stop child divs being effected by onClick --> close modal
     const toggle = (event: any) => {
@@ -32,6 +42,11 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
     };
 
     const charCount = tweetInput.body?.length || 0;
+
+    const deleteTweetHandler = () => {
+        dispatch(deleteTweetThunk(props.post as PostMetadata));
+        props.onConfirm();
+    };
 
     const onFormChangeHandler = (tweet: string) => {
         setTweetInput(prevState => {
@@ -52,6 +67,7 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
             props.onConfirm();
         } else {
             // TODO: display error msg back to user.
+            alert("Failed to save tweet! D:");
         }
     };
 
@@ -59,15 +75,11 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
         <div className={classes["modal__container"]} onClick={event => toggle(event)}>
             <div className={classes["modal__box"]}>
                 <div className={classes["modal__user-data-container"]}>
-                    <div className={classes["modal__profile-pic"]}></div>
-                    <h1 className={classes["modal__username"]}>@banana_mafia123</h1>
-                    <button
-                        className={classes["modal__close-button"]}
-                        onClick={props.onConfirm}
-                        title="Discard Changes"
-                    >
-                        X
-                    </button>
+                    <img src={USER_DATA.imageUrl} className={classes["modal__profile-pic"]} alt="profile pic" />
+                    <h1>@{USER_DATA.twitterHandle}</h1>
+                    <div className={classes["modal__close-button"]} onClick={props.onConfirm} title="Discard Changes">
+                        <CrossIcon />
+                    </div>
                 </div>
 
                 <form className={classes["modal__form"]} onSubmit={onFormSubmit}>
@@ -76,7 +88,7 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
                     <div className={classes["modal__bottom-buttons-container"]}>
                         <button
                             className={classes["modal__delete-tweet-button"]}
-                            onClick={props.onConfirm}
+                            onClick={deleteTweetHandler}
                             title="Delete tweet"
                         >
                             Delete

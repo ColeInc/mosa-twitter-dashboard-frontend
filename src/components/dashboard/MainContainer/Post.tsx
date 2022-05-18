@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteTweetThunk, toggleDraftThunk } from "../../../store/posts-actions";
 import { ReactComponent as QueueIcon } from "../../../assets/icons/noun-time-4691990.svg";
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
+import { ReactComponent as PencilIcon } from "../../../assets/icons/noun-pencil-2473979.svg";
 import CurvedContainer from "../../UI/CurvedContainer";
 import PostType from "../../../models/Post";
 import classes from "./Post.module.css";
@@ -40,7 +41,7 @@ const Post: React.FC<{ post: PostType }> = props => {
         );
     };
 
-    const deleteTweetThunkHandler = () => {
+    const deleteTweetHandler = () => {
         dispatch(deleteTweetThunk(props.post as PostMetadata));
     };
 
@@ -61,6 +62,10 @@ const Post: React.FC<{ post: PostType }> = props => {
                         <b>{formattedTime[0]}</b> - {formattedTime[1]}
                     </h1>
 
+                    <button className={classes["post__pencil-icon"]} onClick={toggleModalHandler} title="Edit Tweet">
+                        <PencilIcon />
+                    </button>
+
                     <div className={classes["dropdown-parent"]}>
                         <button className={classes["dropdown-button"]}>
                             <SettingsIcon />
@@ -68,7 +73,7 @@ const Post: React.FC<{ post: PostType }> = props => {
                         <ul className={classes["dropdown-content"]}>
                             <li onClick={toggleModalHandler}>Edit</li>
                             <li onClick={moveToDraftsHandler}>Move to Drafts</li>
-                            <li onClick={deleteTweetThunkHandler}>Delete Tweet</li>
+                            <li onClick={deleteTweetHandler}>Delete Tweet</li>
                         </ul>
                     </div>
                 </div>

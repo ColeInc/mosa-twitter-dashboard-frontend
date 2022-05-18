@@ -83,9 +83,20 @@ textarea::placeholder {
     font-weight: bold;
 }
 
+@media (max-width: 95em) {
+    .tweet-form__input {
+        font-size: 1.4rem;
+    }
+
+    .tweet-form__remaining-chars {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 62.5em) {
     .tweet-form__input {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        padding: 0.7rem;
     }
 
     .tweet-form__remaining-chars {

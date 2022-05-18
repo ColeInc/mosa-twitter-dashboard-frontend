@@ -1,11 +1,10 @@
-import { useDispatch } from "react-redux";
-import { addPostDataThunk, updatePostDataThunk } from "../store/posts-actions";
-// import PostType from "../../models/Post";
-import PostMetadata from "../models/PostMetadata";
-
 /*
  Custom Hook which allows the re-usability of sending items to the queue/draft/tweet redux thunks.
 */
+
+import { useDispatch } from "react-redux";
+import { addPostDataThunk, updatePostDataThunk } from "../store/posts-actions";
+import PostMetadata from "../models/PostMetadata";
 
 const usePostsThunk = () => {
     const dispatch = useDispatch();
