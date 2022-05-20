@@ -10,10 +10,11 @@ const useKeyPress = (keys: string[], callback: (input: any) => any, node = null)
     // handle what happens on key press
     const handleKeyPress = useCallback(
         (event: any) => {
-            // check if the typed key is part of the keys we want
+            // if user of hook doesn't pass array of keys to check, just accept everything bc they'll be filtering it at the useEffect lvl at component.
             if (keys.length === 0) {
                 callbackRef.current(event);
-            } else if (keys.some((key: string) => event.key === key)) {
+            } // else, if keys specified, check if the typed key is part of the keys we want
+            else if (keys.some((key: string) => event.key === key)) {
                 callbackRef.current(event);
             }
         },

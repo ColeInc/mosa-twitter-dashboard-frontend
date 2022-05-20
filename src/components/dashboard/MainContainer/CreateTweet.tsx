@@ -26,7 +26,6 @@ const CreateTweet = () => {
     const onKeyPress = (event: React.KeyboardEvent) => {
         // if user hits CTRL + ENTER, submit the form:
         if (event.ctrlKey && event.key === "Enter") {
-            console.log(`------> Key pressed: ${event.key}`);
             onFormSubmit(event);
         }
     };

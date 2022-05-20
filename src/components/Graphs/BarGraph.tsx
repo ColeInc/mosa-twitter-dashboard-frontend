@@ -31,6 +31,7 @@ const BarGraph: React.FC<{ barGraphData: BarGraphData[] }> = props => {
                     width={boundingRect.width}
                     padding={{ top: 0, right: 10, bottom: 25, left: 10 }}
                     // padding={{ top: 0, right: 20, bottom: 0, left: 20 }}
+                    // animate={{ duration: 0, onLoad: { duration: 0 } }}
                 >
                     <VictoryBar
                         standalone={false}
@@ -40,9 +41,9 @@ const BarGraph: React.FC<{ barGraphData: BarGraphData[] }> = props => {
                             data: { fill: "#1E1E1E", width: 12 },
                             parent: { height: "100%" },
                         }}
-                        animate={{
-                            onLoad: { duration: 1200 },
-                        }}
+                        // animate={{
+                        //     onLoad: { duration: 0 },
+                        // }}
                     />
                     <VictoryBar
                         data={props.barGraphData}

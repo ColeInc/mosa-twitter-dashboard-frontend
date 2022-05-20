@@ -3,8 +3,10 @@
 */
 
 import { useDispatch } from "react-redux";
-import { addPostDataThunk, updatePostDataThunk } from "../store/posts-actions";
+import { addPostDataThunk, updatePostDataThunk, deleteTweetThunk } from "../store/posts-actions";
 import PostMetadata from "../models/PostMetadata";
+
+type postType = "queue" | "drafts" | "tweet";
 
 const usePostsThunk = () => {
     const dispatch = useDispatch();
@@ -22,24 +24,28 @@ const usePostsThunk = () => {
 
         const chosenFn = actionType === "update" ? updateFn : addFn;
 
+        const post: PostMetadata = {
+            id: tweetInput.id ? tweetInput.id : undefined,
+            type: dropdownItem.toLowerCase() as postType,
+            body: tweetInput.body,
+            scheduledTime: new Date().toLocaleString(),
+        };
+
         // if user selects QUEUE and tweet is less than 280 chars, add tweet to "posts" redux slice:
         if (!tooLong && dropdownItem.toLowerCase() === "queue") {
-            chosenFn({
-                id: tweetInput.id ? tweetInput.id : undefined,
-                type: "queue",
-                body: tweetInput.body,
-                scheduledTime: new Date().toLocaleString(),
-            });
+            chosenFn(post);
             return { isValid: true };
+        }
+        // if user is moving post from QUEUE to DRAFTS while UPDATING the post:
+        else if (tweetInput.type === "queue" && dropdownItem.toLowerCase() === "draft" && actionType === "update") {
+            // remove from queue
+            deleteTweetThunk(tweetInput);
+            // add new post to draft (but keep original post ID):
+            addPostDataThunk(post);
         }
         // if user selects DRAFT (and character length does not matter), add tweet to "drafts" list in redux slice:
         else if (dropdownItem.toLowerCase() === "draft") {
-            chosenFn({
-                id: tweetInput.id ? tweetInput.id : undefined,
-                type: "drafts",
-                body: tweetInput.body,
-                scheduledTime: new Date().toLocaleString(),
-            });
+            chosenFn(post);
             return { isValid: true };
         }
         // if user input is valid, tweet instantly:

@@ -72,7 +72,7 @@ const PieGraph: React.FC<{
                         },
                     }}
                 />
-                <VictoryAnimation duration={1500} data={graphPercent[0]}>
+                <VictoryAnimation duration={1500} delay={1000} data={graphPercent[0]}>
                     {newProps => {
                         return (
                             <VictoryLabel

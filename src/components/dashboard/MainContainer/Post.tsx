@@ -25,11 +25,9 @@ const formatDateTime = (dateToFormat: string) => {
 const Post: React.FC<{ post: PostType }> = props => {
     const [modalShown, setModalShown] = useState(false);
     const dispatch = useDispatch();
-    const { scheduledTime } = props.post;
 
-    const formattedTime = useMemo(() => {
-        return formatDateTime(scheduledTime);
-    }, [scheduledTime]);
+    const { scheduledTime } = props.post;
+    const formattedTime = useMemo(() => formatDateTime(scheduledTime), [scheduledTime]);
 
     const moveToDraftsHandler = () => {
         dispatch(

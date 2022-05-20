@@ -21,7 +21,7 @@ const initialPostsState: InitialPosts = {
 
         t enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi est consequat.`,
             media: null,
-            scheduledTime: "May 14, 2022 10:30:00",
+            scheduledTime: "June 10, 2022 10:30:00",
             threadId: null,
             type: "queue",
         },
@@ -31,7 +31,7 @@ const initialPostsState: InitialPosts = {
 
         Asking for a friend...`,
             media: null,
-            scheduledTime: "May 10, 2022 02:30:00",
+            scheduledTime: "May 21, 2022 17:00:00",
             threadId: null,
             type: "queue",
         },

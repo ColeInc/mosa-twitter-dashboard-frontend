@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import * as ReactDOM from "react-dom";
 import { ReactComponent as CrossIcon } from "../../assets/icons/noun-exit-cross-1208142.svg";
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { deleteTweetThunk } from "../../store/posts-actions";
 import usePostsThunk from "../../hooks/use-posts-thunk";
+import useKeyPress from "../../hooks/use-key-press";
 import PostMetadata from "../../models/PostMetadata";
 import PostType from "../../models/Post";
 import classes from "./EditPostModal.module.css";
 import TweetForm from "./TweetForm";
 import Dropdown from "./Dropdown";
-
-const USER_DATA = {
-    name: "Billy Jimbson",
-    twitterHandle: "banana_mafia123",
-    imageUrl:
-        "https://lh3.googleusercontent.com/dJR03rG6P8A_sjPIdIQ0PUK956iI0Ki2S2S47WiXvuP5OuCIMrJ9GYK-uxeH5gMe3J3m-D8ikwtGyOE4gMzp2EKNxC6wgOfjhkD7OQBI0RmJVe10zpeubOq_Q8MG6AZpNPz10pp-AgM",
-};
 
 const dropdownMappings: any = {
     SAVE: "queue",
@@ -32,6 +28,22 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
     const [tweetInput, setTweetInput] = useState<PostType>(props.post);
     const dispatchPost = usePostsThunk();
     const dispatch = useDispatch();
+    const userData = useSelector((state: RootState) => state.user);
+
+    const charCount = tweetInput.body?.length || 0;
+
+    const onKeyPress = (event: React.KeyboardEvent) => {
+        // if user hits CTRL + ENTER, submit the form:
+        if (event.ctrlKey && event.key === "Enter") {
+            onFormSubmit(event);
+        }
+    };
+    useKeyPress([], onKeyPress);
+
+    const deleteTweetHandler = () => {
+        dispatch(deleteTweetThunk(props.post as PostMetadata));
+        props.onConfirm();
+    };
 
     // stop child divs being effected by onClick --> close modal
     const toggle = (event: any) => {
@@ -39,13 +51,6 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
         props.onConfirm();
         event.preventDefault();
         event.stopPropagation();
-    };
-
-    const charCount = tweetInput.body?.length || 0;
-
-    const deleteTweetHandler = () => {
-        dispatch(deleteTweetThunk(props.post as PostMetadata));
-        props.onConfirm();
     };
 
     const onFormChangeHandler = (tweet: string) => {
@@ -62,8 +67,8 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
         }
 
         const response = dispatchPost(tweetInput as PostMetadata, dropdownMappings[dropdownItem], "update");
+        // if tweet was successfully saved, close the modal:
         if (response.isValid) {
-            // if tweet was successfully saved, close the modal:
             props.onConfirm();
         } else {
             // TODO: display error msg back to user.
@@ -75,8 +80,8 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
         <div className={classes["modal__container"]} onClick={event => toggle(event)}>
             <div className={classes["modal__box"]}>
                 <div className={classes["modal__user-data-container"]}>
-                    <img src={USER_DATA.imageUrl} className={classes["modal__profile-pic"]} alt="profile pic" />
-                    <h1>@{USER_DATA.twitterHandle}</h1>
+                    <img src={userData.imageUrl} className={classes["modal__profile-pic"]} alt="profile pic" />
+                    <h1>@{userData.twitterHandle}</h1>
                     <div className={classes["modal__close-button"]} onClick={props.onConfirm} title="Discard Changes">
                         <CrossIcon />
                     </div>

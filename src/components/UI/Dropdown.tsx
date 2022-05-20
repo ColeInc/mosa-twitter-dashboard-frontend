@@ -20,7 +20,6 @@ const Dropdown: React.FC<{
     return (
         <div className={classes["dropdown__container"]}>
             <button
-                type="submit"
                 className={`${classes["dropdown__button"]} ${props.className && props.className} ${
                     dropdownActive && classes["dropdown__button--active"]
                 }`}

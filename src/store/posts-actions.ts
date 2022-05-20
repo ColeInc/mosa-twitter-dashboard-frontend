@@ -1,4 +1,7 @@
 import { postsActions } from "./posts-slice";
+import { RootState } from "./index";
+import { createSelector } from "@reduxjs/toolkit";
+import moment from "moment";
 // not re-using main "posts" interface because it requires a mandatory "id" field:
 import PostMetadata from "../models/PostMetadata";
 
@@ -23,14 +26,16 @@ export const updatePostDataThunk = (tweetData: PostMetadata) => {
     return async (dispatch: any) => {
         // TODO: send PATCH request to backend to store tweet persistently:
 
-        // dispatch(postsActions.removePost(tweetData));
-        // dispatch(postsActions.addPost(tweetData));
-        dispatch(postsActions.updatePost(tweetData));
+        dispatch(postsActions.removePost(tweetData));
+        dispatch(postsActions.addPost(tweetData));
+        // dispatch(postsActions.updatePost(tweetData));
     };
 };
 
 export const deleteTweetThunk = (tweetData: PostMetadata) => {
     return async (dispatch: any) => {
+        // TODO: send DELETE request to remove post from backend
+
         dispatch(postsActions.removePost(tweetData));
     };
 };
@@ -45,3 +50,23 @@ export const toggleDraftThunk = (tweet: PostMetadata) => {
         // TODO: call updatePost API to update tweet from draft to queue in backend (or vice versa):
     };
 };
+
+// QUEUE - createSelector function to efficiently sort the QUEUE by scheduled time only upon change in data stored:
+export const sortQueuePosts = createSelector(
+    (state: RootState) => state.posts.queue,
+    queue => {
+        const deepCopy = [...queue];
+        deepCopy.sort((a, b) => moment(a.scheduledTime).diff(moment(b.scheduledTime)));
+        return deepCopy;
+    }
+);
+
+// DRAFTS - createSelector function to efficiently sort the DRAFTS by scheduled time only upon change in data stored:
+export const sortDraftPosts = createSelector(
+    (state: RootState) => state.posts.drafts,
+    drafts => {
+        const deepCopy = [...drafts];
+        deepCopy.sort((a, b) => moment(a.scheduledTime).diff(moment(b.scheduledTime)));
+        return deepCopy;
+    }
+);
