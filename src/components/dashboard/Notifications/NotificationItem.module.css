@@ -54,7 +54,8 @@
 }
 
 .notification-item__container h2 {
-    font-size: 0.9rem;
+    font-family: "Montserrat";
+    font-size: 0.8rem;
     font-weight: 400;
     margin: 0;
     flex: 1;
@@ -63,6 +64,7 @@
     text-overflow: ellipsis;
 }
 .notification-item__container p {
+    font-family: "Montserrat";
     font-size: 0.8rem;
     margin: 0;
     margin-left: auto;

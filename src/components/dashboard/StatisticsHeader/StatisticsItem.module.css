@@ -50,8 +50,9 @@
 }
 
 .item__container h3 {
+    font-family: "Montserrat";
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #9f9696;
     margin: 0;
 }

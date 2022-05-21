@@ -2,14 +2,13 @@
 
 .upload-image__container {
     justify-self: flex-end;
-    height: 4vh;
     border-radius: 12px;
     margin: 0.5rem 1rem 1rem 0;
+    padding: 0.4rem 1rem 0.4rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 5.5vh;
     cursor: pointer;
     transition: 0.1s ease-in-out;
     background-color: var(--color3);
@@ -24,14 +23,13 @@
 }
 
 .upload-image__container h1 {
-    margin: 0;
-    padding: 0 10px 5px 10px;
-    font-weight: 400;
-    font-size: 0.8rem;
+    margin: 0 !important;
+    /* font-weight: 400; */
+    font-size: 0.6rem !important;
 }
 
 .upload-image__container svg {
-    width: 1.7vw;
-    height: 1.7vw;
-    margin-bottom: 3px;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-bottom: 2px;
 }

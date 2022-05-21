@@ -14,4 +14,6 @@ This repository contains the frontend for a Twitter Dashboard Platform. Written 
 -   victory
 -   uuid
 -   moment
+-   firebase
+-   fontsource
 -

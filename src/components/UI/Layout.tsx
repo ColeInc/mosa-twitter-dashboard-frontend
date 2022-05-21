@@ -8,6 +8,7 @@ import Automation from "../../pages/Automation";
 import SavedTweets from "../../pages/SavedTweets";
 import Settings from "../../pages/Settings";
 import NotFound from "../../pages/NotFound";
+import Login from "../../pages/Login";
 
 const Layout = () => {
     return (
@@ -17,6 +18,7 @@ const Layout = () => {
 
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/queue" element={<Queue />} />
                     <Route path="/automation" element={<Automation />} />
                     <Route path="/savedtweets" element={<SavedTweets />} />

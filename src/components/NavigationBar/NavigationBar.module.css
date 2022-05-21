@@ -31,13 +31,14 @@
 }
 
 .nav-bar__main-container h1 {
-    font-size: 1.6667rem;
+    font-size: 1.3rem;
     /* font-size: 1vw; */
     font-weight: 600;
     margin: 0;
 }
 
 .nav-bar__main-container h2 {
+    font-family: "Montserrat";
     font-size: 1.1rem;
     /* font-size: 0.7vw; */
     font-weight: 100;
@@ -45,23 +46,22 @@
     color: #7e7e7e;
 }
 
-/* .nav-bar__nav-container { */
-/* } */
-
 .nav-bar__footer {
     margin-top: auto;
 }
 
 .nav-bar__footer h3 {
-    color: #5a5a5a;
-    font-size: 1.2rem;
+    font-family: "Montserrat";
+    font-size: 1.1rem;
     font-weight: 500;
-    margin: 0 0 0 0;
+    color: #5a5a5a;
+    margin: 0.2rem 0 0 0;
 }
 
 .nav-bar__footer p {
-    color: #3a3a3a;
+    font-family: "Montserrat";
     font-size: 0.7rem;
+    color: #3a3a3a;
     margin: 0;
 }
 
