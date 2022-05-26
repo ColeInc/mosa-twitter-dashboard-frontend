@@ -1,0 +1,15 @@
+.settings__button {
+    margin-top: 0.4rem;
+    border: 0;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    border-radius: 0.4rem;
+    width: 10rem;
+    transition: 0.2s ease-in-out;
+    background-color: var(--color4);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.settings__button:hover {
+    background-color: #2e2b28;
+}
