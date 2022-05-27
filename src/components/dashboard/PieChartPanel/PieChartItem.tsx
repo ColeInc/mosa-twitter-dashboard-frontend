@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./PieChartItem.module.css";
 import PieGraph from "../../Graphs/PieGraph";
-import PieChartData from "../../../models/PieChartData";
+import PieChartData from "../../../models/PieChartData.model";
 
 const PieChartItem: React.FC<{ data: PieChartData }> = props => {
     const change24color = props.data.change24h < 0 ? "negative" : "positive";

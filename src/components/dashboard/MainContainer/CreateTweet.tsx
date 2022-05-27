@@ -5,7 +5,7 @@ import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import TweetForm from "../../UI/TweetForm";
 import Dropdown from "../../UI/Dropdown";
 import classes from "./CreateTweet.module.css";
-import PostMetadata from "../../../models/PostMetadata";
+import PostMetadata from "../../../models/PostMetadata.model";
 import useKeyPress from "../../../hooks/use-key-press";
 
 const dropdownItems = ["QUEUE", "DRAFT", "TWEET"];

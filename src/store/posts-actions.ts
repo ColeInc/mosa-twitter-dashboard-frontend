@@ -3,7 +3,7 @@ import { RootState } from "./index";
 import { createSelector } from "@reduxjs/toolkit";
 import moment from "moment";
 // not re-using main "posts" interface because it requires a mandatory "id" field:
-import PostMetadata from "../models/PostMetadata";
+import PostMetadata from "../models/PostMetadata.model";
 
 export const addPostDataThunk = (tweetData: PostMetadata) => {
     return async (dispatch: any) => {

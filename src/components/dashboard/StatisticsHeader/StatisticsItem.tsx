@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./StatisticsItem.module.css";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import LineGraph from "../../Graphs/LineGraph";
-import GraphData from "../../../models/GraphData";
+import GraphData from "../../../models/GraphData.model";
 
 const metricColors: any = {
     impressions: "#1FC1FB",

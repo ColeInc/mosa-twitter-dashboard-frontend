@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import User from "../models/User";
+import User from "../models/User.model";
 
 // const initialUser: User = {
 //     id: "1",
@@ -17,6 +17,7 @@ const initialUser: User = {
     imageUrl:
         "https://lh3.googleusercontent.com/dJR03rG6P8A_sjPIdIQ0PUK956iI0Ki2S2S47WiXvuP5OuCIMrJ9GYK-uxeH5gMe3J3m-D8ikwtGyOE4gMzp2EKNxC6wgOfjhkD7OQBI0RmJVe10zpeubOq_Q8MG6AZpNPz10pp-AgM",
     loggedIn: false,
+    // loggedIn: true,
 };
 
 const userSlice = createSlice({

@@ -1,15 +1,24 @@
 import { RootState } from "../../store";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { userActions } from "../../store/user-slice";
+
 import { ReactComponent as DashboardIcon } from "../../assets/icons/noun-home-4688386.svg";
 import { ReactComponent as QueueIcon } from "../../assets/icons/noun-queue-4342391.svg";
 import { ReactComponent as AutomationIcon } from "../../assets/icons/noun-process-2473979.svg";
 import { ReactComponent as SavedTweetsIcon } from "../../assets/icons/noun-save-1054863.svg";
 import { ReactComponent as SettingsIcon } from "../../assets/icons/noun-settings-2650508.svg";
+import { ReactComponent as LogoutIcon } from "../../assets/icons/noun-log-out-2149602.svg";
+
 import classes from "./NavigationBar.module.css";
 import NavButton from "./NavButton";
 
 const NavigationBar = () => {
     const userData = useSelector((state: RootState) => state.user);
+    const dispatch = useDispatch();
+
+    const logoutUser = () => {
+        dispatch(userActions.logout());
+    };
 
     return (
         <div className={classes["nav-bar__main-container"]}>
@@ -41,6 +50,9 @@ const NavigationBar = () => {
             </div>
 
             <div className={`${classes["nav-bar__footer"]} ${classes.tablet}`}>
+                <button onClick={logoutUser} className={classes["nav-bar__logout-button"]} title="Log out">
+                    <LogoutIcon />
+                </button>
                 <p>
                     Designed by Cole McConnell.
                     <br />

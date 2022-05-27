@@ -103,7 +103,8 @@
 
 .post__divider {
     width: 95%;
-    background-color: #1d1d1d;
+    /* background-color: #1d1d1d; */
+    background-color: #302c2c;
     height: 1px;
     margin-top: 0.4rem;
     margin-bottom: 0.6rem;

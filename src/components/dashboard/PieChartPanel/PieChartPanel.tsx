@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CurvedContainer from "../../UI/CurvedContainer";
 import PieChartItem from "./PieChartItem";
 import classes from "./PieChartPanel.module.css";
-import PieChartData from "../../../models/PieChartData";
+import PieChartData from "../../../models/PieChartData.model";
 
 const PieChartPanel = () => {
     const [pieData, setPieData] = useState<PieChartData[]>([

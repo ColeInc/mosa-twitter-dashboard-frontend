@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BarGraph from "../../Graphs/BarGraph";
 import CurvedContainer from "../../UI/CurvedContainer";
 import classes from "./WeeklyPerformance.module.css";
-import BarGraphData from "../../../models/BarGraphData";
+import BarGraphData from "../../../models/BarGraphData.model";
 
 const defaultGraphData: BarGraphData[] = [
     { x: "Monday", y: 0 },

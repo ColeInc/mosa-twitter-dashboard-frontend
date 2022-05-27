@@ -4,7 +4,7 @@
 
 import { useDispatch } from "react-redux";
 import { addPostDataThunk, updatePostDataThunk, deleteTweetThunk } from "../store/posts-actions";
-import PostMetadata from "../models/PostMetadata";
+import PostMetadata from "../models/PostMetadata.model";
 
 type postType = "queue" | "drafts" | "tweet";
 

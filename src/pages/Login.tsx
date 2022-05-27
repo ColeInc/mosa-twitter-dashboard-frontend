@@ -51,7 +51,7 @@ const Login = () => {
                         id: result.user.uid,
                         name: result.user.displayName ?? undefined,
                         email: result.user.email ?? undefined,
-                        twitterHandle: "fixxxxx thissssss",
+                        twitterHandle: "fixxxxx_thissssss",
                         imageUrl: result.user.photoURL ?? undefined,
                         loggedIn: true,
                     })

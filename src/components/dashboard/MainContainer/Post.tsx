@@ -5,11 +5,11 @@ import { ReactComponent as QueueIcon } from "../../../assets/icons/noun-time-469
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
 import { ReactComponent as PencilIcon } from "../../../assets/icons/noun-pencil-2473979.svg";
 import CurvedContainer from "../../UI/CurvedContainer";
-import PostType from "../../../models/Post";
+import PostType from "../../../models/Post.model";
 import classes from "./Post.module.css";
 import moment from "moment";
 import EditPostModal from "../../UI/EditPostModal";
-import PostMetadata from "../../../models/PostMetadata";
+import PostMetadata from "../../../models/PostMetadata.model";
 
 const formatDateTime = (dateToFormat: string) => {
     const momentDateToFormat = moment(dateToFormat);

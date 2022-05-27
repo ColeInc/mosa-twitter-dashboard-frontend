@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./NotificationItem.module.css";
-import Notification from "../../../models/Notification";
+import Notification from "../../../models/Notification.model";
 import CurvedContainer from "../../UI/CurvedContainer";
 import moment from "moment";
 

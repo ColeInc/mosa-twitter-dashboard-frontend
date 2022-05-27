@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CurvedContainer from "../../UI/CurvedContainer";
 import classes from "./Notifications.module.css";
-import Notification from "../../../models/Notification";
+import Notification from "../../../models/Notification.model";
 import NotificationItem from "./NotificationItem";
 import SeeMore from "../../UI/SeeMore";
 

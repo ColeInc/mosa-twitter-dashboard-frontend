@@ -1,51 +1,51 @@
-import { useEffect } from "react";
-import { auth, onAuthStateChanged } from "./firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { userActions } from "./store/user-slice";
+import { ReactElement } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { RootState } from "./store";
 import Layout from "./components/UI/Layout";
+import Dashboard from "./pages/Dashboard";
+import Queue from "./pages/Queue";
+import Automation from "./pages/Automation";
+import SavedTweets from "./pages/SavedTweets";
+import Settings from "./pages/Settings";
+import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
-import { useLocation, useNavigate } from "react-router-dom";
 
-type LocationState = {
-    from: {
-        pathname: string;
-    };
+const ProtectedRoute: React.FC<{ children: ReactElement }> = props => {
+    const userData = useSelector((state: RootState) => state.user);
+    const location = useLocation();
+
+    //TODO: change this to be actual bearer token, not loggedIn value:
+    const token = userData.loggedIn;
+
+    if (!token) {
+        return <Navigate to="/login" replace state={{ from: location }} />;
+    }
+
+    return props.children;
 };
 
 const App = () => {
-    // const userData = useSelector((state: RootState) => state.user);
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
-    // const location = useLocation();
+    // only if user is Authenticated to Twitter are they allowed to see these pages:
+    const securedPage = (component: ReactElement) => {
+        return (
+            <ProtectedRoute>
+                <Layout>{component}</Layout>
+            </ProtectedRoute>
+        );
+    };
 
-    // Global check for whether user is logged into firebase:
-    // useEffect(() => {
-    //     onAuthStateChanged(auth, userAuth => {
-    //         if (userAuth) {
-    //             // user is logged in, send the user's details to redux, store the current user in the state
-    //             dispatch(
-    //                 userActions.login({
-    //                     id: userAuth.uid,
-    //                     name: userAuth.displayName ?? undefined,
-    //                     email: userAuth.email ?? undefined,
-    //                     twitterHandle: "fixxxxx thissssss",
-    //                     imageUrl: userAuth.photoURL ?? undefined,
-    //                     loggedIn: true,
-    //                 })
-    //             );
-    //             // if successfully logged in, navigate to the last page user was on OR main dashboard page:
-    //             const { from } = location.state as LocationState;
-    //             const origin = from.pathname || "/";
-    //             navigate(origin);
-    //         } else {
-    //             dispatch(userActions.logout());
-    //         }
-    //     });
-    // }, [dispatch, navigate, location.state]);
-
-    // return userData.loggedIn ? <Layout /> : <Login />;
-    return <Layout />;
+    return (
+        <Routes>
+            <Route path="/" element={securedPage(<Dashboard />)} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/queue" element={securedPage(<Queue />)} />
+            <Route path="/automation" element={securedPage(<Automation />)} />
+            <Route path="/savedtweets" element={securedPage(<SavedTweets />)} />
+            <Route path="/settings" element={securedPage(<Settings />)} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    );
 };
 
 export default App;

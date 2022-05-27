@@ -12,7 +12,7 @@ const NotFound = () => {
                     <h2>404 Page Not Found</h2>
                     <p>Sadly, the page you're looking for doesn't exist.</p>
                     <Link to="/" style={{ textDecoration: "none" }}>
-                        <button>Try again</button>
+                        <button>Go Home</button>
                     </Link>
                 </div>
             </CurvedContainer>

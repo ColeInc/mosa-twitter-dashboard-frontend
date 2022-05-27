@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./HorizontalGraph.module.css";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import RangePicker from "../../UI/RangePicker";
-import GraphData from "../../../models/GraphData";
+import GraphData from "../../../models/GraphData.model";
 import LineGraph from "../../Graphs/LineGraph";
 
 const HorizontalGraph = () => {

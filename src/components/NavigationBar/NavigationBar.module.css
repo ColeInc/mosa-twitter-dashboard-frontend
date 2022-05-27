@@ -65,6 +65,34 @@
     margin: 0;
 }
 
+.nav-bar__logout-button {
+    border: 0;
+    padding: 0.45rem 1rem 0.45rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.4rem;
+    width: 7rem;
+    height: 2.8rem;
+    transition: 0.2s ease-in-out;
+    background-color: var(--color4);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--color3);
+}
+
+.nav-bar__logout-button:hover {
+    background-color: #2e2b28;
+}
+
+.nav-bar__logout-button svg {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 @media (max-width: 95em) {
     .nav-bar__main-container {
         width: 17vw;

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
-import Post from "../models/Post";
-import PostMetadata from "../models/PostMetadata";
+import Post from "../models/Post.model";
+import PostMetadata from "../models/PostMetadata.model";
 
 interface InitialPosts {
     queue: Post[];
