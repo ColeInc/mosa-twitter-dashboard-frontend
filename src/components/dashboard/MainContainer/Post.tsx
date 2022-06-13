@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTweetThunk, toggleDraftThunk } from "../../../store/posts-actions";
-import { ReactComponent as QueueIcon } from "../../../assets/icons/noun-time-4691990.svg";
-import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
-import { ReactComponent as PencilIcon } from "../../../assets/icons/noun-pencil-2473979.svg";
+import QueueIcon from "../../../assets/icons/noun-time-4691990.svg";
+import SettingsIcon from "../../../assets/icons/noun-settings-2650508.svg";
+import PencilIcon from "../../../assets/icons/noun-pencil-2473979.svg";
 import CurvedContainer from "../../UI/CurvedContainer";
 import PostType from "../../../models/Post.model";
 import classes from "./Post.module.css";

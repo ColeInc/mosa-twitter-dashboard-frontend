@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { ReactComponent as SettingsIcon } from "../../../assets/icons/noun-settings-2650508.svg";
+import SettingsIcon from "../../../assets/icons/noun-settings-2650508.svg";
 import usePostsThunk from "../../../hooks/use-posts-thunk";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import TweetForm from "../../UI/TweetForm";

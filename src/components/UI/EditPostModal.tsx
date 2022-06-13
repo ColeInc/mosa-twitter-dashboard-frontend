@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as ReactDOM from "react-dom";
-import { ReactComponent as CrossIcon } from "../../assets/icons/noun-exit-cross-1208142.svg";
+import CrossIcon from "../../assets/icons/noun-exit-cross-1208142.svg";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";

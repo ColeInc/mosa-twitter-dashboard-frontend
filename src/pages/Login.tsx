@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { userActions } from "../store/user-slice";
-import { auth, TwitterAuthProvider, signInWithPopup } from "../firebase";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ReactComponent as TwitterIcon } from "../assets/icons/iconmonstr-twitter-1.svg";
 import CurvedContainer from "../components/UI/CurvedContainer";
+import TwitterIcon from "../assets/icons/iconmonstr-twitter-1.svg";
 import classes from "./Login.module.css";
 
+import { auth, TwitterAuthProvider, signInWithPopup } from "../firebase";
 const provider = new TwitterAuthProvider();
 
 type LocationState = {
@@ -69,7 +69,43 @@ const Login = () => {
 
                 alert("An error occurred while logging into Twitter. Please try again");
             });
+
+        /* ------------------------------------------------------------------------------------------------------------------------------------------- */
     };
+
+    // const twitterLoginOAuth1 = () => {
+    //     const url = "https://api.twitter.com/oauth/request_token";
+    //     const callback = "http://localtest.me";
+
+    //     // fetch(url, { method: "get" })
+    //     //     .then(response => {
+    //     //         response.json();
+    //     //     })
+    //     //     .then(data => {
+    //     //         console.log("3 leg resp:", data);
+    //     //     })
+    //     //     .catch((error: any) => {
+    //     //         console.log(error);
+    //     //     });
+
+    //     const myHeaders = undefined;
+    //     const oauth_token = "3WugvQAAAAABczGHAAABgRhzs10";
+    //     const oauth_token_secret = "yofjbqxQFrxjBf92PYBDbzay9x9FFVL5";
+
+    //     const requestOptions: RequestInit = {
+    //         method: "GET",
+    //         headers: myHeaders,
+    //         redirect: "follow",
+    //     };
+
+    //     fetch(
+    //         `https://api.twitter.com/oauth/authorize?oauth_token=${oauth_token}&oauth_token_secret=${oauth_token_secret}&oauth_callback_confirmed=true`,
+    //         requestOptions
+    //     )
+    //         .then(response => response.text())
+    //         .then(result => console.log(result))
+    //         .catch(error => console.log("error", error));
+    // };
 
     const onFormSubmitHandler = (event: React.FormEvent) => {
         event.preventDefault();
@@ -84,6 +120,10 @@ const Login = () => {
                         <TwitterIcon />
                         <p>Sign in with Twitter</p>
                     </button>
+                    {/* <button onClick={twitterLoginOAuth1} className={classes["login__twitter-button"]}>
+                        <TwitterIcon />
+                        <p>Testing OAuth 1.0</p>
+                    </button> */}
                     {/* <input placeholder="username" className={classes["login__item"]}></input>
                     <input placeholder="password" className={classes["login__item"]} type="password"></input>
                     <button className={classes["login__button"]}>Login</button> */}

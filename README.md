@@ -1,6 +1,6 @@
 # Twitter Dashboard - Frontend
 
-This repository contains the frontend for a Twitter Dashboard Platform. Written in React.js, utilizing Typescript, Redux for global state management, Victory for graphs, and React Testing Library/Jest for unit testing.
+This repository contains the frontend for a Twitter Dashboard Platform. Written in React.js, utilizing Typescript, Redux for global state management, Victory for graphs, Firebase Auth, and React Testing Library/Jest for unit testing.
 
 ## Dashboard Landing Page Concept:
 

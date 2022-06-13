@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./UploadImage.module.css";
-import { ReactComponent as UploadIcon } from "../../assets/icons/noun-upload-1016080.svg";
+import UploadIcon from "../../assets/icons/noun-upload-1016080.svg";
 
 const UploadImage = () => {
     return (
