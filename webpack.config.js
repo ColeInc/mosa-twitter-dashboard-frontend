@@ -19,12 +19,14 @@ module.exports = {
     devServer: {
         // contentBase: path.resolve(__dirname, "./src"),
         historyApiFallback: true,
-        // proxy: {
-        //     "/api": "http://localhost:5000",
-        // },
-        // inline: true,
+        // To re-direct any rquest coming in starting with /api/ to backend Express app:
+        proxy: {
+            "/api": "http://localhost:5000",
+        },
         port: 3000,
         hot: true,
+        // Only for use in development server!
+        allowedHosts: "all",
     },
     module: {
         rules: [
@@ -68,5 +70,4 @@ module.exports = {
         }),
         new webpack.DefinePlugin(envKeys),
     ],
-    // output: { filename: "bundle.js" },
 };

@@ -5,4 +5,8 @@ export default interface User {
     twitterHandle?: string;
     imageUrl?: string;
     loggedIn: boolean;
+    twitterAuth: {
+        authCode?: string;
+        state?: string;
+    };
 }

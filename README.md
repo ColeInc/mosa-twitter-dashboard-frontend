@@ -16,4 +16,5 @@ This repository contains the frontend for a Twitter Dashboard Platform. Written 
 -   moment
 -   firebase
 -   fontsource
+-   query-string
 -
