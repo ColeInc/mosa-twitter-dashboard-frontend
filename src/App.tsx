@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -10,15 +10,13 @@ import SavedTweets from "./pages/SavedTweets";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
+import usePersistLogin from "./hooks/use-persist-login";
 
 const ProtectedRoute: React.FC<{ children: ReactElement }> = props => {
     const userData = useSelector((state: RootState) => state.user);
     const location = useLocation();
 
-    //TODO: change this to be actual bearer token, not loggedIn value:
-    const token = userData.loggedIn;
-
-    if (!token) {
+    if (!userData.loggedIn) {
         return <Navigate to="/login" replace state={{ from: location }} />;
     }
 
@@ -26,6 +24,14 @@ const ProtectedRoute: React.FC<{ children: ReactElement }> = props => {
 };
 
 const App = () => {
+    // check if user was previously logged in upon full page reload:
+    const checkPersistLogin = usePersistLogin();
+
+    useEffect(() => {
+        console.log("first bing");
+        checkPersistLogin();
+    }, [checkPersistLogin]);
+
     // only if user is Authenticated to Twitter are they allowed to see these pages:
     const securedPage = (component: ReactElement) => {
         return (

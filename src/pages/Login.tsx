@@ -91,6 +91,7 @@ const Login = () => {
                     Accept: "application/json",
                     "Content-Type": "application/json",
                 },
+                credentials: "same-origin",
                 redirect: "follow",
             })
                 .then(response => response.json())
@@ -110,13 +111,12 @@ const Login = () => {
                                 loggedIn: true,
                             })
                         );
-                        setIsLoading(false);
                     }
                 })
                 .catch(error => {
-                    setIsLoading(false);
                     console.log("Error while authenticating user:\n", error);
-                });
+                })
+                .finally(() => setIsLoading(false));
         }
     }, [dispatch]);
 
