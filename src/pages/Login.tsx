@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import queryString, { ParseOptions } from "query-string";
 import { useSelector, useDispatch } from "react-redux";
+import { loadingActions } from "../store/loading-slice";
 import { userActions } from "../store/user-slice";
 import { RootState } from "../store";
 
@@ -21,8 +22,11 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     // const location = useLocation();
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
     const userData = useSelector((state: RootState) => state.user);
+    const loading = useSelector((state: RootState) => state.loading);
+
+    console.log("loading.loginLoading: ", loading.loginLoading);
 
     // const navigateTo = useCallback(
     //     (destination: string, config?: Object) => {
@@ -66,7 +70,7 @@ const Login = () => {
 
         // If we receive valid state & code search parameters from twitter callback:
         if (query.state && query.code) {
-            setIsLoading(true);
+            dispatch(loadingActions.updateLoading({ loginLoading: true }));
 
             // update this user's redux state with these 2 newly found variables
             dispatch(
@@ -116,7 +120,9 @@ const Login = () => {
                 .catch(error => {
                     console.log("Error while authenticating user:\n", error);
                 })
-                .finally(() => setIsLoading(false));
+                .finally(() => {
+                    dispatch(loadingActions.updateLoading({ loginLoading: false }));
+                });
         }
     }, [dispatch]);
 
@@ -153,7 +159,7 @@ const Login = () => {
     return (
         <div className={classes["login__container"]}>
             <CurvedContainer className={classes["login__main-box"]}>
-                {isLoading ? (
+                {loading.loginLoading ? (
                     <LoadingSpinner />
                 ) : (
                     <form className={classes["login__form"]} onSubmit={onFormSubmitHandler}>

@@ -1,11 +1,14 @@
 import { useDispatch } from "react-redux";
 import { userActions } from "../store/user-slice";
+import { loadingActions } from "../store/loading-slice";
 
 const usePersistLogin = () => {
     const dispatch = useDispatch();
 
     const checkRefreshToken = () => {
         console.log("starting checkRefreshToken:");
+        dispatch(loadingActions.updateLoading({ loginLoading: true }));
+
         const url = "/api/v1/login/refresh_token";
 
         fetch(url, {
@@ -36,8 +39,12 @@ const usePersistLogin = () => {
                             loggedIn: true,
                         })
                     );
-                } else if (result.status === 401) {
+                    // stop loading animation:
+                    dispatch(loadingActions.updateLoading({ loginLoading: false }));
+                } else {
                     console.log("jwt token wasn't valid from old session, user has to login from scratch");
+                    // stop loading animation:
+                    dispatch(loadingActions.updateLoading({ loginLoading: false }));
                 }
             })
             .catch(error => {

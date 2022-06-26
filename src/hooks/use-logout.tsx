@@ -1,11 +1,12 @@
-import { useDispatch } from "react-redux";
+import { loadingActions } from "../store/loading-slice";
 import { userActions } from "../store/user-slice";
+import { useDispatch } from "react-redux";
 
 const useLogout = () => {
     const dispatch = useDispatch();
 
     const logoutUser = () => {
-        console.log("starting logout...");
+        dispatch(loadingActions.updateLoading({ loginLoading: true }));
 
         dispatch(userActions.logout());
 
@@ -20,6 +21,9 @@ const useLogout = () => {
             credentials: "same-origin",
             redirect: "follow",
         });
+
+        // could optimise this by moving before http call above:
+        dispatch(loadingActions.updateLoading({ loginLoading: false }));
     };
     return () => logoutUser;
 };
