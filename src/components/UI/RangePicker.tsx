@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./RangePicker.module.css";
+import classes from "./RangePicker.module.scss";
 
 const RangePicker: React.FC<{ onClickHandler: (range: string) => void; active: string }> = props => {
     const buttonList = ["daily", "weekly", "monthly"];

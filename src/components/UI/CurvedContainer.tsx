@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./CurvedContainer.module.css";
+import classes from "./CurvedContainer.module.scss";
 
 const CurvedContainer: React.FC<{ className?: string; children?: React.ReactNode }> = props => {
     return (

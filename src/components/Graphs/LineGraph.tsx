@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { VictoryChart, VictoryLine, VictoryScatter, VictoryAxis, VictoryContainer } from "victory";
-// import classes from "./LineGraph.module.css";
+// import classes from "./LineGraph.module.scss";
 
 export const LineGraph: React.FC<{
     graphData: { x: number; y: number }[];

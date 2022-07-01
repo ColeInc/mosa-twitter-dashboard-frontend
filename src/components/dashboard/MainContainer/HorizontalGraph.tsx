@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import classes from "./HorizontalGraph.module.css";
+import classes from "./HorizontalGraph.module.scss";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import RangePicker from "../../UI/RangePicker";
 import GraphData from "../../../models/GraphData.model";

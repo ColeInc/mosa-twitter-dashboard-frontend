@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BarGraph from "../../Graphs/BarGraph";
 import CurvedContainer from "../../UI/CurvedContainer";
-import classes from "./WeeklyPerformance.module.css";
+import classes from "./WeeklyPerformance.module.scss";
 import BarGraphData from "../../../models/BarGraphData.model";
 
 const defaultGraphData: BarGraphData[] = [

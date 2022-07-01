@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./MainContainer.module.css";
+import classes from "./MainContainer.module.scss";
 
 import CreateTweet from "./CreateTweet";
 import CurvedContainer from "../../UI/CurvedContainer";

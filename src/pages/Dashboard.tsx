@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Dashboard.module.css";
+import classes from "./Dashboard.module.scss";
 import MainContainer from "../components/Dashboard/MainContainer/MainContainer";
 import StatisticsHeader from "../components/Dashboard/StatisticsHeader/StatisticsHeader";
 import Notifications from "../components/Dashboard/Notifications/Notifications";

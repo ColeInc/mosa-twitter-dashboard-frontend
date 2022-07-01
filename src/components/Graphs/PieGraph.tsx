@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { VictoryAnimation, VictoryPie, VictoryLabel } from "victory";
 import PieChartData from "../../models/PieChartData.model";
-import classes from "./PieGraph.module.css";
+import classes from "./PieGraph.module.scss";
 
 // an algorithm to calculate an arbitrary milestone relatively close in proximity to their current metric value, to represent "100%" of the pie graph.
 const nextMilestone = (num: number) => {

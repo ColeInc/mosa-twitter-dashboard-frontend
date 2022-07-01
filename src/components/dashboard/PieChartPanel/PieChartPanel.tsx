@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CurvedContainer from "../../UI/CurvedContainer";
 import PieChartItem from "./PieChartItem";
-import classes from "./PieChartPanel.module.css";
+import classes from "./PieChartPanel.module.scss";
 import PieChartData from "../../../models/PieChartData.model";
 
 const PieChartPanel = () => {

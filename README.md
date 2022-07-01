@@ -17,4 +17,5 @@ React.js frontend for a Twitter Dashboard Platform. Utilizing Typescript, Redux 
 -   firebase
 -   fontsource
 -   query-string
+-   sass
 -

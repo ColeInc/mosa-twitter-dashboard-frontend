@@ -28,7 +28,7 @@ const App = () => {
     const checkPersistLogin = usePersistLogin();
 
     useEffect(() => {
-        console.log("first bing");
+        console.log("very first useEffect at App.js level ✅");
         checkPersistLogin();
     }, [checkPersistLogin]);
 

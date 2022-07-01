@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { VictoryAxis, VictoryBar, VictoryChart } from "victory";
 import BarGraphData from "../../models/BarGraphData.model";
-import classes from "./BarGraph.module.css";
+import classes from "./BarGraph.module.scss";
 
 const templateGraphData: BarGraphData[] = [
     { x: "Monday", y: 10 },

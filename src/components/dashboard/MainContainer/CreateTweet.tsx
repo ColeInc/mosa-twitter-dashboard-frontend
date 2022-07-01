@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
 import SettingsIcon from "../../../assets/icons/noun-settings-2650508.svg";
-import usePostsThunk from "../../../hooks/use-posts-thunk";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
+import usePostsThunk from "../../../hooks/use-posts-thunk";
+import useKeyPress from "../../../hooks/use-key-press";
+import classes from "./CreateTweet.module.scss";
+import Post from "../../../models/Post.model";
 import TweetForm from "../../UI/TweetForm";
 import Dropdown from "../../UI/Dropdown";
-import classes from "./CreateTweet.module.css";
-import PostMetadata from "../../../models/PostMetadata.model";
-import useKeyPress from "../../../hooks/use-key-press";
 
 const dropdownItems = ["QUEUE", "DRAFT", "TWEET"];
-const defaultPost: PostMetadata = {
+const defaultPost: Partial<Post> = {
     type: "queue",
     body: "",
     scheduledTime: "",
@@ -17,7 +17,7 @@ const defaultPost: PostMetadata = {
 
 const CreateTweet = () => {
     const [dropdownItem, setDropdownItem] = useState("queue");
-    const [tweetInput, setTweetInput] = useState<PostMetadata>(defaultPost);
+    const [tweetInput, setTweetInput] = useState<Partial<Post>>(defaultPost);
     const dispatchPost = usePostsThunk();
     const tweetFormRef = useRef<any>();
 
@@ -59,7 +59,7 @@ const CreateTweet = () => {
         <CurvedSubContainer className={classes["create-tweet__container"]}>
             <h1>CREATE TWEET</h1>
             <form className={classes["create-tweet__form"]} onSubmit={onFormSubmit} ref={tweetFormRef}>
-                <TweetForm onTextChange={onFormChangeHandler} tweetValue={tweetInput.body} />
+                <TweetForm onTextChange={onFormChangeHandler} tweetValue={tweetInput.body || ""} />
                 <div className={classes["create-tweet__buttons-container"]}>
                     <button className={classes["create-tweet__button-settings"]}>
                         <SettingsIcon />

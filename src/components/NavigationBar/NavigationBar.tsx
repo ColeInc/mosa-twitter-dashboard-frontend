@@ -9,7 +9,7 @@ import SavedTweetsIcon from "../../assets/icons/noun-save-1054863.svg";
 import SettingsIcon from "../../assets/icons/noun-settings-2650508.svg";
 import LogoutIcon from "../../assets/icons/noun-log-out-2149602.svg";
 
-import classes from "./NavigationBar.module.css";
+import classes from "./NavigationBar.module.scss";
 import NavButton from "./NavButton";
 
 const NavigationBar = () => {

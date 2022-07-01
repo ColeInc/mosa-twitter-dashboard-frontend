@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import classes from "./NavButton.module.css";
+import classes from "./NavButton.module.scss";
 import RightChevron from "../../assets/icons/noun-right-chevron-4695692.svg";
 
 const NavButton: React.FC<{ to: string; icon: React.ReactNode; children?: React.ReactNode }> = props => {

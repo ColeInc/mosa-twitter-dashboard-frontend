@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./TweetForm.module.css";
+import classes from "./TweetForm.module.scss";
 import UploadImage from "./UploadImage";
 
 const TweetForm: React.FC<{ onTextChange: (item: string) => void; tweetValue: string }> = props => {

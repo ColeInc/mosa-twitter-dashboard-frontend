@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import NavigationBar from "../NavigationBar/NavigationBar";
-import classes from "./Layout.module.css";
+import classes from "./Layout.module.scss";
 
 const Layout: React.FC<{ children: ReactElement }> = props => {
     return (

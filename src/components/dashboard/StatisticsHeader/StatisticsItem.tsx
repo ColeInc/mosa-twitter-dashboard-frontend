@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import classes from "./StatisticsItem.module.css";
+import classes from "./StatisticsItem.module.scss";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
 import LineGraph from "../../Graphs/LineGraph";
 import GraphData from "../../../models/GraphData.model";

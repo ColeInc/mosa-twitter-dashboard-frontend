@@ -24,7 +24,7 @@ module.exports = {
             "/api": "http://localhost:5000",
         },
         port: 3000,
-        hot: true,
+        // hot: true,
         // Only for use in development server!
         allowedHosts: "all",
     },
@@ -45,6 +45,20 @@ module.exports = {
                             importLoaders: 1,
                             modules: true,
                         },
+                    },
+                ],
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: "style-loader",
+                    },
+                    {
+                        loader: "css-loader",
+                    },
+                    {
+                        loader: "sass-loader",
                     },
                 ],
             },

@@ -6,10 +6,9 @@ import SettingsIcon from "../../../assets/icons/noun-settings-2650508.svg";
 import PencilIcon from "../../../assets/icons/noun-pencil-2473979.svg";
 import CurvedContainer from "../../UI/CurvedContainer";
 import PostType from "../../../models/Post.model";
-import classes from "./Post.module.css";
+import classes from "./Post.module.scss";
 import moment from "moment";
 import EditPostModal from "../../UI/EditPostModal";
-import PostMetadata from "../../../models/PostMetadata.model";
 
 const formatDateTime = (dateToFormat: string) => {
     const momentDateToFormat = moment(dateToFormat);
@@ -33,14 +32,14 @@ const Post: React.FC<{ post: PostType }> = props => {
         dispatch(
             toggleDraftThunk({
                 ...props.post,
-                threadId: undefined,
-                media: undefined,
+                threadId: null,
+                media: null,
             })
         );
     };
 
     const deleteTweetHandler = () => {
-        dispatch(deleteTweetThunk(props.post as PostMetadata));
+        dispatch(deleteTweetThunk(props.post as PostType));
     };
 
     const toggleModalHandler = () => {

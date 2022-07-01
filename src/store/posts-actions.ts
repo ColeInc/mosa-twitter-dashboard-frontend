@@ -1,11 +1,10 @@
 import { postsActions } from "./posts-slice";
+import moment from "moment";
 import { RootState } from "./index";
 import { createSelector } from "@reduxjs/toolkit";
-import moment from "moment";
-// not re-using main "posts" interface because it requires a mandatory "id" field:
-import PostMetadata from "../models/PostMetadata.model";
+import Post from "../models/Post.model";
 
-export const addPostDataThunk = (tweetData: PostMetadata) => {
+export const addPostDataThunk = (tweetData: Partial<Post>) => {
     return async (dispatch: any) => {
         // send post directly to API to tweet it:
         if (tweetData.type === "tweet") {
@@ -22,7 +21,7 @@ export const addPostDataThunk = (tweetData: PostMetadata) => {
     };
 };
 
-export const updatePostDataThunk = (tweetData: PostMetadata) => {
+export const updatePostDataThunk = (tweetData: Partial<Post>) => {
     return async (dispatch: any) => {
         // TODO: send PATCH request to backend to store tweet persistently:
 
@@ -32,7 +31,7 @@ export const updatePostDataThunk = (tweetData: PostMetadata) => {
     };
 };
 
-export const deleteTweetThunk = (tweetData: PostMetadata) => {
+export const deleteTweetThunk = (tweetData: Partial<Post>) => {
     return async (dispatch: any) => {
         // TODO: send DELETE request to remove post from backend
 
@@ -41,7 +40,7 @@ export const deleteTweetThunk = (tweetData: PostMetadata) => {
 };
 
 // move a tweet from Drafts to Queue, or vice versa:
-export const toggleDraftThunk = (tweet: PostMetadata) => {
+export const toggleDraftThunk = (tweet: Post) => {
     return async (dispatch: any) => {
         const newType = tweet.type === "queue" ? "drafts" : "queue";
         dispatch(postsActions.removePost(tweet));

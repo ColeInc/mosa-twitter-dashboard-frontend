@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./StatisticsHeader.module.css";
+import classes from "./StatisticsHeader.module.scss";
 
 import StatisticsItem from "./StatisticsItem";
 import CurvedContainer from "../../UI/CurvedContainer";

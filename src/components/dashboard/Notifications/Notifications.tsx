@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CurvedContainer from "../../UI/CurvedContainer";
-import classes from "./Notifications.module.css";
+import classes from "./Notifications.module.scss";
 import Notification from "../../../models/Notification.model";
 import NotificationItem from "./NotificationItem";
 import SeeMore from "../../UI/SeeMore";

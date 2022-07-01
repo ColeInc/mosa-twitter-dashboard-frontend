@@ -7,9 +7,8 @@ import { useDispatch } from "react-redux";
 import { deleteTweetThunk } from "../../store/posts-actions";
 import usePostsThunk from "../../hooks/use-posts-thunk";
 import useKeyPress from "../../hooks/use-key-press";
-import PostMetadata from "../../models/PostMetadata.model";
-import PostType from "../../models/Post.model";
-import classes from "./EditPostModal.module.css";
+import Post from "../../models/Post.model";
+import classes from "./EditPostModal.module.scss";
 import TweetForm from "./TweetForm";
 import Dropdown from "./Dropdown";
 
@@ -23,9 +22,9 @@ const Backdrop: React.FC<{ onConfirm: () => void }> = props => {
     return <div className={classes.backdrop} onClick={props.onConfirm} />;
 };
 
-const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props => {
+const ModalOverlay: React.FC<{ post: Post; onConfirm: () => void }> = props => {
     const [dropdownItem, setDropdownItem] = useState("SAVE");
-    const [tweetInput, setTweetInput] = useState<PostType>(props.post);
+    const [tweetInput, setTweetInput] = useState<Post>(props.post);
     const dispatchPost = usePostsThunk();
     const dispatch = useDispatch();
     const userData = useSelector((state: RootState) => state.user);
@@ -41,7 +40,7 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
     useKeyPress([], onKeyPress);
 
     const deleteTweetHandler = () => {
-        dispatch(deleteTweetThunk(props.post as PostMetadata));
+        dispatch(deleteTweetThunk(props.post as Post));
         props.onConfirm();
     };
 
@@ -66,7 +65,7 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
             return null;
         }
 
-        const response = dispatchPost(tweetInput as PostMetadata, dropdownMappings[dropdownItem], "update");
+        const response = dispatchPost(tweetInput as Post, dropdownMappings[dropdownItem], "update");
         // if tweet was successfully saved, close the modal:
         if (response.isValid) {
             props.onConfirm();
@@ -111,7 +110,7 @@ const ModalOverlay: React.FC<{ post: PostType; onConfirm: () => void }> = props 
     );
 };
 
-const ErrorModal: React.FC<{ post: PostType; onConfirm: () => void }> = props => {
+const ErrorModal: React.FC<{ post: Post; onConfirm: () => void }> = props => {
     const backdropRoot = document.getElementById("backdrop") as HTMLElement;
     const overlayRoot = document.getElementById("overlay") as HTMLElement;
     // Need to make this check in React 18 for typescript for some reason.

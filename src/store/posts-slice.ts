@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 import Post from "../models/Post.model";
-import PostMetadata from "../models/PostMetadata.model";
 
 interface InitialPosts {
     queue: Post[];
@@ -77,32 +76,32 @@ const postsSlice = createSlice({
     name: "posts",
     initialState: initialPostsState,
     reducers: {
-        addPost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
+        addPost(state: InitialPosts, action: PayloadAction<Partial<Post>>) {
             const uuid = action.payload.id ? action.payload.id : uuidv4();
             const media = null; // TODO: will implement condition here when upload media feature implemented
             const scheduledTime =
-                action.payload.scheduledTime.length > 0
+                action.payload.scheduledTime && action.payload.scheduledTime.length > 0
                     ? action.payload.scheduledTime.toLocaleString()
                     : new Date().toLocaleString();
 
-            const postMetadata = {
+            const postMetadata: Post = {
                 id: uuid,
-                body: action.payload.body,
+                body: action.payload.body ?? "",
                 media: media,
                 scheduledTime: scheduledTime,
                 threadId: null,
-                type: action.payload.type,
+                type: action.payload.type ?? "tweet",
             };
 
             console.log("final updated STATE");
             console.log(postMetadata);
             state[action.payload.type as keyof InitialPosts].push(postMetadata);
         },
-        updatePost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
+        updatePost(state: InitialPosts, action: PayloadAction<Partial<Post>>) {
             const tweetId = action.payload.id;
             const media = action.payload.media;
             const scheduledTime =
-                action.payload.scheduledTime.length > 0
+                action.payload.scheduledTime && action.payload.scheduledTime.length > 0
                     ? action.payload.scheduledTime.toLocaleString()
                     : new Date().toLocaleString();
 
@@ -126,7 +125,7 @@ const postsSlice = createSlice({
             state[index][foundIndex] = forgedPost as Post;
             // TODO: need to make some kind of safety check to make sure we aren't setting type queue to draft but still storing it in queue array ya know (and vice versa )
         },
-        removePost(state: InitialPosts, action: PayloadAction<PostMetadata>) {
+        removePost(state: InitialPosts, action: PayloadAction<Partial<Post>>) {
             const tweetToDelete = action.payload.id;
 
             const index = action.payload.type as keyof InitialPosts;

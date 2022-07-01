@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import queryString, { ParseOptions } from "query-string";
 import { useSelector, useDispatch } from "react-redux";
 import { loadingActions } from "../store/loading-slice";
@@ -9,7 +9,7 @@ import { RootState } from "../store";
 import TwitterIcon from "../assets/icons/iconmonstr-twitter-1.svg";
 import CurvedContainer from "../components/UI/CurvedContainer";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
-import classes from "./Login.module.css";
+import classes from "./Login.module.scss";
 import User from "../models/User.model";
 
 // type LocationState = {
@@ -21,12 +21,10 @@ import User from "../models/User.model";
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // const location = useLocation();
-    // const [isLoading, setIsLoading] = useState(false);
+    const [failedLogin, setFailedLogin] = useState(false);
     const userData = useSelector((state: RootState) => state.user);
     const loading = useSelector((state: RootState) => state.loading);
-
-    console.log("loading.loginLoading: ", loading.loginLoading);
+    // const location = useLocation();
 
     // const navigateTo = useCallback(
     //     (destination: string, config?: Object) => {
@@ -62,6 +60,12 @@ const Login = () => {
     // navRef("/settings");
 
     useEffect(() => {
+        // start 30 second timer till timeout:
+        setTimeout(() => {
+            dispatch(loadingActions.updateLoading({ loginLoading: false }));
+            setFailedLogin(true);
+        }, 20 * 1000);
+
         // any time the /login page is loaded, always run logout reducer function to log user out first:
         userActions.logout();
 
@@ -70,6 +74,7 @@ const Login = () => {
 
         // If we receive valid state & code search parameters from twitter callback:
         if (query.state && query.code) {
+            // set loading slice to true:
             dispatch(loadingActions.updateLoading({ loginLoading: true }));
 
             // update this user's redux state with these 2 newly found variables
@@ -103,7 +108,6 @@ const Login = () => {
                     if (result.success) {
                         // TODO: extract JWT token & user info here, store it into user slice
                         const { userData } = result;
-                        console.log("step 3 result @ frontend", result);
 
                         // update user slice with user's successful login data:
                         dispatch(
@@ -119,23 +123,26 @@ const Login = () => {
                 })
                 .catch(error => {
                     console.log("Error while authenticating user:\n", error);
-                })
-                .finally(() => {
-                    dispatch(loadingActions.updateLoading({ loginLoading: false }));
                 });
+            // .finally(() => {
+            //     dispatch(loadingActions.updateLoading({ loginLoading: false }));
+            // });
         }
     }, [dispatch]);
 
     // if successfully logged in, navigate to the last page user was on OR main dashboard page:
-    console.log("userdata loggedIn: ", userData.loggedIn);
     if (userData.loggedIn) {
         // const { from } = location.state as LocationState;
         // const origin = from.pathname || "/";
         // navRef(origin);
         navigate("/");
+        dispatch(loadingActions.updateLoading({ loginLoading: false }));
     }
 
     const twitterSignIn = () => {
+        // reset user's login attempt:
+        setFailedLogin(false);
+
         const url = "/api/v1/login/redirect";
 
         const requestOptions: RequestInit = {
@@ -152,6 +159,13 @@ const Login = () => {
             .catch(error => console.log("Error while authenticating user:\n", error));
     };
 
+    const failureMessage = (
+        <>
+            <h2>Failed to log in</h2>
+            <h3>Are you connected to the internet?</h3>
+        </>
+    );
+
     const onFormSubmitHandler = (event: React.FormEvent) => {
         event.preventDefault();
     };
@@ -164,11 +178,11 @@ const Login = () => {
                 ) : (
                     <form className={classes["login__form"]} onSubmit={onFormSubmitHandler}>
                         <h1>LOG IN</h1>
-                        <h1>{userData.loggedIn}</h1>
                         <button onClick={twitterSignIn} className={classes["login__twitter-button"]}>
                             <TwitterIcon />
                             <p>Testing OAuth 2.0</p>
                         </button>
+                        {failedLogin && failureMessage}
                     </form>
                 )}
             </CurvedContainer>

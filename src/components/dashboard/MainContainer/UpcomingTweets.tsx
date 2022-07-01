@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { sortQueuePosts } from "../../../store/posts-actions";
 import { Link } from "react-router-dom";
 import CurvedSubContainer from "../../UI/CurvedSubContainer";
-import classes from "./UpcomingTweets.module.css";
+import classes from "./UpcomingTweets.module.scss";
 import SeeMore from "../../UI/SeeMore";
 import Post from "./Post";
 

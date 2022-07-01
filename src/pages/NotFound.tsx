@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CurvedContainer from "../components/UI/CurvedContainer";
-import classes from "./NotFound.module.css";
+import classes from "./NotFound.module.scss";
 
 const NotFound = () => {
     return (

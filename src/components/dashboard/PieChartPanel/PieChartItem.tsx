@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./PieChartItem.module.css";
+import classes from "./PieChartItem.module.scss";
 import PieGraph from "../../Graphs/PieGraph";
 import PieChartData from "../../../models/PieChartData.model";
 

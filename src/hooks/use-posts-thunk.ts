@@ -4,27 +4,27 @@
 
 import { useDispatch } from "react-redux";
 import { addPostDataThunk, updatePostDataThunk, deleteTweetThunk } from "../store/posts-actions";
-import PostMetadata from "../models/PostMetadata.model";
+import Post from "../models/Post.model";
 
 type postType = "queue" | "drafts" | "tweet";
 
 const usePostsThunk = () => {
     const dispatch = useDispatch();
 
-    const dispatchPost = (tweetInput: PostMetadata, dropdownItem: string, actionType: string) => {
+    const dispatchPost = (tweetInput: Partial<Post>, dropdownItem: string, actionType: string) => {
         const charCount = tweetInput.body?.length || 0;
         const tooLong = charCount > 280 ? true : false;
 
-        const addFn = (payload: PostMetadata) => {
+        const addFn = (payload: Partial<Post>) => {
             dispatch(addPostDataThunk(payload));
         };
-        const updateFn = (payload: PostMetadata) => {
+        const updateFn = (payload: Partial<Post>) => {
             dispatch(updatePostDataThunk(payload));
         };
 
         const chosenFn = actionType === "update" ? updateFn : addFn;
 
-        const post: PostMetadata = {
+        const post: Partial<Post> = {
             id: tweetInput.id ? tweetInput.id : undefined,
             type: dropdownItem.toLowerCase() as postType,
             body: tweetInput.body,
