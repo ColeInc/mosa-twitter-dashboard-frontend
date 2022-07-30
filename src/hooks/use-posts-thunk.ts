@@ -3,7 +3,7 @@
 */
 
 import { useDispatch } from "react-redux";
-import { addPostDataThunk, updatePostDataThunk, deleteTweetThunk } from "../store/posts-actions";
+import { createPostDataThunk, updatePostDataThunk } from "../store/posts-actions";
 import Post from "../models/Post.model";
 
 type postType = "queue" | "drafts" | "tweet";
@@ -12,17 +12,18 @@ const usePostsThunk = () => {
     const dispatch = useDispatch();
 
     const dispatchPost = (tweetInput: Partial<Post>, dropdownItem: string, actionType: string) => {
+        console.log("coming in", tweetInput, dropdownItem, actionType);
         const charCount = tweetInput.body?.length || 0;
         const tooLong = charCount > 280 ? true : false;
 
-        const addFn = (payload: Partial<Post>) => {
-            dispatch(addPostDataThunk(payload));
+        const createFn = (payload: Partial<Post>) => {
+            dispatch(createPostDataThunk(payload));
         };
         const updateFn = (payload: Partial<Post>) => {
             dispatch(updatePostDataThunk(payload));
         };
 
-        const chosenFn = actionType === "update" ? updateFn : addFn;
+        const chosenFn = actionType === "update" ? updateFn : createFn;
 
         const post: Partial<Post> = {
             id: tweetInput.id ? tweetInput.id : undefined,
@@ -31,27 +32,15 @@ const usePostsThunk = () => {
             scheduledTime: new Date().toLocaleString(),
         };
 
-        // if user selects QUEUE and tweet is less than 280 chars, add tweet to "posts" redux slice:
-        if (!tooLong && dropdownItem.toLowerCase() === "queue") {
-            chosenFn(post);
-            return { isValid: true };
-        }
-        // if user is moving post from QUEUE to DRAFTS while UPDATING the post:
-        else if (tweetInput.type === "queue" && dropdownItem.toLowerCase() === "draft" && actionType === "update") {
-            // remove from queue
-            deleteTweetThunk(tweetInput);
-            // add new post to draft (but keep original post ID):
-            addPostDataThunk(post);
-        }
-        // if user selects DRAFT (and character length does not matter), add tweet to "drafts" list in redux slice:
-        else if (dropdownItem.toLowerCase() === "draft") {
-            chosenFn(post);
-            return { isValid: true };
-        }
         // if user input is valid, tweet instantly:
-        else if (!tooLong && dropdownItem.toLowerCase() === "tweet") {
-            // TODO: HTTP request to backend for instant tweet here
+        if (!tooLong && dropdownItem.toLowerCase() === "tweet") {
+            chosenFn(post);
+            return { isValid: true };
+        }
 
+        // if user selects QUEUE and tweet is less than 280 chars OR if user selects DRAFT (and character length DOES NOT matter) - add tweet to Queue/Drafts array in Posts redux slice:
+        else if ((!tooLong && dropdownItem.toLowerCase() === "queue") || dropdownItem.toLowerCase() === "drafts") {
+            chosenFn(post);
             return { isValid: true };
         }
 

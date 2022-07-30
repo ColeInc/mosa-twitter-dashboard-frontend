@@ -8,7 +8,12 @@ import Post from "../../../models/Post.model";
 import TweetForm from "../../UI/TweetForm";
 import Dropdown from "../../UI/Dropdown";
 
-const dropdownItems = ["QUEUE", "DRAFT", "TWEET"];
+const dropdownMappings: any = {
+    QUEUE: "queue",
+    DRAFTS: "drafts",
+    TWEET: "tweet",
+};
+
 const defaultPost: Partial<Post> = {
     type: "queue",
     body: "",
@@ -16,7 +21,7 @@ const defaultPost: Partial<Post> = {
 };
 
 const CreateTweet = () => {
-    const [dropdownItem, setDropdownItem] = useState("queue");
+    const [dropdownItem, setDropdownItem] = useState("QUEUE");
     const [tweetInput, setTweetInput] = useState<Partial<Post>>(defaultPost);
     const dispatchPost = usePostsThunk();
     const tweetFormRef = useRef<any>();
@@ -44,7 +49,7 @@ const CreateTweet = () => {
             return null;
         }
 
-        const response = dispatchPost(tweetInput, dropdownItem, "add");
+        const response = dispatchPost(tweetInput as Post, dropdownMappings[dropdownItem], "add");
         if (response.isValid) {
             // if tweet was successfully saved, clear the input of current tweet text input box:
             setTweetInput(prevState => {
@@ -66,7 +71,7 @@ const CreateTweet = () => {
                     </button>
 
                     <Dropdown
-                        items={dropdownItems}
+                        items={Object.keys(dropdownMappings)}
                         currentItem={dropdownItem}
                         onDropdownClick={setDropdownItem}
                         className={classes["create-tweet__button-dropdown"]}

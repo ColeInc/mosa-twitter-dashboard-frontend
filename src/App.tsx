@@ -28,15 +28,14 @@ const App = () => {
     const checkPersistLogin = usePersistLogin();
 
     useEffect(() => {
-        console.log("very first useEffect at App.js level ✅");
         checkPersistLogin();
     }, [checkPersistLogin]);
 
     // only if user is Authenticated to Twitter are they allowed to see these pages:
-    const securedPage = (component: ReactElement) => {
+    const securedPage = (page: ReactElement) => {
         return (
             <ProtectedRoute>
-                <Layout>{component}</Layout>
+                <Layout>{page}</Layout>
             </ProtectedRoute>
         );
     };

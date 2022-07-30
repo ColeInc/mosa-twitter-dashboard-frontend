@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteTweetThunk, toggleDraftThunk } from "../../../store/posts-actions";
+import { deleteTweetThunk, updatePostDataThunk } from "../../../store/posts-actions";
 import QueueIcon from "../../../assets/icons/noun-time-4691990.svg";
 import SettingsIcon from "../../../assets/icons/noun-settings-2650508.svg";
 import PencilIcon from "../../../assets/icons/noun-pencil-2473979.svg";
@@ -30,16 +30,17 @@ const Post: React.FC<{ post: PostType }> = props => {
 
     const moveToDraftsHandler = () => {
         dispatch(
-            toggleDraftThunk({
+            updatePostDataThunk({
                 ...props.post,
-                threadId: null,
-                media: null,
+                type: "drafts",
+                // threadId: null,
+                // media: null,
             })
         );
     };
 
     const deleteTweetHandler = () => {
-        dispatch(deleteTweetThunk(props.post as PostType));
+        dispatch(deleteTweetThunk(props.post));
     };
 
     const toggleModalHandler = () => {

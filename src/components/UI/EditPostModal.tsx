@@ -14,7 +14,7 @@ import Dropdown from "./Dropdown";
 
 const dropdownMappings: any = {
     SAVE: "queue",
-    DRAFTS: "draft",
+    DRAFTS: "drafts",
     TWEET: "tweet",
 };
 
