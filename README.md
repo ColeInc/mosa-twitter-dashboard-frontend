@@ -4,7 +4,8 @@ React.js frontend for a Twitter Dashboard Platform. Utilizing Typescript, Redux 
 
 ## Dashboard Landing Page Concept:
 
-![dashboard landing page](https://drive.google.com/uc?export=view&id=1FAowa1LkdEeoREV8X2s__vOuojooJ8Z9)
+![dashboard landing page](https://drive.google.com/uc?export=view&id=1k3pCfKHb-qySyuNM_sDL50yTislg4c2D)
+![dashboard queue posts page](https://drive.google.com/uc?export=view&id=1kW-iRqF4FFgMRFsW3vt6YHl87AM-EUT8)
 
 ## Dependencies:
 
