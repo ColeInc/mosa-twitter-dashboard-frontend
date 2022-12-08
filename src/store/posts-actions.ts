@@ -10,15 +10,48 @@ export const createPostDataThunk = createAsyncThunk(
         if (tweetData.type === "tweet") {
             try {
                 // TODO: send request to createTweet backend API
+                const resp = await fetch("/api/v1/posts", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(tweetData),
+                    credentials: "same-origin",
+                    redirect: "follow",
+                });
+                console.log("tweet resp from backend:", resp);
+                // tweetData.id = resp.body.id;
+                return tweetData;
+
                 // HERE
-            } catch (error) {}
+            } catch (error) {
+                console.log("Failed to create tweet in backend.\n", error);
+            }
         }
         // else, post is for Queue/Draft so send to backend for persistant storage:
         else {
             try {
-                // TODO: send request to backend Queue/Draft API to store persistently:
+                // TODO: send request to backend create Queue/Draft API to store persistently:
+
+                console.log("sending dis:", JSON.stringify(tweetData));
+
+                fetch("/api/v1/posts", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(tweetData),
+                    credentials: "same-origin",
+                    redirect: "follow",
+                })
+                    .then(response => response.json())
+                    .then(result => console.log("posts resp:", result));
                 // HERE
-            } catch (error) {}
+            } catch (error) {
+                console.log("Failed to queue/draft post in backend.\n", error);
+            }
         }
         return tweetData;
     }
