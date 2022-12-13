@@ -3,82 +3,92 @@ import { RootState } from "./index";
 import { createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 import Post from "../models/Post.model";
 
+const defaultReqConfig: RequestInit = {
+    headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    credentials: "same-origin",
+};
+
 export const createPostDataThunk = createAsyncThunk(
     "posts/createPostDataThunk",
     async (tweetData: Partial<Post>, thunkAPI) => {
-        // If user wants to tweet right now, send post directly to API to tweet it:
-        if (tweetData.type === "tweet") {
-            try {
-                // TODO: send request to createTweet backend API
-                const resp = await fetch("/api/v1/posts", {
-                    method: "POST",
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(tweetData),
-                    credentials: "same-origin",
-                    redirect: "follow",
-                });
-                console.log("tweet resp from backend:", resp);
-                // tweetData.id = resp.body.id;
+        // Send request to backend Create Tweet/Queue/Draft API to store persistently:
+        try {
+            const repsonse = await fetch("/api/v1/posts", {
+                ...defaultReqConfig,
+                method: "POST",
+                body: JSON.stringify(tweetData),
+            });
+            const result = await repsonse.json();
+
+            // If tweet successfully created in backend, get the UUID generated in db and use this for corresponding post in redux:
+            if (result.success) {
+                tweetData.id = result.id;
+                console.log("CREATE: tweet going to posts-slice:", tweetData);
                 return tweetData;
-
-                // HERE
-            } catch (error) {
-                console.log("Failed to create tweet in backend.\n", error);
+            } else {
+                throw new Error("Failed to tweet/queue/draft post in backend");
             }
+        } catch (error) {
+            console.log("Failed to tweet/queue/draft post in backend.\n", error);
         }
-        // else, post is for Queue/Draft so send to backend for persistant storage:
-        else {
-            try {
-                // TODO: send request to backend create Queue/Draft API to store persistently:
-
-                console.log("sending dis:", JSON.stringify(tweetData));
-
-                fetch("/api/v1/posts", {
-                    method: "POST",
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(tweetData),
-                    credentials: "same-origin",
-                    redirect: "follow",
-                })
-                    .then(response => response.json())
-                    .then(result => console.log("posts resp:", result));
-                // HERE
-            } catch (error) {
-                console.log("Failed to queue/draft post in backend.\n", error);
-            }
-        }
-        return tweetData;
     }
 );
 
 export const updatePostDataThunk = createAsyncThunk(
     "posts/updatePostDataThunk",
     async (tweetData: Partial<Post>, thunkAPI) => {
-        console.log("gets here 1");
-        try {
-            // TODO: send PATCH request to backend to store tweet persistently:
-            // HERE
-        } catch (error) {}
+        // Send PATCH request to update post in backend:
+        console.log("coming into updateThunk", tweetData);
 
-        return tweetData;
+        try {
+            const repsonse = await fetch("/api/v1/posts", {
+                ...defaultReqConfig,
+                method: "PATCH",
+                body: JSON.stringify(tweetData),
+            });
+            const result = await repsonse.json();
+
+            // If tweet successfully created in backend, get the UUID generated in db and use this for corresponding post in redux:
+            if (result.success) {
+                console.log("UPDATE: tweet going to posts-slice:", tweetData);
+                return tweetData;
+            } else {
+                throw new Error("Failed to Update post in backend");
+            }
+        } catch (error) {
+            console.log("Failed to Update Post in backend.\n", error);
+        }
     }
 );
 
 export const deleteTweetThunk = createAsyncThunk(
     "posts/deleteTweetThunk",
     async (tweetData: Partial<Post>, thunkAPI) => {
-        try {
-            // TODO: send DELETE request to remove post from backend
-            // HERE
-        } catch (error) {}
+        // Send DELETE request to remove post from backend:
+        console.log("coming into deleteThunk", tweetData);
+        const postId = tweetData.id;
 
-        return tweetData;
+        try {
+            const repsonse = await fetch(`/api/v1/posts/${postId}`, {
+                ...defaultReqConfig,
+                method: "DELETE",
+            });
+            const result = await repsonse.json();
+
+            // If tweet successfully created in backend, get the UUID generated in db and use this for corresponding post in redux:
+            if (result.success) {
+                console.log("DELETE: tweet going to posts-slice:", tweetData);
+                return tweetData;
+            } else {
+                throw new Error("Failed to Delete post in backend");
+            }
+        } catch (error) {
+            console.log("Failed to Delete Post in backend.\n", error);
+        }
     }
 );
 

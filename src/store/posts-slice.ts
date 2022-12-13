@@ -92,6 +92,12 @@ const postsSlice = createSlice({
             .addCase(createPostDataThunk.fulfilled, (state, action) => {
                 state.loading = false;
 
+                // If the user has selected "tweet now", we just tweet it instantly and don't need to store in redux
+                if (!action.payload || action.payload.type === "tweet") {
+                    console.log("No payload received at createPost reducer function!");
+                    return;
+                }
+
                 const uuid = action.payload.id ? action.payload.id : uuidv4();
                 const media = null; // TODO: will implement condition here when upload media feature implemented
                 const scheduledTime =
@@ -127,8 +133,8 @@ const postsSlice = createSlice({
             .addCase(updatePostDataThunk.fulfilled, (state, action) => {
                 console.log("post coming in:", action.payload);
                 let originalPostType = "";
-                const postId = action.payload.id!;
-                const updatedPostType = action.payload.type!;
+                const postId = action?.payload?.id;
+                const updatedPostType = action?.payload?.type;
 
                 // first check if it's in queue currently:
                 // if (state.storage.queue.some(item => item.id === postId)) {
@@ -184,8 +190,8 @@ const postsSlice = createSlice({
                 state.loading = true;
             })
             .addCase(deleteTweetThunk.fulfilled, (state, action) => {
-                const postId = action.payload.id!;
-                const postType = action.payload.type!;
+                const postId = action?.payload?.id;
+                const postType = action?.payload?.type;
 
                 let currentPostsArray = state.storage[postType as keyof typeof initialPostsState.storage];
                 const index = currentPostsArray.findIndex(item => item.id === postId);

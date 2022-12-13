@@ -7,6 +7,7 @@ import { createPostDataThunk, updatePostDataThunk } from "../store/posts-actions
 import Post from "../models/Post.model";
 
 type postType = "queue" | "drafts" | "tweet";
+const postTypes = ["queue", "drafts", "tweet"];
 
 const usePostsThunk = () => {
     const dispatch = useDispatch();
@@ -32,14 +33,8 @@ const usePostsThunk = () => {
             scheduledTime: new Date().toLocaleString(),
         };
 
-        // if user input is valid, tweet instantly:
-        if (!tooLong && dropdownItem.toLowerCase() === "tweet") {
-            chosenFn(post);
-            return { isValid: true };
-        }
-
-        // if user selects QUEUE and tweet is less than 280 chars OR if user selects DRAFT (and character length DOES NOT matter) - add tweet to Queue/Drafts array in Posts redux slice:
-        else if ((!tooLong && dropdownItem.toLowerCase() === "queue") || dropdownItem.toLowerCase() === "drafts") {
+        // if user input is valid AND type is TWEET OR is less than 280 chars OR if user selects DRAFT (and character length DOES NOT matter) - add tweet to Queue/Drafts array in Posts redux slice:
+        if (!tooLong && postTypes.includes(dropdownItem.toLowerCase())) {
             chosenFn(post);
             return { isValid: true };
         }
