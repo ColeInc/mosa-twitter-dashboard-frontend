@@ -42,10 +42,10 @@ export const updatePostDataThunk = createAsyncThunk(
     "posts/updatePostDataThunk",
     async (tweetData: Partial<Post>, thunkAPI) => {
         // Send PATCH request to update post in backend:
-        console.log("coming into updateThunk", tweetData);
+        const postId = tweetData.id;
 
         try {
-            const repsonse = await fetch("/api/v1/posts", {
+            const repsonse = await fetch(`/api/v1/posts/${postId}`, {
                 ...defaultReqConfig,
                 method: "PATCH",
                 body: JSON.stringify(tweetData),
@@ -69,7 +69,6 @@ export const deleteTweetThunk = createAsyncThunk(
     "posts/deleteTweetThunk",
     async (tweetData: Partial<Post>, thunkAPI) => {
         // Send DELETE request to remove post from backend:
-        console.log("coming into deleteThunk", tweetData);
         const postId = tweetData.id;
 
         try {
