@@ -1,16 +1,14 @@
 import React, { useMemo, useState } from "react";
+import classes from "./Tweet.module.scss";
+import PostType from "../../models/Post.model";
 import { useDispatch } from "react-redux";
-import { deleteTweetThunk, updatePostDataThunk } from "../../../store/posts-actions";
-import QueueIcon from "../../../assets/icons/noun-time-4691990.svg";
-import SettingsIcon from "../../../assets/icons/noun-settings-2650508.svg";
-import PencilIcon from "../../../assets/icons/noun-pencil-2473979.svg";
-import CurvedContainer from "../../UI/CurvedContainer";
-import PostType from "../../../models/Post.model";
-import classes from "./Post.module.scss";
-import EditPostModal from "../../UI/EditPostModal";
-import { formatDateTime } from "../../../utils/formatDateTime";
+import { formatDateTime } from "../../utils/formatDateTime";
+import { deleteTweetThunk, updatePostDataThunk } from "../../store/posts-actions";
+import SettingsIcon from "../../assets/icons/noun-settings-2650508.svg";
+import TimerIcon from "../../assets/icons/timer-clock.svg";
+import EditPostModal from "../UI/EditPostModal";
 
-const Post: React.FC<{ post: PostType }> = props => {
+const Tweet: React.FC<{ post: PostType }> = props => {
     const [modalShown, setModalShown] = useState(false);
     const dispatch = useDispatch();
 
@@ -22,8 +20,6 @@ const Post: React.FC<{ post: PostType }> = props => {
             updatePostDataThunk({
                 ...props.post,
                 type: "drafts",
-                // threadId: null,
-                // media: null,
             })
         );
     };
@@ -39,19 +35,17 @@ const Post: React.FC<{ post: PostType }> = props => {
     };
 
     return (
-        <CurvedContainer className={classes["post__container"]}>
-            <div className={classes.icon}>
-                <QueueIcon />
+        <div className={classes["tweet__container"]}>
+            <div className={classes["tweet__left-column"]}>
+                <div className={classes["tweet__icon-container"]}>
+                    <TimerIcon />
+                </div>
             </div>
-            <div className={classes["post__right-column"]}>
-                <div className={classes["post__right-column-heading"]}>
+            <div className={classes["tweet__right-column"]}>
+                <div className={classes["tweet__right-column-header"]}>
                     <h1>
-                        <b>{formattedTime[0]}</b> - {formattedTime[1]}
+                        <b>{formattedTime[0]}</b>
                     </h1>
-
-                    <button className={classes["post__pencil-icon"]} onClick={toggleModalHandler} title="Edit Tweet">
-                        <PencilIcon />
-                    </button>
 
                     <div className={classes["dropdown-parent"]}>
                         <button className={classes["dropdown-button"]}>
@@ -64,12 +58,20 @@ const Post: React.FC<{ post: PostType }> = props => {
                         </ul>
                     </div>
                 </div>
-                <div className={classes["post__divider"]} />
+
                 <p>{props.post.body}</p>
+
                 {modalShown && <EditPostModal post={props.post} onConfirm={toggleModalHandler} />}
+
+                <div className={classes["tweet__bottom-bar"]}>
+                    <div className={classes["tweet__thread-counter"]}>
+                        <p>3 / 12</p>
+                    </div>
+                    <div className={classes["tweet__char-max-graph"]}>O</div>
+                </div>
             </div>
-        </CurvedContainer>
+        </div>
     );
 };
 
-export default React.memo(Post);
+export default Tweet;
