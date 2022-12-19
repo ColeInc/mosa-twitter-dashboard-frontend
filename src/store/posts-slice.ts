@@ -48,6 +48,35 @@ const initialPostsState: InitialPostsState = {
                 threadId: null,
                 type: "queue",
             },
+            {
+                id: "1",
+                body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore nostrud et?
+
+        t enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi est consequat.`,
+                media: null,
+                scheduledTime: "June 10, 2022 10:30:00",
+                threadId: null,
+                type: "queue",
+            },
+            {
+                id: "2",
+                body: `Does anyone know if there are any specific laws in place which limit the number of cats one can own?
+
+        Asking for a friend...`,
+                media: null,
+                scheduledTime: "May 21, 2022 17:00:00",
+                threadId: null,
+                type: "queue",
+            },
+            {
+                id: "3",
+                body: `Does a cat count as a tax write off?
+        Please help. My accountant won’t answer my calls.`,
+                media: null,
+                scheduledTime: "July 12, 2022 16:30:00",
+                threadId: null,
+                type: "queue",
+            },
         ],
         drafts: [
             {

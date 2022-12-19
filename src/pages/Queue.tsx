@@ -10,11 +10,23 @@ const Queue = () => {
 
     return (
         <div className={classes["queue__container"]}>
-            <CurvedContainer className={classes["queue__posts-container"]}>
-                {postsList.map(post => {
-                    return <Tweet post={post} key={post.id} />;
-                })}
-            </CurvedContainer>
+            <div className={classes["queue__center-content"]}>
+                <CurvedContainer className={classes["queue__posts-container"]}>
+                    <div className={classes["queue__posts-top-bar"]}>
+                        <p className={classes["queue__post-date"]}>Tuesdayy</p>
+                        <div className={classes["queue__queue-count"]}>
+                            <p>{postsList.length}</p>
+                            {/* <p>104</p> */}
+                        </div>
+                    </div>
+                    {postsList.map(post => {
+                        return <Tweet post={post} key={post.id} />;
+                    })}
+                </CurvedContainer>
+                <div className={classes["queue__settings-container"]}>
+                    <p>placeholder</p>
+                </div>
+            </div>
         </div>
     );
 };
