@@ -7,6 +7,7 @@ import { deleteTweetThunk, updatePostDataThunk } from "../../store/posts-actions
 import SettingsIcon from "../../assets/icons/noun-settings-2650508.svg";
 import TimerIcon from "../../assets/icons/timer-clock.svg";
 import EditPostModal from "../UI/EditPostModal";
+import PieCharacterCount from "../Graphs/PieCharacterCount";
 
 const Tweet: React.FC<{ post: PostType }> = props => {
     const [modalShown, setModalShown] = useState(false);
@@ -67,7 +68,9 @@ const Tweet: React.FC<{ post: PostType }> = props => {
                     <div className={classes["tweet__thread-counter"]}>
                         <p>3 / 12</p>
                     </div>
-                    <div className={classes["tweet__char-max-graph"]}>O</div>
+                    <div className={classes["tweet__char-max-graph"]}>
+                        <PieCharacterCount characterCount={props.post.body.length} />
+                    </div>
                 </div>
             </div>
         </div>
