@@ -1,0 +1,81 @@
+// body {
+//     background-color: #fac945;
+//     justify-content: center;
+//     display: flex;
+//     height: 100vh;
+//     margin-top: 150px;
+//     font-size: 17px;
+//     color: #4b4d54;
+//     overflow: hidden;
+//     font-family: "Source Sans Pro", sans-serif;
+// }
+
+.form-dropdown {
+    display: relative;
+    align-self: start; /* TWAS THIS ONE CAUSING SO MUCH PAIN */
+    // display: inline-block;
+    // width: auto;
+    // width: auto !important;
+
+    // flex-direction: column;
+    // justify-content: center;
+    // overflow: hidden;
+
+    // width: 300px;
+    // background-color: red !important;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-color: #322f34;
+}
+
+.form-dropdown__header {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-dropdown__body {
+    border-top: 1px solid #e5e8ec;
+    display: none;
+}
+
+.form-dropdown__body.open {
+    display: block;
+    position: absolute;
+}
+
+.form-dropdown__item {
+    background-color: #322f34;
+    padding: 10px;
+    // width: 100% !important;
+}
+.form-dropdown__item:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.form-dropdown__item:hover {
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 13px;
+    color: #91a5be;
+    transform: rotate(0deg);
+    transition: all 0.2s ease-in-out;
+}
+
+.icon.open {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+}
+
+.form-dropdown__chevron-wrapper {
+    height: 24px;
+    width: 24px;
+    fill: #fff;
+}

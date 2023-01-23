@@ -1,1 +1,67 @@
 @import "../constants/colors.scss";
+
+.queue__container {
+    width: 100%;
+    padding: 1rem;
+}
+
+.queue__center-content {
+    display: flex;
+    justify-content: center;
+}
+
+.queue__posts-container {
+    display: grid;
+    gap: 10px;
+    border-radius: 15px;
+    padding: 13px;
+    max-width: 610px;
+}
+
+.queue__posts-top-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.queue__queue-count * {
+    min-width: 50px;
+    padding: 2px 0;
+    margin: 0;
+    background: #6724f5;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.queue__post-date {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    align-self: end;
+}
+
+@media (min-width: 95em) {
+}
+
+/* ======= Tablet View ======= */
+@media (min-width: 82em) {
+    .queue__posts-container {
+        margin-left: 0 !important;
+    }
+
+    .queue__settings-container {
+        display: flex;
+    }
+}
+
+@media (min-width: 62.5em) {
+}
+
+/* ======= Mobile View ======= */
+@media (min-width: 30em) {
+    .queue__posts-container {
+        margin-left: 80px;
+    }
+}

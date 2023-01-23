@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import classes from "./Dropdown.module.scss";
 import RightChevron from "../../assets/icons/noun-right-chevron-4695692.svg";
 
-const Dropdown: React.FC<{
+interface DropdownProps {
     items: string[];
     currentItem: string;
     onDropdownClick: (item: string) => void;
-    className: string;
-}> = props => {
+    className?: string;
+}
+
+const Dropdown: React.FC<DropdownProps> = props => {
     const [dropdownActive, setDropdownActive] = useState(false);
 
     const onDropdownClick = (userChoice: string) => {
         // pass the user's choice back up to CreateTweet parent:
         props.onDropdownClick(userChoice);
-        // close dropdown now that user's clicked something:
+        // close dropdown now that user has clicked something:
         setDropdownActive(prev => !prev);
     };
 

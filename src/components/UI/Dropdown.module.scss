@@ -4,20 +4,22 @@
     position: relative;
     display: inline-block;
     min-width: 30%;
+    border-radius: 10px;
+    background-color: #322f34;
 }
 
 .dropdown__button {
     width: 100%;
     height: 100%;
-    padding-left: 1.1rem;
-    padding-right: 0.18rem;
+    padding-left: 16px;
+    padding-right: 3px;
     display: flex;
     outline: none;
 }
 
 .dropdown__button p {
     color: #0a0c0a;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
     margin: 0;
     transition: 0.2s;
@@ -74,29 +76,29 @@
 .dropdown__chevron-selector {
     min-width: 22%;
     height: 90%;
-    border-radius: 0.6rem;
+    // border-radius: 0.6rem;
     margin: 0 0 0 1.5rem;
     padding: 0 0 0 0.1rem;
     transition: 0.2s;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.dropdown__chevron-selector:hover {
+    // background-color: #272422;
+}
+
+.dropdown__button--active .dropdown__chevron-selector {
+    // background-color: #272422;
+    transition: 0.1s;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
-}
-
-.dropdown__chevron-selector:hover {
-    background-color: #272422;
-}
-
-.dropdown__button--active .dropdown__chevron-selector {
-    background-color: #272422;
-    transition: 0.1s;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
 }
 
 .dropdown__button--active .dropdown__chevron-selector:after {
