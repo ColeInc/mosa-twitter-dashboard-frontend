@@ -1,10 +1,10 @@
 import React from "react";
 import classes from "./Dashboard.module.scss";
-import MainContainer from "../components/Dashboard/MainContainer/MainContainer";
-import StatisticsHeader from "../components/Dashboard/StatisticsHeader/StatisticsHeader";
-import Notifications from "../components/Dashboard/Notifications/Notifications";
-import PieChartPanel from "../components/Dashboard/PieChartPanel/PieChartPanel";
-import WeeklyPerformance from "../components/Dashboard/WeeklyPerformance/WeeklyPerformance";
+import MainContainer from "../components/dashboard/MainContainer/MainContainer";
+import StatisticsHeader from "../components/dashboard/StatisticsHeader/StatisticsHeader";
+import Notifications from "../components/dashboard/Notifications/Notifications";
+import PieChartPanel from "../components/dashboard/PieChartPanel/PieChartPanel";
+import WeeklyPerformance from "../components/dashboard/WeeklyPerformance/WeeklyPerformance";
 
 const Dashboard = () => {
     return (

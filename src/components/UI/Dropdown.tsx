@@ -20,22 +20,22 @@ const Dropdown: React.FC<DropdownProps> = props => {
     };
 
     return (
-        <div className={classes["dropdown__container"]}>
+        <div
+            className={classes["dropdown__container"]}
+            onClick={event => {
+                event.preventDefault();
+                event.stopPropagation();
+                setDropdownActive(prev => !prev);
+            }}
+        >
             <button
                 className={`${classes["dropdown__button"]} ${props.className && props.className} ${
                     dropdownActive && classes["dropdown__button--active"]
                 }`}
             >
-                <p>{props.currentItem.toUpperCase()}</p>
+                <p>{props.currentItem}</p>
 
-                <div
-                    className={classes["dropdown__chevron-selector"]}
-                    onClick={event => {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        setDropdownActive(prev => !prev);
-                    }}
-                >
+                <div className={classes["dropdown__chevron-selector"]}>
                     <RightChevron />
                 </div>
             </button>
