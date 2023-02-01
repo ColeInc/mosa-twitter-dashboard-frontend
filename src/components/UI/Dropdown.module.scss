@@ -19,8 +19,10 @@
     // padding: 0;
     border: none;
     // background: none;
-    height: 32px;
+    // height: 32px;
+    height: 36px;
     color: #fff;
+    // border: 1px solid var(--color5);
 
     &:hover {
         cursor: pointer;
@@ -32,10 +34,20 @@
         font-weight: 500;
         margin: 0;
         transition: 0.2s;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     p:hover {
         // color: #1a1818;
+    }
+}
+
+.dropdown__container:has(.active) {
+    .dropdown__button {
+        outline: 1px solid #8c66dd;
+        box-shadow: 0px 0px 10px #8c66ddbf;
     }
 }
 
@@ -44,7 +56,7 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    margin: 0;
+    margin: 1px 0 0 0;
     padding: 0;
     z-index: 1;
     min-width: 100%;
@@ -54,37 +66,35 @@
     background-color: var(--color4);
     padding-bottom: 0.5rem;
     // border-radius: 0px 0px 0.7rem 0.7rem;
-    // border-radius: 7px;
-    border-radius: 0px 7px 7px 7px;
+    border-radius: 7px;
+    // border-radius: 0px 7px 7px 7px;
     // font-size: min(1rem, 98%); /* Default font-size */
     // font-size: calc(1rem - 1.5vw);
     // font-size: calc(1rem - 0.2vw); /* Reduce font-size based on container width */
     // font-size: calc(1rem - 0.2vh); /* Reduce font-size based on container height */
     // min-font-size: 14px; /* Minimum font-size */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 
-    li {
+    div {
         width: 100%;
         // min-width: 130px;
-        list-style-type: none;
+        // list-style-type: none;
         // display: absolute !important;
         color: #d1c8c8;
         // font-size: 1.3rem;
         font-weight: 500;
         // padding: 0.5rem 0 0.5rem 1.5rem;
-        padding: 0.5rem 0.5rem 0 0.5rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        // margin-top: 0.5rem;
         white-space: nowrap;
+        // white-space: nowrap;
+        background-color: inherit;
     }
 
-    li:hover {
+    div:hover {
         cursor: pointer;
-        color: #141212;
-    }
-
-    hr {
-        border: none;
-        width: 75%;
-        margin: 0 0 0 12.5%;
-        border-bottom: 1px solid #221f1f;
+        color: #fff;
+        filter: brightness(90%);
     }
 }
 
@@ -93,7 +103,7 @@
 }
 
 .dropdown__button--active {
-    border-radius: 0.7rem 0.7rem 0px 0px;
+    // border-radius: 0.7rem 0.7rem 0px 0px;
     // border-radius: 10px;
 }
 
@@ -116,7 +126,9 @@
     // display: flex;
     // justify-content: center;
     // align-items: center;
-    margin-left: 1rem;
+    // margin-left: 1rem;
+    padding-left: 1rem;
+    margin-left: auto;
 
     svg {
         // height: 10px !important;

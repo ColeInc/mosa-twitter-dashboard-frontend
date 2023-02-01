@@ -50,6 +50,9 @@
     background-color: #322f34;
     padding: 10px;
     // width: 100% !important;
+    &:hover {
+        background-color: red !important;
+    }
 }
 .form-dropdown__item:last-child {
     border-radius: 0 0 10px 10px;
