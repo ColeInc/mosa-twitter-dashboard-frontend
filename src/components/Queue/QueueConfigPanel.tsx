@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classes from "./QueueConfigPanel.module.scss";
-import FormDropdown from "../UI/FormDropdown";
 import Dropdown from "../UI/Dropdown";
 // import moment from "moment";
 // import moment from "moment-timezone";
@@ -144,14 +143,7 @@ const QueueConfigPanel = () => {
                 className={classes["create-tweet__button-dropdown"]}
             />
             {/*  style={{ marginBottom: "10px" } */}
-            {/* TODO: ACTUALLY THIS ISN'T A DROP DOWN IT SHOULD JUST BE A BUTTON WITH THE SAME STYLE */}
-            <FormDropdown
-                defaultValue="SHUFFLE"
-                data={[
-                    { id: 0, label: "Istanbul, TR (AHL)" },
-                    { id: 1, label: "Paris, FR (CDG)" },
-                ]}
-            />
+            <div>SHUFFLE</div>
             <div className={classes["queue-panel__divider"]} />
             PAUSE ALL
         </div>

@@ -17,6 +17,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
     const handleClickOutside = (event: MouseEvent) => {
         if (clickOffDropdownRef.current && !clickOffDropdownRef.current.contains(event.target as Node)) {
             setDropdownActive(false);
+            // setDropdownActive(prev => !prev);
         }
     };
 
@@ -31,7 +32,8 @@ const Dropdown: React.FC<DropdownProps> = props => {
         // pass the user's choice back up to CreateTweet parent:
         props.onDropdownClick(userChoice);
         // close dropdown now that user has clicked something:
-        setDropdownActive(prev => !prev);
+        console.log("bing");
+        setDropdownActive(prev => !prev); // RE-ENABLE THIS IF YOU WANT DROPDOWN STAY OPEN AFTER USER CLICKS
     };
 
     return (

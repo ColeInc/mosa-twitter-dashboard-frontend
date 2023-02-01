@@ -15,14 +15,10 @@
     outline: none;
     border-radius: 10px;
     background-color: #322f34;
-    // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    // padding: 0;
     border: none;
-    // background: none;
     // height: 32px;
     height: 36px;
     color: #fff;
-    // border: 1px solid var(--color5);
 
     &:hover {
         cursor: pointer;
@@ -37,10 +33,6 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-    }
-
-    p:hover {
-        // color: #1a1818;
     }
 }
 
@@ -65,29 +57,15 @@
     overflow-x: hidden;
     background-color: var(--color4);
     padding-bottom: 0.5rem;
-    // border-radius: 0px 0px 0.7rem 0.7rem;
     border-radius: 7px;
-    // border-radius: 0px 7px 7px 7px;
-    // font-size: min(1rem, 98%); /* Default font-size */
-    // font-size: calc(1rem - 1.5vw);
-    // font-size: calc(1rem - 0.2vw); /* Reduce font-size based on container width */
-    // font-size: calc(1rem - 0.2vh); /* Reduce font-size based on container height */
-    // min-font-size: 14px; /* Minimum font-size */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 
     div {
         width: 100%;
-        // min-width: 130px;
-        // list-style-type: none;
-        // display: absolute !important;
         color: #d1c8c8;
-        // font-size: 1.3rem;
         font-weight: 500;
-        // padding: 0.5rem 0 0.5rem 1.5rem;
         padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-        // margin-top: 0.5rem;
         white-space: nowrap;
-        // white-space: nowrap;
         background-color: inherit;
     }
 
@@ -102,45 +80,17 @@
     display: block;
 }
 
-.dropdown__button--active {
-    // border-radius: 0.7rem 0.7rem 0px 0px;
-    // border-radius: 10px;
-}
-
 .dropdown__chevron-selector {
-    // min-width: 22%;
-    // height: 90%;
-    // border-radius: 0.6rem;
-    // margin: 0 0 0 1.5rem;
-    // padding: 0 0 0 0.1rem;
     transition: 0.2s;
-    // -webkit-transform: rotate(-90deg);
-    // -moz-transform: rotate(-90deg);
-    // -o-transform: rotate(-90deg);
-    // -ms-transform: rotate(-90deg);
-    // transform: rotate(-90deg);
-    // height: 2px;
-    // width: 24px;
     fill: #fff;
-    // background-color: red;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // margin-left: 1rem;
     padding-left: 1rem;
     margin-left: auto;
 
     svg {
-        // height: 10px !important;
-        width: 10px !important;
-    }
-
-    &:hover {
-        // background-color: #272422;
+        width: 10px;
     }
 
     .dropdown__button--active {
-        // background-color: #272422;
         transition: 0.1s;
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
