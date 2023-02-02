@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classes from "./QueueConfigPanel.module.scss";
 import Dropdown from "../UI/Dropdown";
-// import moment from "moment";
-// import moment from "moment-timezone";
+import GlobeIcon from "../../assets/icons/globe_icon.svg";
+import ShuffleIcon from "../../assets/icons/shuffle_icon.svg";
 
 const timezones = [
     "(GMT -12:00) Eniwetok, Kwajalein",
@@ -47,13 +47,41 @@ const timezones = [
     "(GMT +14:00) Line Islands, Tokelau",
 ];
 
+const timesOfDay = [
+    "12am",
+    "1am",
+    "2am",
+    "3am",
+    "4am",
+    "5am",
+    "6am",
+    "7am",
+    "8am",
+    "9am",
+    "10am",
+    "11am",
+    "12pm",
+    "1pm",
+    "2pm",
+    "3pm",
+    "4pm",
+    "5pm",
+    "6pm",
+    "7pm",
+    "8pm",
+    "9pm",
+    "10pm",
+    "11pm",
+];
+
 const QueueConfigPanel = () => {
     const [dropdownTimesPerDay, setDropdownTimesPerDay] = useState("7");
     const [dropdownStartTime, setDropdownStartTime] = useState("3am");
     const [dropdownEndTime, setDropdownEndTime] = useState("10pm");
     const [dropdownTimezone, setDropdownTimezone] = useState("(GMT) Europe/London");
 
-    // console.log(moment.tz.names());
+    // PAUSE ALL switch useState:
+    const [pauseQueueChecked, setPauseQueueChecked] = useState(false);
 
     return (
         <div className={classes["queue-panel__container"]}>
@@ -64,75 +92,14 @@ const QueueConfigPanel = () => {
                     items={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]}
                     currentItem={dropdownTimesPerDay}
                     onDropdownClick={setDropdownTimesPerDay}
-                    className={classes["create-tweet__button-dropdown"]}
                 />
                 <p>&nbsp;times a day</p>
             </div>
             <div className={classes.line}>
                 <p>between&nbsp;</p>
-                <Dropdown
-                    items={[
-                        "12am",
-                        "1am",
-                        "2am",
-                        "3am",
-                        "4am",
-                        "5am",
-                        "6am",
-                        "7am",
-                        "8am",
-                        "9am",
-                        "10am",
-                        "11am",
-                        "12pm",
-                        "1pm",
-                        "2pm",
-                        "3pm",
-                        "4pm",
-                        "5pm",
-                        "6pm",
-                        "7pm",
-                        "8pm",
-                        "9pm",
-                        "10pm",
-                        "11pm",
-                    ]}
-                    currentItem={dropdownStartTime}
-                    onDropdownClick={setDropdownStartTime}
-                    className={classes["create-tweet__button-dropdown"]}
-                />
+                <Dropdown items={timesOfDay} currentItem={dropdownStartTime} onDropdownClick={setDropdownStartTime} />
                 <p>&nbsp;and&nbsp;</p>
-                <Dropdown
-                    items={[
-                        "12am",
-                        "1am",
-                        "2am",
-                        "3am",
-                        "4am",
-                        "5am",
-                        "6am",
-                        "7am",
-                        "8am",
-                        "9am",
-                        "10am",
-                        "11am",
-                        "12pm",
-                        "1pm",
-                        "2pm",
-                        "3pm",
-                        "4pm",
-                        "5pm",
-                        "6pm",
-                        "7pm",
-                        "8pm",
-                        "9pm",
-                        "10pm",
-                        "11pm",
-                    ]}
-                    currentItem={dropdownEndTime}
-                    onDropdownClick={setDropdownEndTime}
-                    className={classes["create-tweet__button-dropdown"]}
-                />
+                <Dropdown items={timesOfDay} currentItem={dropdownEndTime} onDropdownClick={setDropdownEndTime} />
             </div>
             <div className={classes["queue-panel__divider"]} />
             <h2>TIMEZONE</h2>
@@ -140,12 +107,24 @@ const QueueConfigPanel = () => {
                 items={timezones}
                 currentItem={dropdownTimezone}
                 onDropdownClick={setDropdownTimezone}
-                className={classes["create-tweet__button-dropdown"]}
+                icon={<GlobeIcon />}
             />
-            {/*  style={{ marginBottom: "10px" } */}
-            <div>SHUFFLE</div>
+            <div className={classes["queue-panel__shuffle-button"]}>
+                <ShuffleIcon />
+                <p>SHUFFLE</p>
+            </div>
             <div className={classes["queue-panel__divider"]} />
-            PAUSE ALL
+            <div className={classes["queue-panel__pause-button"]}>
+                <p>PAUSE ALL</p>
+                <input
+                    id="pause-switch"
+                    className={classes.switch}
+                    type="checkbox"
+                    checked={pauseQueueChecked}
+                    onChange={() => setPauseQueueChecked(!pauseQueueChecked)}
+                />
+                <label htmlFor="pause-switch"></label>
+            </div>
         </div>
     );
 };

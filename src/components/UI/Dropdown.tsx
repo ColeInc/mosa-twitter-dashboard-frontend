@@ -7,6 +7,7 @@ interface DropdownProps {
     currentItem: string;
     onDropdownClick: (item: string) => void;
     className?: string;
+    icon?: React.ReactNode;
 }
 
 const Dropdown: React.FC<DropdownProps> = props => {
@@ -51,6 +52,8 @@ const Dropdown: React.FC<DropdownProps> = props => {
                     dropdownActive && classes["dropdown__button--active"]
                 }`}
             >
+                {props.icon && <div className={classes["dropdown__icon"]}>{props.icon}</div>}
+
                 <p>{props.currentItem}</p>
 
                 <div className={classes["dropdown__chevron-selector"]}>
