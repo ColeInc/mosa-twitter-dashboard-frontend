@@ -18,38 +18,38 @@ body {
 
 @media (max-width: 95em) {
     .layout__container {
-        height: 210vh;
+        // height: 210vh;
     }
 }
 
 @media (max-width: 95em) and (orientation: portrait) {
     .layout__container {
-        height: 120em;
+        // height: 120em;
     }
 }
 
 /* ======= Tablet View ======= */
 @media (max-width: 82em) {
     .layout__container {
-        height: 250vh;
+        // height: 250vh;
     }
 }
 
 @media (max-width: 82em) and (orientation: portrait) {
     .layout__container {
-        height: 120em;
+        // height: 120em;
     }
 }
 
 @media (max-width: 62.5em) {
     .layout__container {
-        height: 450vh;
+        // height: 450vh;
     }
 }
 
 @media (max-width: 62.5em) and (orientation: portrait) {
     .layout__container {
-        height: 180em;
+        // height: 180em;
     }
 }
 

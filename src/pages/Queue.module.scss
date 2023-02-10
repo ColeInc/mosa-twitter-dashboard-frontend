@@ -3,15 +3,21 @@
 .queue__container {
     width: 100%;
     padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .queue__center-content {
     display: flex;
     justify-content: center;
+    flex-direction: column-reverse;
 }
 
 .queue__posts-container {
     display: grid;
+    align-content: start;
     gap: 10px;
     border-radius: 15px;
     padding: 13px;
@@ -50,18 +56,21 @@
     .queue__posts-container {
         margin-left: 0 !important;
     }
-
-    .queue__settings-container {
-        display: flex;
-    }
 }
 
 @media (min-width: 62.5em) {
+    .queue__center-content {
+        flex-direction: row;
+    }
+
+    .queue__container {
+        margin-left: 0;
+    }
 }
 
 /* ======= Mobile View ======= */
 @media (min-width: 30em) {
-    .queue__posts-container {
+    .queue__container {
         margin-left: 80px;
     }
 }

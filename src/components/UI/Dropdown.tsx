@@ -48,7 +48,7 @@ const Dropdown: React.FC<DropdownProps> = props => {
             ref={clickOffDropdownRef}
         >
             <button
-                className={`${classes["dropdown__button"]} ${props.className && props.className} ${
+                className={`${classes["dropdown__button"]} ${props.className} ${
                     dropdownActive && classes["dropdown__button--active"]
                 }`}
             >

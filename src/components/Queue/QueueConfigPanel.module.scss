@@ -1,14 +1,14 @@
 @import "../../constants/colors.scss";
 
 .queue-panel__container {
-    width: 335px;
-    height: 353px;
+    width: auto;
     background-color: var(--color2);
     color: #fff;
     border-radius: 15px;
-    margin-left: 23px;
-    display: none;
-    padding: 13px;
+    margin-bottom: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -17,7 +17,6 @@ h1 {
     font-weight: 600;
     font-size: 12px;
     color: #989898;
-    padding-top: 7px;
     padding-bottom: 14px;
     margin: 0;
 }
@@ -137,8 +136,16 @@ h2 {
 
 /* ======= Tablet View ======= */
 @media (min-width: 82em) {
+}
+
+@media (min-width: 62.5em) {
     .queue-panel__container {
-        display: flex;
-        flex-direction: column;
+        width: 335px;
+        margin-left: 16px;
+        margin-bottom: auto;
     }
+}
+
+/* ======= Mobile View ======= */
+@media (min-width: 30em) {
 }

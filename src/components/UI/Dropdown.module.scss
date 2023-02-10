@@ -7,7 +7,6 @@
 }
 
 .dropdown__button {
-    height: 100%;
     padding: 0 10px;
     display: flex;
     align-items: center;
@@ -46,7 +45,6 @@
     flex: 1;
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
     margin: 1px 0 0 0;
     padding: 0;
     z-index: 1;
