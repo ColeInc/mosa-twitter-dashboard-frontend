@@ -6,6 +6,7 @@ import CurvedContainer from "../components/UI/CurvedContainer";
 import Tweet from "../components/UI/Tweet";
 import { groupPostsByDay } from "../utils/groupPostsByDay";
 import { formatDateTime } from "../utils/formatDateTime";
+import QueueConfigPanel from "../components/Queue/QueueConfigPanel";
 
 const Queue = () => {
     const postsList = useSelector(sortQueuePosts);
@@ -43,9 +44,7 @@ const Queue = () => {
                         );
                     })}
                 </CurvedContainer>
-                <div className={classes["queue__settings-container"]}>
-                    <p>placeholder</p>
-                </div>
+                <QueueConfigPanel />
             </div>
         </div>
     );
