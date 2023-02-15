@@ -1,14 +1,18 @@
 @import "../../constants/colors.scss";
 
 .nav-bar__main-container {
-    width: 15vw;
-    min-width: 19rem;
-    max-width: 25rem;
+    width: 285px;
+    // height: 100%;
+    // width: 15vw;
+    // min-width: 19rem;
+    // max-width: 25rem;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     justify-content: flex-start;
     padding: 1.6rem 2.2rem 1.6rem 2.2rem;
     color: #fff;
+    box-sizing: content-box !important;
 }
 
 .nav-bar__user-data-box {
@@ -95,9 +99,18 @@
 
 @media (max-width: 95em) {
     .nav-bar__main-container {
-        width: 17vw;
-        min-width: 10em;
+        // width: 17vw;
+        width: 285px !important;
+        // min-width: 10em;
         padding: 1.6rem 1.5vw 1.6rem 1.5vw;
+        display: flex;
+        // box-sizing: content-box !important;
+        // background-color: orange !important;
+    }
+
+    .nav-bar__nav-container {
+        // width: 285px;
+        // background-color: red;
     }
 
     .nav-bar__main-container h1 {
@@ -129,6 +142,7 @@
         padding: 0;
         top: 0;
         position: fixed;
+        background-color: orange !important;
     }
 
     .nav-bar__profile-img {
@@ -139,7 +153,7 @@
     }
 
     .nav-bar__nav-container {
-        padding: 0.7em;
+        padding: 0 0.7em;
     }
 
     .nav-bar__user-data-box {
@@ -162,6 +176,7 @@
         position: fixed;
         margin-right: auto;
         z-index: 10;
+        background-color: green !important;
     }
 
     .nav-bar__nav-container {

@@ -18,7 +18,7 @@ const NavButton: React.FC<{ to: string; icon: React.ReactNode; children?: React.
         >
             <div className={classes["nav-button__button"]}>
                 {icon}
-                <p className={classes.tablet}>{props.children}</p>
+                <p className={classes["nav-button__text"]}>{props.children}</p>
                 <RightChevron className={`${classes["nav-button__chevron"]} ${classes.tablet}`} />
             </div>
         </NavLink>

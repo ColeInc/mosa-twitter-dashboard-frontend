@@ -7,6 +7,9 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    // overflow: hidden !important;
+    // box-sizing: border-box;
+    margin-left: 0 !important;
 }
 
 .queue__center-content {
@@ -49,13 +52,16 @@
 }
 
 @media (min-width: 95em) {
+    .queue__container {
+        margin-left: 0;
+    }
 }
 
 /* ======= Tablet View ======= */
 @media (min-width: 82em) {
-    .queue__posts-container {
-        margin-left: 0 !important;
-    }
+    // .queue__posts-container {
+    //     margin-left: 0 !important;
+    // }
 }
 
 @media (min-width: 62.5em) {
@@ -63,14 +69,17 @@
         flex-direction: row;
     }
 
+    // .queue__container {
+    //     margin-left: 0 !important;
+    // }
     .queue__container {
-        margin-left: 0;
+        margin-left: 63px;
     }
 }
 
 /* ======= Mobile View ======= */
 @media (min-width: 30em) {
     .queue__container {
-        margin-left: 80px;
+        margin-left: 63px;
     }
 }

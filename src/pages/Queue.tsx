@@ -12,7 +12,7 @@ const Queue = () => {
     const postsList = useSelector(sortQueuePosts);
     const groupedPosts = groupPostsByDay(postsList);
 
-    // rather ugly and inefficient way of injecting that first "posts count" ting in very top right of queue:
+    // rather ugly and inefficient way of injecting that first purple "posts count" ting in very top right of queue:
     const postsHeader = (index: number, currentDayHeading: string) => {
         if (index === 0) {
             return (
@@ -30,6 +30,7 @@ const Queue = () => {
 
     return (
         <div className={classes["queue__container"]}>
+            {/* <div style={{ height: "100px", width: "100px", backgroundColor: "red" }}></div> */}
             <div className={classes["queue__center-content"]}>
                 <CurvedContainer className={classes["queue__posts-container"]}>
                     {Object.entries(groupedPosts).map(([day, posts], index) => {
