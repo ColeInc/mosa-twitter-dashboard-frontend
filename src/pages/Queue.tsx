@@ -30,7 +30,6 @@ const Queue = () => {
 
     return (
         <div className={classes["queue__container"]}>
-            {/* <div style={{ height: "100px", width: "100px", backgroundColor: "red" }}></div> */}
             <div className={classes["queue__center-content"]}>
                 <CurvedContainer className={classes["queue__posts-container"]}>
                     {Object.entries(groupedPosts).map(([day, posts], index) => {

@@ -7,8 +7,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    // overflow: hidden !important;
-    // box-sizing: border-box;
     margin-left: 0 !important;
 }
 
@@ -59,9 +57,6 @@
 
 /* ======= Tablet View ======= */
 @media (min-width: 82em) {
-    // .queue__posts-container {
-    //     margin-left: 0 !important;
-    // }
 }
 
 @media (min-width: 62.5em) {
@@ -69,9 +64,6 @@
         flex-direction: row;
     }
 
-    // .queue__container {
-    //     margin-left: 0 !important;
-    // }
     .queue__container {
         margin-left: 63px;
     }

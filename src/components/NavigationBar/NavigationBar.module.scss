@@ -2,10 +2,6 @@
 
 .nav-bar__main-container {
     width: 285px;
-    // height: 100%;
-    // width: 15vw;
-    // min-width: 19rem;
-    // max-width: 25rem;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -22,29 +18,28 @@
 }
 
 .nav-bar__profile-img {
-    /* width: 28%; */
-    width: 7rem;
+    width: 65px;
+    height: 65px;
     border-radius: 999px;
 }
 
 .nav-bar__username {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-left: 15px;
+    justify-content: center;
+    padding-left: 20px;
 }
 
 .nav-bar__main-container h1 {
-    font-size: 1.3rem;
-    /* font-size: 1vw; */
+    font-size: 20pt;
     font-weight: 600;
     margin: 0;
+    padding: 0;
 }
 
 .nav-bar__main-container h2 {
     font-family: "Montserrat";
-    font-size: 1.1rem;
-    /* font-size: 0.7vw; */
+    font-size: 16pt;
     font-weight: 100;
     margin: 0;
     color: #7e7e7e;
@@ -95,22 +90,14 @@
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+    width: 30px;
 }
 
 @media (max-width: 95em) {
     .nav-bar__main-container {
-        // width: 17vw;
-        width: 285px !important;
-        // min-width: 10em;
+        width: 285px;
         padding: 1.6rem 1.5vw 1.6rem 1.5vw;
         display: flex;
-        // box-sizing: content-box !important;
-        // background-color: orange !important;
-    }
-
-    .nav-bar__nav-container {
-        // width: 285px;
-        // background-color: red;
     }
 
     .nav-bar__main-container h1 {
@@ -122,7 +109,8 @@
     }
 
     .nav-bar__profile-img {
-        width: 4rem;
+        width: 65px;
+        height: 65px;
     }
 
     .nav-bar__user-data-box {
@@ -141,23 +129,35 @@
         min-width: 80px;
         padding: 0;
         top: 0;
+    }
+
+    .nav-bar__upper-container {
+        top: 0;
         position: fixed;
-        background-color: orange !important;
-    }
-
-    .nav-bar__profile-img {
-        flex: 1;
-        margin-top: 1rem;
-        padding: 0.7em;
-        width: 3rem;
-    }
-
-    .nav-bar__nav-container {
-        padding: 0 0.7em;
     }
 
     .nav-bar__user-data-box {
         margin-bottom: 0;
+        width: 80px;
+        min-width: 80px;
+    }
+
+    .nav-bar__img-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .nav-bar__profile-img {
+        padding: 0.2rem;
+    }
+
+    .nav-bar__nav-container {
+        padding: 0 0.7em;
+        top: 100px;
+        position: fixed;
     }
 }
 
@@ -165,6 +165,7 @@
 @media (max-width: 30em) {
     .nav-bar__main-container {
         width: 100%;
+        height: auto;
         top: unset;
         bottom: 0;
         left: 50%;
@@ -176,7 +177,6 @@
         position: fixed;
         margin-right: auto;
         z-index: 10;
-        background-color: green !important;
     }
 
     .nav-bar__nav-container {
@@ -191,6 +191,8 @@
         background-color: #252424dc;
         backdrop-filter: blur(1px);
         -webkit-backdrop-filter: blur(1px);
+        top: unset;
+        bottom: 0;
     }
 
     .nav-bar__upper-container {
