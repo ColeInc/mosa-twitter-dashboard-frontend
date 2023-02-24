@@ -34,7 +34,17 @@
     border: none;
     cursor: pointer;
     border-radius: 0.7rem;
-    background-color: var(--color4);
+    background-color: var(--color5);
+    width: 134px;
+
+    p {
+        color: #0a0c0a;
+        font-weight: 600;
+    }
+
+    svg > path {
+        fill: #0a0c0a;
+    }
 }
 
 .create-tweet__button-settings {
@@ -51,15 +61,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.create-tweet__button-dropdown svg {
-    width: 2rem;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
 }
 
 @media (max-width: 62.5em) {

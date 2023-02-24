@@ -8,21 +8,23 @@
     margin-bottom: 1rem;
     /* background-color: var(--color1); */
     /* background: linear-gradient(#e66465, #9198e5); */
-    background-image: linear-gradient(
-        120deg,
-        hsl(0deg 0% 16%) 0%,
-        hsl(60deg 0% 16%) 8%,
-        hsl(60deg 0% 15%) 15%,
-        hsl(60deg 0% 15%) 22%,
-        hsl(60deg 1% 14%) 29%,
-        hsl(60deg 1% 13%) 36%,
-        hsl(60deg 1% 13%) 43%,
-        hsl(60deg 1% 12%) 51%,
-        hsl(60deg 1% 12%) 59%,
-        hsl(60deg 1% 11%) 68%,
-        hsl(60deg 2% 11%) 79%,
-        hsl(60deg 2% 10%) 100%
-    );
+    // background-image: linear-gradient(
+    //     120deg,
+    //     hsl(0deg 0% 16%) 0%,
+    //     hsl(60deg 0% 16%) 8%,
+    //     hsl(60deg 0% 15%) 15%,
+    //     hsl(60deg 0% 15%) 22%,
+    //     hsl(60deg 1% 14%) 29%,
+    //     hsl(60deg 1% 13%) 36%,
+    //     hsl(60deg 1% 13%) 43%,
+    //     hsl(60deg 1% 12%) 51%,
+    //     hsl(60deg 1% 12%) 59%,
+    //     hsl(60deg 1% 11%) 68%,
+    //     hsl(60deg 2% 11%) 79%,
+    //     hsl(60deg 2% 10%) 100%
+    // );
+    outline: 1px solid #8c66dd;
+    box-shadow: 0px 0px 10px #8c66ddbf;
 }
 
 .tweet-form__input {

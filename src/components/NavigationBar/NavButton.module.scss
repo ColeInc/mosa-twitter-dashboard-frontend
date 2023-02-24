@@ -22,6 +22,10 @@
     background-color: var(--color5);
 }
 
+.nav-button__button .active:hover {
+    background-color: var(--color5);
+}
+
 .nav-button__font p {
     padding-bottom: 1px;
 }
@@ -42,17 +46,20 @@
     margin: 0;
 }
 
-.nav-button__button:hover .nav-button__icon {
-    fill: #0a0c0a;
-}
-
 .active,
 .active div,
 .active .nav-button__chevron {
     background-color: var(--color5);
-    color: #0a0c0a;
+    color: #0a0c0a !important;
     fill: #0a0c0a;
     border-radius: 17px;
+    p {
+        color: #0a0c0a !important;
+    }
+
+    svg > path {
+        fill: #0a0c0a !important;
+    }
 }
 
 .nav-button__chevron {
@@ -123,7 +130,6 @@
     .active,
     .active div,
     .active .nav-button__chevron {
-        // background-color: var(--color5);
         color: #0a0c0a;
         fill: #0a0c0a;
         border-radius: 17px;
