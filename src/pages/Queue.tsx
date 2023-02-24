@@ -12,7 +12,7 @@ const Queue = () => {
     const postsList = useSelector(sortQueuePosts);
     const groupedPosts = groupPostsByDay(postsList);
 
-    // rather ugly and inefficient way of injecting that first "posts count" ting in very top right of queue:
+    // rather ugly and inefficient way of injecting that first purple "posts count" ting in very top right of queue:
     const postsHeader = (index: number, currentDayHeading: string) => {
         if (index === 0) {
             return (

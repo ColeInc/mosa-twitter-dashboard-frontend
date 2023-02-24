@@ -1,19 +1,29 @@
 @import "../../constants/colors.scss";
 
 .nav-button__button {
-    padding: 1rem;
-    height: 2rem;
-    border-radius: 15px;
-    margin-bottom: 0.4rem;
     display: flex;
+    justify-content: center;
     align-items: center;
-    transition: 0.3s;
+    height: 56px;
+    width: 56px;
+    border-radius: 17px;
 }
 
-.nav-button__font {
-    color: #d1c8c8;
-    font-size: 1.3rem;
-    text-decoration: none;
+.nav-button__chevron {
+    display: none !important;
+}
+
+.nav-button__text {
+    display: none;
+}
+
+.active:hover .nav-button__chevron,
+.active:hover .nav-button__button {
+    background-color: var(--color5);
+}
+
+.nav-button__button .active:hover {
+    background-color: var(--color5);
 }
 
 .nav-button__font p {
@@ -25,103 +35,138 @@
 }
 
 .nav-button__button:hover {
-    background-color: var(--color4);
+    background-color: var(--color5);
 }
 
 .nav-button__icon {
     width: 1.5rem;
     display: flex;
-    margin: 0 12px 0 5px;
     transition: 0.3s;
     fill: #d1c8c8;
-}
-
-.nav-button__button:hover .nav-button__icon {
-    fill: #0a0c0a;
-}
-
-.nav-button__button:hover .nav-button__chevron {
-    fill: #0a0c0a;
-    display: block;
+    margin: 0;
 }
 
 .active,
 .active div,
 .active .nav-button__chevron {
-    background-color: var(--color4);
-    color: #0a0c0a;
+    background-color: var(--color5);
+    color: #0a0c0a !important;
     fill: #0a0c0a;
-}
+    border-radius: 17px;
+    p {
+        color: #0a0c0a !important;
+    }
 
-.active .nav-button__chevron {
-    display: block;
+    svg > path {
+        fill: #0a0c0a !important;
+    }
 }
 
 .nav-button__chevron {
-    width: 1.2vw;
-    height: auto;
-    fill: inherit;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
     margin-left: auto;
-    transition: 0.3s;
     display: none;
 }
 
-/* On hover if active: */
-.active:hover div,
-.active:hover .nav-button__chevron,
-.active:hover .nav-button__button {
-    color: #121412;
-    fill: #121412 !important;
-    background-color: #2e2b28;
-}
-
-@media (max-width: 95em) {
-    .nav-button__button {
-        padding: 0.9rem 0.7rem 0.9rem 0.7rem;
-        border-radius: 1.2rem;
-    }
-
-    .nav-button__font {
-        font-size: 1.3rem;
-    }
-}
-
-/* ======= Collapse Navigation Bar into Tablet View  ======= */
-@media (max-width: 82em) {
+/* ======= Mobile View ======= */
+@media (min-width: 30em) {
     .tablet {
-        display: none !important;
+        display: inline-block;
     }
 
     .nav-button__button {
         flex-direction: column;
-        height: 1.8rem;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
     }
 
-    .nav-button__icon {
-        margin: 0;
+    .nav-button__button:hover .nav-button__chevron {
+        fill: #0a0c0a;
+        display: block;
+    }
+
+    .active,
+    .active div,
+    .active .nav-button__chevron {
+        background-color: var(--color5);
+        color: #0a0c0a;
+        fill: #0a0c0a;
+        border-radius: 17px;
     }
 }
 
-/* ======= Navigation Bar into Mobile View  ======= */
-@media (max-width: 30em) {
+/* ======= Tablet View  ======= */
+@media (min-width: 82em) {
     .nav-button__button {
-        padding: 0.7rem 0.5rem 1.1rem 0.5rem;
-        height: 0.7rem;
-        width: 100% !important;
-        border-radius: 0px;
+        padding: 0 17px;
+        height: 60px;
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 0.4rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        transition: 0.3s;
+        box-sizing: border-box;
+    }
+    a {
+        text-decoration: none !important;
     }
 
-    .nav-button__font {
-        padding-left: 11px;
-        padding-right: 11px;
-        border-radius: 13px;
+    .nav-button__text {
+        display: inline-block;
+        font-size: 1.3rem;
+        color: #d1c8c8;
+        margin: 0;
     }
 
+    .nav-button__icon {
+        margin-right: 12px;
+    }
+
+    .active,
+    .active div,
+    .active .nav-button__chevron {
+        color: #0a0c0a;
+        fill: #0a0c0a;
+        border-radius: 17px;
+        background-color: var(--color5);
+    }
+
+    /* On hover if active: */
     .active:hover div,
     .active:hover .nav-button__chevron,
     .active:hover .nav-button__button {
-        background-color: var(--color4);
+        color: #121412;
+        fill: #121412 !important;
+        filter: brightness(90%);
+    }
+
+    .active .nav-button__chevron {
+        display: inline-block !important;
+    }
+
+    .nav-button__button:hover {
+        .nav-button__chevron {
+            display: inline-block !important;
+        }
+    }
+}
+
+@media (min-width: 95em) {
+    .nav-button__button {
+        margin-bottom: 0.4rem;
+        display: flex;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .nav-button__font {
+        color: #d1c8c8;
+        font-size: 1.3rem;
+        text-decoration: none;
     }
 }

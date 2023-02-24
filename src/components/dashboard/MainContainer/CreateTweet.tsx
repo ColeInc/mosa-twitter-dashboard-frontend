@@ -66,9 +66,9 @@ const CreateTweet = () => {
             <form className={classes["create-tweet__form"]} onSubmit={onFormSubmit} ref={tweetFormRef}>
                 <TweetForm onTextChange={onFormChangeHandler} tweetValue={tweetInput.body || ""} />
                 <div className={classes["create-tweet__buttons-container"]}>
-                    <button className={classes["create-tweet__button-settings"]}>
+                    {/* <button className={classes["create-tweet__button-settings"]}>
                         <SettingsIcon />
-                    </button>
+                    </button> */}
 
                     <Dropdown
                         items={Object.keys(dropdownMappings)}

@@ -6,36 +6,7 @@
     margin-bottom: 0.8rem;
     flex-basis: 6rem;
     flex-shrink: 0;
-    /* background-color: var(--color2); */
-    /* background-color: var(--color1); */
-    /* background-image: linear-gradient(
-        120deg,
-        hsl(0deg 0% 16%) 0%,
-        hsl(60deg 0% 16%) 8%,
-        hsl(60deg 0% 15%) 15%,
-        hsl(60deg 0% 15%) 22%,
-        hsl(60deg 1% 14%) 29%,
-        hsl(60deg 1% 13%) 36%,
-        hsl(60deg 1% 13%) 43%,
-        hsl(60deg 1% 12%) 51%,
-        hsl(60deg 1% 12%) 59%,
-        hsl(60deg 1% 11%) 68%,
-        hsl(60deg 2% 11%) 79%,
-        hsl(60deg 2% 10%) 100%
-    ); */
-    background-image: linear-gradient(
-        120deg,
-        hsl(0deg 0% 11%) 0%,
-        hsl(60deg 0% 11%) 11%,
-        hsl(60deg 0% 11%) 22%,
-        hsl(60deg 1% 11%) 33%,
-        hsl(60deg 1% 12%) 44%,
-        hsl(60deg 1% 12%) 56%,
-        hsl(60deg 1% 12%) 67%,
-        hsl(60deg 1% 12%) 78%,
-        hsl(60deg 1% 12%) 89%,
-        hsl(60deg 2% 12%) 100%
-    );
+    background-color: var(--color2);
 }
 
 .icon {
@@ -104,7 +75,8 @@
 .post__divider {
     width: 95%;
     /* background-color: #1d1d1d; */
-    background-color: #302c2c;
+    // background-color: #302c2c;
+    background-color: #1d1d1d;
     height: 1px;
     margin-top: 0.4rem;
     margin-bottom: 0.6rem;
@@ -118,7 +90,7 @@
 }
 
 .post__pencil-icon {
-    height: 2rem;
+    height: 30px !important;
     transition: 0.2s;
     transition-timing-function: ease-in-out;
     margin-right: 0.1rem !important;

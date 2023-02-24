@@ -4,16 +4,20 @@
     justify-self: flex-end;
     border-radius: 12px;
     margin: 0.5rem 1rem 1rem 0;
-    padding: 0.4rem 1rem 0.4rem 1rem;
+    padding: 0.6rem 1rem 0.6rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: 0.1s ease-in-out;
-    background-color: var(--color3);
-    color: #3a3a3a;
+    background-color: #101010;
     fill: #3a3a3a;
+
+    h1 {
+        color: #3a3a3a;
+        padding: 0;
+    }
 }
 
 .upload-image__container:hover {
@@ -24,7 +28,6 @@
 
 .upload-image__container h1 {
     margin: 0 !important;
-    /* font-weight: 400; */
     font-size: 0.6rem !important;
 }
 

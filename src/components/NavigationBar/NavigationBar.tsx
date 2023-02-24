@@ -24,13 +24,16 @@ const NavigationBar = () => {
         <div className={classes["nav-bar__main-container"]}>
             <div className={classes["nav-bar__upper-container"]}>
                 <div className={classes["nav-bar__user-data-box"]}>
-                    <img src={userData.imageUrl} className={classes["nav-bar__profile-img"]} alt="profile pic" />
+                    <div className={classes["nav-bar__img-container"]}>
+                        <img src={userData.imageUrl} className={classes["nav-bar__profile-img"]} alt="profile pic" />
+                    </div>
                     <div className={`${classes["nav-bar__username"]} ${classes.tablet}`}>
                         <h1>{userData.name}</h1>
                         <h2>@{userData.twitterHandle}</h2>
                     </div>
                 </div>
             </div>
+
             <div className={classes["nav-bar__nav-container"]}>
                 <NavButton to="/" icon={<DashboardIcon />}>
                     Dashboard
@@ -53,12 +56,12 @@ const NavigationBar = () => {
                 <button onClick={logoutUser} className={classes["nav-bar__logout-button"]} title="Log out">
                     <LogoutIcon />
                 </button>
+                <h3>Mosa</h3>
                 <p>
                     Designed by Cole McConnell.
                     <br />
                     All Rights Reserved. Copyright 2022 &copy;
                 </p>
-                <h3>Cole’s Twitter Dashboard</h3>
             </div>
         </div>
     );
