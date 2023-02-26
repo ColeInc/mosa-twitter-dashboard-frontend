@@ -4,16 +4,20 @@ body {
 
 .layout__container {
     width: 100%;
-    // height: 100vh;
+    height: 100vh;
     display: flex;
-    justify-content: center;
 }
 
 .layout__horizontal-container {
-    max-width: 150em;
+    width: 100%;
     flex: 1;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.layout__content-container {
+    max-width: 130rem;
 }
 
 @media (max-width: 95em) {

@@ -45,6 +45,11 @@
     justify-content: stretch;
 }
 
+.dashboard__bar-graphs h1,
+.dashboard__notifications h1 {
+    color: #fff;
+}
+
 ::-webkit-scrollbar {
     width: 0; /* Remove scrollbar space */
     background: transparent; /* Optional: just make scrollbar invisible */
